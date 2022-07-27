@@ -10,6 +10,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+            <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <asp:GridView ID="GridView2" runat="server">
+            </asp:GridView>
+            <br />
+
         </div>
     </form>
 </body>
