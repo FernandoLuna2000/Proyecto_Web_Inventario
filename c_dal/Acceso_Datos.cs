@@ -104,7 +104,7 @@ namespace c_dal
             }
             return resp;
         }
-        public DataSet LecturaSet(string comandoMySql, SqlConnection conAbierta, ref string mensaje, string etiqueta)
+        public DataSet LecturaSet(string comandoSql, SqlConnection conAbierta, ref string mensaje, string etiqueta)
         {
             SqlCommand comando = null;
             DataSet dataSet = null;
@@ -116,7 +116,7 @@ namespace c_dal
             }
             else
             {
-                using (comando = new SqlCommand(comandoMySql, conAbierta))
+                using (comando = new SqlCommand(comandoSql, conAbierta))
                 {
                     using (dataAdapter = new SqlDataAdapter())
                     {

@@ -19,6 +19,17 @@
             <asp:GridView ID="GridView2" runat="server">
             </asp:GridView>
             <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox2" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox3" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox4" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox5" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox6" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox7" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox8" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox9" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox10" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox11" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox12" runat="server"></asp:ListBox>
             <br />
             <br />
 
