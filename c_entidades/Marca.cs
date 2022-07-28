@@ -6,17 +6,7 @@ namespace c_entidades
 {
     public partial class Marca
     {
-        public Marca()
-        {
-            CatMar = new HashSet<CatMar>();
-            CpuGenerico = new HashSet<CpuGenerico>();
-            DiscoDuro = new HashSet<DiscoDuro>();
-            Gabinete = new HashSet<Gabinete>();
-            ModeloCpu = new HashSet<ModeloCpu>();
-            Monitor = new HashSet<Monitor>();
-            Mouse = new HashSet<Mouse>();
-            Teclado = new HashSet<Teclado>();
-        }
+
 
         public int IdMarca { get; set; }
         public string Marca1 { get; set; }
