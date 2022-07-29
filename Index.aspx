@@ -40,9 +40,17 @@
             <asp:ListBox ID="ListBox22" runat="server"></asp:ListBox>
             <br />
             <br />
+            insertar informacion<br />
+            <br />
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             <br />
 
         </div>
+        <p>
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        </p>
+        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
     </form>
 </body>
 </html>

@@ -37,6 +37,8 @@ namespace Proyecto_Web_Inventario
         List<Ubicacion> Lista_Ubicacion = new List<Ubicacion>();
         List<Usuario> Lista_Usuario = new List<Usuario>();
 
+        string mensaje = "", mensajeC = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -52,7 +54,7 @@ namespace Proyecto_Web_Inventario
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string mensaje = "", mensajeC = "";
+            
 
             //Lista Actualizacion --->INICIO
             Lista_Actualizacion = LN.ListaActualizacion(ref mensaje, ref mensajeC);
@@ -292,6 +294,26 @@ namespace Proyecto_Web_Inventario
             }
             //Lista Usuario --->FINAL
             TextBox1.Text = mensajeC + " " + mensaje;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            string[] datos = new string[2];
+
+            datos[0] = TextBox2.Text;
+            datos[1] = TextBox3.Text;
+
+            try
+            {
+                LN.Insertar(datos, ref mensaje, ref mensajeC);
+                TextBox4.Text = "Chido";
+            }
+            catch
+            {
+                TextBox4.Text = "MamaWebo.... digo glugluglu :3";
+            }
+
         }
     }
 }

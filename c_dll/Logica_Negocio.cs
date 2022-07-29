@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace c_dll
 {
@@ -490,6 +491,22 @@ namespace c_dll
             }
             return LUsuario;
         }
+        public bool Insertar(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
 
+            string instrccion = "INSERT INTO ModeloCPU(modeloCPU, f_marca)" +
+                "values (@modeloCPU, @f_marca)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@modeloCPU",SqlDbType.VarChar, 50),
+                new SqlParameter("@f_marca",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+                return respuesta;
+        }
     }
 }
