@@ -16,94 +16,32 @@ namespace c_dll
         {
             AC = new Acceso_Datos(connection);
         }
-        //public DataTable tablaMarcas(ref string mensaje, ref string mensajeC)
-        //{
-        //    string comandoMySql = "select * from Marca;", etiqueta = "InventarioPCsLabs";
-        //    DataSet dataSet = null;
-        //    DataTable dataTable = null;
 
-
-        //    dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-        //    if (dataSet != null)
-        //    {
-        //        dataTable = dataSet.Tables[0];
-        //    }
-        //    return dataTable;
-        //}
-        public DataTable tablacomputadorafinal(ref string mensaje, ref string mensajeC)
+        public List<Actualizacion> ListaActualizacion(ref string mensaje, ref string mensajeC)//Metodo de la Lista Actualización
         {
-            string comandoSql = "select * from computadorafinal;", etiqueta = "InventarioPCsLabs";
+            string comandoSql = "select * from actualizacion;", etiqueta = "InventarioPCsLabs";//Variables y Utilidades
             DataSet dataSet = null;
             DataTable dataTable = null;
 
+            List<Actualizacion> actualizacion = new List<Actualizacion>();//Creacion de una lista del tipo Actualizacion para trabajar
 
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);//Se llena el DataSet con los datos de la BD
+            if (dataSet != null)//Si e DataSet tiene datos entonces
             {
-                dataTable = dataSet.Tables[0];
-            }
-            return dataTable;
-        }
-        public List<Marca> ListaMarca(ref string mensaje, ref string mensajeC)//método principal
-        {
-            //bloque variables y utilidades
-            string comandoSql = "select * from Marca;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            //Creacion de una lista del tipo de la clase que vamos a trabajar
-            List<Marca> LMarca = new List<Marca>();
-
-            //Se llena el DataSet con datos de la BD
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            //si e DataSet tiene datos pasa lo siguiente:
-            if (dataSet != null)
-            {
-                //Creo una DataTable y lo lleno con la info que viene del DataSet
-                dataTable = dataSet.Tables[0];
-                //Aquí empieza la parte de LINQ
-                //listaAlumno = el datatable como un numerable (algo que puedo contar y recorrer) y hago una seleccion(cada row será igual a un nuevo objeto de a clase seleccionada)
-                LMarca = dataTable.AsEnumerable().Select(row => new Marca
-                {
-                    //por cada iterancia(cada rengón que exista) vamos a pasar los parámetros de mi objeto
-                    //parámetro de la clase = el renglón.campo<Parse(convertir)al tipo de dato que se tiene registrado>("donde la columna contenga tal cosa")
-                    IdMarca = row.Field<int>("Id_Marca"),
-                    Marca1 = row.Field<string>("Marca"),
-                    IdComponente = row.Field<short>("Id_Componente"),
-                    //Extra = row.Field<string>("Extra"),
-                    
-
-                }).ToList();//se añade a la Lista
-            }
-            return LMarca;//se returna la Lista 
-        }
-        public List<Actualizacion> ListaActualizacion(ref string mensaje, ref string mensajeC)//método principal
-        {
-           
-            string comandoSql = "select * from actualizacion;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Actualizacion> actualizacion = new List<Actualizacion>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
-            {
-                dataTable = dataSet.Tables[0];
-                actualizacion = dataTable.AsEnumerable().Select(row => new Actualizacion
-                {
+                dataTable = dataSet.Tables[0];//Se crea un DataTable y se llena con la informacion del DataSet
+                actualizacion = dataTable.AsEnumerable().Select(row => new Actualizacion//El datatable es como un numerable y se hace una seleccion, cada row será igual a un nuevo objeto de a clase seleccionada
+                {//Por cada iterancia vamos a pasar los parámetros de mi objeto
                     IdAct = row.Field<int>("id_act"),
                     NumInv = row.Field<string>("num_inv"),
                     NumSerie = row.Field<string>("num_serie"),
                     Descripcion = row.Field<string>("descripcion"),
                     Fecha = row.Field<DateTime>("fecha"),
-                }).ToList();//se añade a la Lista
+                }).ToList();//Se añade la información a la Lista
             }
-            return actualizacion;//se returna la Lista 
+            return actualizacion;//Se retorna la Lista 
         }
-        public List<CantDisc> ListaCantDisc(ref string mensaje, ref string mensajeC)//método principal
+        public List<CantDisc> ListaCantDisc(ref string mensaje, ref string mensajeC)//Metodo de la Lista CantDisc
         {
-
             string comandoSql = "select * from cantDisc;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -119,14 +57,12 @@ namespace c_dll
                     IdCant = row.Field<int>("id_cant"),
                     NumInv = row.Field<string>("num_inv"),
                     IdDisco = row.Field<int>("id_Disco"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return cantDiscs;//se returna la Lista 
+            return cantDiscs;
         }
-
-        public List<Categoria> ListaCategoria(ref string mensaje, ref string mensajeC)//método principal
+        public List<Categoria> ListaCategoria(ref string mensaje, ref string mensajeC)//Metodo de la Lista Categoria
         {
-
             string comandoSql = "select * from Categoria;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -141,14 +77,12 @@ namespace c_dll
                 {
                     IdCategoria = row.Field<int>("id_Categoria"),
                     Descripcion = row.Field<string>("Descripcion"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return categoria;//se returna la Lista 
+            return categoria;
         }
-
-        public List<CatMar> ListaCatMar(ref string mensaje, ref string mensajeC)//método principal
+        public List<CatMar> ListaCatMar(ref string mensaje, ref string mensajeC)//Metodo de la Lista CatMar
         {
-
             string comandoSql = "select * from CatMar;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -164,14 +98,12 @@ namespace c_dll
                     IdCatMar = row.Field<int>("id_CatMar"),
                     IdCategoria = row.Field<int>("id_Categoria"),
                     IdMarca = row.Field<int>("id_Marca"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return CatMar;//se returna la Lista 
+            return CatMar;
         }
-
-        public List<Computadorafinal> ListaComputadoraFinal(ref string mensaje, ref string mensajeC)//método principal
+        public List<Computadorafinal> ListaComputadoraFinal(ref string mensaje, ref string mensajeC)//Metodo de la Lista ComputadoraFinal
         {
-
             string comandoSql = "select * from computadorafinal;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -195,13 +127,12 @@ namespace c_dll
                     IdMousg = row.Field<int>("id_mousg"),
                     Estado = row.Field<string>("estado"),
                     IdEstatus = row.Field<int>("id_Estatus"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return CompuFinal;//se returna la Lista 
+            return CompuFinal;
         }
-        public List<CpuGenerico> ListaCpuGenerico(ref string mensaje, ref string mensajeC)//método principal
+        public List<CpuGenerico> ListaCpuGenerico(ref string mensaje, ref string mensajeC)//Metodo de la Lista CpuGenerico
         {
-
             string comandoSql = "select * from Cpu_Generico;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -221,15 +152,12 @@ namespace c_dll
                     Descripcion = row.Field<string>("Descripcion"),
                     FTipoRam = row.Field<int>("f_tipoRam"),
                     IdGabinete = row.Field<int>("id_Gabinete"),
-
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return CpuGenerico;//se returna la Lista 
+            return CpuGenerico;
         }
-
-        public List<CpuTipoMod> ListaCpuTipoMod(ref string mensaje, ref string mensajeC)//método principal
+        public List<CpuTipoMod> ListaCpuTipoMod(ref string mensaje, ref string mensajeC)//Metodo de la Lista CpuTipoMod
         {
-
             string comandoSql = "select * from CPU_TipoMod ;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -246,14 +174,12 @@ namespace c_dll
                     IdTcpu = row.Field<int>("id_Tcpu"),
                     IdModcpu = row.Field<int>("id_modcpu"),
                     Nucleos = row.Field<string>("nucleos"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return CpuTipoMod;//se returna la Lista 
+            return CpuTipoMod;
         }
-
-        public List<DiscoDuro> ListaDiscoDuro(ref string mensaje, ref string mensajeC)//método principal
+        public List<DiscoDuro> ListaDiscoDuro(ref string mensaje, ref string mensajeC)//Metodo de la Lista DiscoDuro
         {
-
             string comandoSql = "select * from DiscoDuro ;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -271,16 +197,12 @@ namespace c_dll
                     Conector = row.Field<string>("conector"),
                     Capacidad = row.Field<string>("Capacidad"),
                     FMarcaDisco = row.Field<int>("F_MarcaDisco"),
-                    //Extra = row.Field<string>("Extra"),
-
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return DiscoDuro;//se returna la Lista 
+            return DiscoDuro;
         }
-
-        public List<Estatus> ListaEstatus(ref string mensaje, ref string mensajeC)//método principal
+        public List<Estatus> ListaEstatus(ref string mensaje, ref string mensajeC)//Metodo de la Lista Estatus
         {
-
             string comandoSql = "select * from Estatus ;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -295,14 +217,12 @@ namespace c_dll
                 {
                     IdEstatus = row.Field<int>("id_Estatus"),
                     Estado = row.Field<string>("Estado"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return estatus;//se returna la Lista 
+            return estatus;
         }
-
-        public List<Evidencia> ListaEvidencia(ref string mensaje, ref string mensajeC)//método principal
+        public List<Evidencia> ListaEvidencia(ref string mensaje, ref string mensajeC)//Metodo de la Lista Evidencia
         {
-
             string comandoSql = "select * from Evidencia ;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -318,14 +238,12 @@ namespace c_dll
                     IdEvidencia = row.Field<int>("id_Evidencia"),
                     Evidencia1 = row.Field<string>("Evidencia1"),
                     NumInv = row.Field<string>("num_inv"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return evidencia;//se returna la Lista 
+            return evidencia;
         }
-
-        public List<Gabinete> ListaGabinete(ref string mensaje, ref string mensajeC)//método principal
+        public List<Gabinete> ListaGabinete(ref string mensaje, ref string mensajeC)//Metodo de la Lista Gabinete
         {
-
             string comandoSql = "select * from Gabinete ;", etiqueta = "InventarioPCsLabs";
             DataSet dataSet = null;
             DataTable dataTable = null;
@@ -342,9 +260,236 @@ namespace c_dll
                     Modelo = row.Field<string>("Modelo"),
                     TipoForma = row.Field<string>("TipoForma"),
                     FMarca = row.Field<int>("F_Marca"),
-                }).ToList();//se añade a la Lista
+                }).ToList();
             }
-            return gabinete;//se returna la Lista 
+            return gabinete;
         }
+        public List<Laboratorio> ListaLab(ref string mensaje, ref string mensajeC)//Metodo de la Lista Laboratorio
+        {
+            string comandoMySql = "select * from Laboratorio;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+            List<Laboratorio> LLab = new List<Laboratorio>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LLab = dataTable.AsEnumerable().Select(row => new Laboratorio
+                {
+                    NombreLaboratorio = row.Field<string>("nombre_laboratorio"),
+                }).ToList();
+            }
+            return LLab;
+        }
+        public List<Marca> ListaMarca(ref string mensaje, ref string mensajeC)//Metodo de la Lista Marca
+        {
+            string comandoMySql = "select * from Marca;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+            List<Marca> LMarca = new List<Marca>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LMarca = dataTable.AsEnumerable().Select(row => new Marca
+                {
+                    IdMarca = row.Field<int>("Id_Marca"),
+                    Marca1 = row.Field<string>("Marca"),
+                    IdComponente = row.Field<short>("Id_Componente"),
+                }).ToList();
+            }
+            return LMarca;
+        }
+        public List<ModeloCpu> ListaModeloCpu(ref string mensaje, ref string mensajeC)//Metodo de la Lista ModeloCpu revisar como trae la informacion
+        {
+            string comandoMySql = "select * from ModeloCPU;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+            List<ModeloCpu> LModeloCpu = new List<ModeloCpu>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LModeloCpu = dataTable.AsEnumerable().Select(row => new ModeloCpu
+                {
+                    IdModcpu = row.Field<int>("id_modcpu"),
+                    ModeloCpu1 = row.Field<string>("modeloCPU"),
+                    //FMarca = row.Field<int>("f_marca"),
+                }).ToList();
+            }
+            return LModeloCpu;
+        }
+        public List<Monitor> ListaMonitor(ref string mensaje, ref string mensajeC)//Metodo de la Lista Monitor
+        {
+            string comandoMySql = "select * from Monitor;", etiqueta = "InventarioPCsLabs";//cambio
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Monitor> LMonitor = new List<Monitor>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LMonitor = dataTable.AsEnumerable().Select(row => new Monitor
+                {
+                    IdMonitor = row.Field<int>("id_monitor"),
+                    FMarcam = row.Field<int>("f_marcam"),
+                    Conectores = row.Field<string>("conectores"),
+                    Tamano = row.Field<string>("tamano"),
+                }).ToList();
+            }
+            return LMonitor; 
+        }
+        public List<Mouse> ListaMouse(ref string mensaje, ref string mensajeC)//Metodo de la Lista Mouse
+        {
+            string comandoMySql = "select * from Mouse;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Mouse> LMouse = new List<Mouse>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LMouse = dataTable.AsEnumerable().Select(row => new Mouse
+                {
+                    IdMouse = row.Field<int>("id_mouse"),
+                    FMarcamouse = row.Field<int>("f_marcamouse"),
+                    Conector = row.Field<string>("conector"),
+                }).ToList();
+            }
+            return LMouse;
+        }
+        public List<Ram> ListaRam(ref string mensaje, ref string mensajeC)//Metodo de la Lista Ram
+        {
+            string comandoMySql = "select * from Ram;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Ram> LRam = new List<Ram>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LRam = dataTable.AsEnumerable().Select(row => new Ram
+                {
+                    IdRam = row.Field<int>("id_RAM"),
+                    Capacidad = row.Field<short>("Capacidad"),
+                    Velocidad = row.Field<string>("Velocidad"),
+                    FTipoR = row.Field<int>("F_TipoR"),
+                }).ToList();
+            }
+            return LRam; 
+        }
+        public List<Teclado> ListaTeclado(ref string mensaje, ref string mensajeC)//Metodo de la Lista Teclado
+        {
+            string comandoMySql = "select * from Teclado;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Teclado> LTeclado = new List<Teclado>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LTeclado = dataTable.AsEnumerable().Select(row => new Teclado
+                {
+                    IdTeclado = row.Field<int>("id_teclado"),
+                    FMarcat = row.Field<int>("f_marcat"),
+                    Conector = row.Field<string>("conector"),
+                }).ToList();
+            }
+            return LTeclado; 
+        }
+        public List<TipoCpu> ListaTipoCpu(ref string mensaje, ref string mensajeC)//Metodo de la Lista TipoCpu
+        {
+            string comandoMySql = "select * from Tipo_Cpu;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<TipoCpu> LTipoCpu = new List<TipoCpu>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LTipoCpu = dataTable.AsEnumerable().Select(row => new TipoCpu
+                {
+                    IdTcpu = row.Field<int>("id_Tcpu"),
+                    Tipo = row.Field<string>("Tipo"),
+                    Familia = row.Field<string>("Familia"),
+                    //Velocidad = row.Field<string>("Velocidad"),
+                }).ToList();
+            }
+            return LTipoCpu;
+        }
+        public List<TipoRam> ListaTipoRam(ref string mensaje, ref string mensajeC)//Metodo de la Lista TipoRam
+        {
+            string comandoMySql = "select * from TipoRAM;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<TipoRam> LTipoRam = new List<TipoRam>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LTipoRam = dataTable.AsEnumerable().Select(row => new TipoRam
+                {
+                    IdTipoRam = row.Field<int>("id_tipoRam"),
+                    Tipo = row.Field<string>("Tipo"),
+                }).ToList();
+            }
+            return LTipoRam;
+        }
+        public List<Ubicacion> ListaUbicacion(ref string mensaje, ref string mensajeC)//Metodo de la Lista Ubicación
+        {
+            string comandoMySql = "select * from Ubicacion;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Ubicacion> LUbicacion = new List<Ubicacion>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LUbicacion = dataTable.AsEnumerable().Select(row => new Ubicacion
+                {
+                    NumInv = row.Field<string>("num_inv"),
+                    NombreLaboratorio = row.Field<string>("nombre_laboratorio"),
+                }).ToList();
+            }
+            return LUbicacion;
+        }
+        public List<Usuario> ListaUsuario(ref string mensaje, ref string mensajeC)//Metodo de la Lista Usuario
+        {
+            string comandoMySql = "select * from Usuario;", etiqueta = "InventarioPCsLabs";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+            List<Usuario> LUsuario = new List<Usuario>();
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+                LUsuario = dataTable.AsEnumerable().Select(row => new Usuario
+                {
+                    IdUsuario = row.Field<int>("id_usuario"),
+                    Nombre = row.Field<string>("nombre"),
+                    ApP = row.Field<string>("ap_p"),
+                    ApM = row.Field<string>("ap_m"),
+                    NomUsuario = row.Field<string>("nom_usuario"),
+                    Password = row.Field<string>("password"),
+                    TipoUsuario = row.Field<string>("tipo_usuario"),
+                }).ToList();
+            }
+            return LUsuario;
+        }
+
     }
 }

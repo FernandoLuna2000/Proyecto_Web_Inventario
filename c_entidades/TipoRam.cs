@@ -6,10 +6,10 @@ namespace c_entidades
 {
     public partial class TipoRam
     {
-        public TipoRam()
-        {
-            Ram = new HashSet<Ram>();
-        }
+        //public TipoRam()
+        //{
+        //    Ram = new HashSet<Ram>();
+        //}
 
         public int IdTipoRam { get; set; }
         public string Tipo { get; set; }

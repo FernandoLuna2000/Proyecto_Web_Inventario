@@ -6,10 +6,10 @@ namespace c_entidades
 {
     public partial class ModeloCpu
     {
-        public ModeloCpu()
-        {
-            CpuTipoMod = new HashSet<CpuTipoMod>();
-        }
+        //public ModeloCpu()
+        //{
+        //    CpuTipoMod = new HashSet<CpuTipoMod>();
+        //}
 
         public int IdModcpu { get; set; }
         public string ModeloCpu1 { get; set; }

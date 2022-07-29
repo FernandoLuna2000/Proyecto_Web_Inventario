@@ -14,11 +14,6 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <br />
-            <asp:GridView ID="GridView1" runat="server">
-            </asp:GridView>
-            <asp:GridView ID="GridView2" runat="server">
-            </asp:GridView>
-            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox2" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox3" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox4" runat="server"></asp:ListBox>
@@ -30,6 +25,20 @@
             <asp:ListBox ID="ListBox10" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox11" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox12" runat="server"></asp:ListBox>
+            <br />
+            siguientes listas<br />
+            <asp:ListBox ID="ListBox13" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox14" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox15" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox16" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox17" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox18" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox19" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox20" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox21" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox22" runat="server"></asp:ListBox>
+            <br />
             <br />
             <br />
 
