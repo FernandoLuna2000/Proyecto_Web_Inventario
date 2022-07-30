@@ -94,6 +94,54 @@
         <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
         <br />
         <br />
+        ///////////<br />
+        Tabla Gabinete<br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Laboratorio<br />
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Marca<br />
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla ModeloCpu<br />
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Monitor<br />
+        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Mouse<br />
+        <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Ram<br />
+        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Teclado<br />
+        <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla TipoCpu<br />
+        <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla TipoRam<br />
+        <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Ubicacion<br />
+        <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        Tabla Usuario<br />
+        <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label>
+        <br />
         <p>
             &nbsp;</p>
     </form>

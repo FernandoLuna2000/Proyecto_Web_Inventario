@@ -492,6 +492,220 @@ namespace Proyecto_Web_Inventario
             //}
 
             //---------------fin de la tabla evidencia----------//
+
+            //Tabla Gabinete ------> Inicio
+            //string[] datos = new string[3];
+
+            //datos[0] = "Prueba";
+            //datos[1] = "Prueba";
+            //datos[2] = "25";
+
+            //try
+            //{
+            //    LN.InsertarGabinete(datos, ref mensaje, ref mensajeC);
+            //    Label1.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label1.Text = "nelson";
+            //}
+            // Tabla Gabinete ------>Fin
+
+            // Tabla Laboratorio ------>Inicio
+            //string[] datos = new string[1];
+
+            //datos[0] = "K5";
+
+            //try
+            //{
+            //    LN.InsertarLaboratorio(datos, ref mensaje, ref mensajeC);
+            //    Label2.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label2.Text = "nelson";
+            //}
+            // Tabla Laboratorio ------>Fin
+
+            // Tabla Marca ------>Inicio
+            //string[] datos = new string[3];
+
+            //datos[0] = "Prueba";
+            //datos[1] = "4";
+            //datos[2] = "";
+
+            //try
+            //{
+            //    LN.InsertarMarca(datos, ref mensaje, ref mensajeC);
+            //    Label3.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label3.Text = "nelson";
+            //}
+            // Tabla Marca ------>Fin
+
+            // Tabla ModeloCpu ------>Inicio
+            //string[] datos = new string[2];
+
+            //datos[0] = "Prueba";
+            //datos[1] = "23";
+
+            //try
+            //{
+            //    LN.InsertarModeloCpu(datos, ref mensaje, ref mensajeC);
+            //    Label4.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label4.Text = "nelson";
+            //}
+            // Tabla ModeloCpu ------>Fin
+
+            // Tabla Monitor ------>Inicio---------------------------------------------------------------------------------------------
+            //string[] datos = new string[3];
+
+            //datos[0] = "26";
+            //datos[1] = "Prueba";
+            //datos[1] = "1900x300";
+
+            //try
+            //{
+            //    LN.InsertarMonitor(datos, ref mensaje, ref mensajeC);
+            //    Label5.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label5.Text = "nelson";
+            //}
+            // Tabla Monitor ------>Fin
+
+            // Tabla Mouse ------>Inicio
+            //string[] datos = new string[2];
+
+            //datos[0] = "27";
+            //datos[1] = "Prueba";
+
+            //try
+            //{
+            //    LN.InsertarMouse(datos, ref mensaje, ref mensajeC);
+            //    Label6.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label6.Text = "nelson";
+            //}
+            // Tabla Mouse ------>Fin
+
+            // Tabla Ram ------>Inicio
+            //string[] datos = new string[3];
+
+            //datos[0] = "9";
+            //datos[1] = "Prueba";
+            //datos[2] = "6";
+
+            //try
+            //{
+            //    LN.InsertarRam(datos, ref mensaje, ref mensajeC);
+            //    Label7.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label7.Text = "nelson";
+            //}
+            // Tabla Ram ------>Fin
+
+            // Tabla Teclado ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //string[] datos = new string[2];
+
+            //datos[0] = "25";
+            //datos[1] = "Prueba";
+
+            //try
+            //{
+            //    LN.InsertarTeclado(datos, ref mensaje, ref mensajeC);
+            //    Label8.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label8.Text = "nelson";
+            //}
+            // Tabla Teclado ------>Fin
+
+            // Tabla TipoCpu ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //string[] datos = new string[4];
+
+            //datos[0] = "Prueba";
+            //datos[1] = "Prueba x2";
+            //datos[2] = "Prueba x3";
+            //datos[3] = "Prueba x4";
+
+            //try
+            //{
+            //    LN.InsertarTipoCpu(datos, ref mensaje, ref mensajeC);
+            //    Label9.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label9.Text = "nelson";
+            //}
+            // Tabla TipoCpu ------>Fin
+
+            // Tabla TipoRam ------>Inicio
+            //string[] datos = new string[2];
+
+            //datos[0] = "Prueba";
+            //datos[1] = "";
+
+            //try
+            //{
+            //    LN.InsertarTipoRam(datos, ref mensaje, ref mensajeC);
+            //    Label10.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label10.Text = "nelson";
+            //}
+            // Tabla TipoRam ------>Fin
+
+            // Tabla Ubicacion ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //string[] datos = new string[2];
+
+            //datos[0] = "98765";
+            //datos[1] = "k5";
+
+            //try
+            //{
+            //    LN.InsertarUbicacion(datos, ref mensaje, ref mensajeC);
+            //    Label11.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label11.Text = "nelson";
+            //}
+            // Tabla Ubicacion ------>Fin
+
+            // Tabla Usuario ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //string[] datos = new string[6];
+
+            //datos[0] = "Omarr";
+            //datos[1] = "Castillro";
+            //datos[2] = "Moralesr";
+            //datos[3] = "omarcrin@hotmail.com";
+            //datos[4] = "holasoryomar";
+            //datos[5] = "";
+
+            //try
+            //{
+            //    LN.InsertarUsuario(datos, ref mensaje, ref mensajeC);
+            //    Label12.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    Label12.Text = "nelson";
+            //}
+            //Tabla Usuario ------> Fin
+
         }
     }
 }

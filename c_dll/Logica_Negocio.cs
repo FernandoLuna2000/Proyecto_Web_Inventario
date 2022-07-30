@@ -491,29 +491,8 @@ namespace c_dll
             }
             return LUsuario;
         }
-        public bool Insertar(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO ModeloCPU(modeloCPU, f_marca)" +
-                "values (@modeloCPU, @f_marca)";
-            SqlParameter[] info = new SqlParameter[]
-            {
-                new SqlParameter("@modeloCPU",SqlDbType.VarChar, 50),
-                new SqlParameter("@f_marca",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-                return respuesta;
-        }
+        
         //aqui ira el insertar de actualizacion //
-
-
-
-
-
 
         //----------------------------------//
 
@@ -733,5 +712,267 @@ namespace c_dll
             return respuesta;
         }
         //--------------Fin  de la tabla Cpu tipo mod -----------//
+
+        //Insertar Gabinete-------- Inicio
+        public bool InsertarGabinete(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Gabinete (Modelo,TipoForma,F_Marca)" +
+                "values (@Modelo,@TipoForma,@F_Marca)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Modelo",SqlDbType.VarChar, 50),
+                new SqlParameter("@TipoForma",SqlDbType.VarChar, 50),
+                new SqlParameter("@F_Marca",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Gabinete-------- Fin
+
+        //Insertar Laboratorio-------- Inicio
+        public bool InsertarLaboratorio(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Laboratorio (nombre_laboratorio)" +
+                "values (@nombre_laboratorio)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
+            };
+            info[0].Value = nuevoDatos[0];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Laboratorio-------- Fin
+
+        //Insertar Marca-------- Inicio
+        public bool InsertarMarca(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Marca (Marca, Id_Componente, Extra)" +
+                "values (@Marca, @Id_Componente, @Extra)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Marca",SqlDbType.VarChar, 50),
+                new SqlParameter("@Id_Componente",SqlDbType.Int),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+            info[2].Value = nuevoDatos[2];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Marca-------- Fin
+
+        //Insertar ModeloCPU-------- Inicio
+        public bool InsertarModeloCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO ModeloCPU(modeloCPU, f_marca)" +
+                "values (@modeloCPU, @f_marca)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@modeloCPU",SqlDbType.VarChar, 50),
+                new SqlParameter("@f_marca",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar ModeloCPU-------- Fin
+
+        //Insertar Monitor-------- Inicio
+        public bool InsertarMonitor(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Monitor(f_marcam, conectores, tamano)" +
+                "values (@f_marcam, @conectores, @tamano)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@f_marcam",SqlDbType.Int),
+                new SqlParameter("@conectores",SqlDbType.VarChar, 50),
+                new SqlParameter("@tamano",SqlDbType.Int),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Monitor-------- Fin
+
+        //Insertar Mouse-------- Inicio
+        public bool InsertarMouse(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Mouse(f_marcamouse, conector)" +
+                "values (@f_marcamouse, @conector)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@f_marcamouse",SqlDbType.Int),
+                new SqlParameter("@conector",SqlDbType.VarChar, 50),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = nuevoDatos[1];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Mouse-------- Fin
+
+        //Insertar Ram-------- Inicio
+        public bool InsertarRam(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Ram(Capacidad,Velocidad,F_TipoR)" +
+                "values (@Capacidad,@Velocidad,@F_TipoR)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Capacidad",SqlDbType.SmallInt),
+                new SqlParameter("@Velocidad",SqlDbType.VarChar, 50),
+                new SqlParameter("@F_TipoR",SqlDbType.Int),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Ram-------- Fin
+
+        //Insertar Teclado-------- Inicio
+        public bool InsertarTeclado(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Teclado(f_marcat,conector)" +
+                "values (@f_marcat,@conector)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@f_marcat",SqlDbType.Int),
+                new SqlParameter("@conector",SqlDbType.VarChar, 50),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = nuevoDatos[1];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Teclado-------- Fin
+
+        //Insertar TipoCpu-------- Inicio
+        public bool InsertarTipoCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO TipoCpu(Tipo,Familia,Velocidad,Extra)" +
+                "values (@Tipo,@Familia,@Velocidad,@Extra)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Tipo",SqlDbType.VarChar, 50),
+                new SqlParameter("@Familia",SqlDbType.VarChar, 50),
+                new SqlParameter("@Velocidad",SqlDbType.VarChar, 50),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = nuevoDatos[3];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar TipoCpu-------- Fin
+
+        //Insertar TipoRam-------- Inicio
+        public bool InsertarTipoRam(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO TipoRam(Tipo,Extra)" +
+                "values (@Tipo,@Extra)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Tipo",SqlDbType.VarChar, 50),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar TipoRam-------- Fin
+
+        //Insertar Ubicacion-------- Inicio
+        public bool InsertarUbicacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Ubicacion(num_inv,nombre_laboratorio)" +
+                "values (@num_inv,@nombre_laboratorio)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
+                new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Ubicacion-------- Fin
+
+        //Insertar Usuario-------- Inicio
+        public bool InsertarUsuario(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Usuario(nombre,ap_p,ap_m,nom_usuario,password,tipo_usuario)" +
+                "values (@nombre,@ap_p,@ap_m,@nom_usuario,@password,@tipo_usuario)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@nombre",SqlDbType.VarChar, 50),
+                new SqlParameter("@ap_p",SqlDbType.VarChar, 50),
+                new SqlParameter("@ap_m",SqlDbType.VarChar, 50),
+                new SqlParameter("@nom_usuario",SqlDbType.VarChar, 50),
+                new SqlParameter("@password",SqlDbType.VarChar, 50),
+                new SqlParameter("@tipo_usuario1",SqlDbType.VarChar, 50),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = nuevoDatos[3];
+            info[4].Value = nuevoDatos[4];
+            info[5].Value = nuevoDatos[5];
+            
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //Insertar Usuario-------- Fin
     }
 }
