@@ -6,10 +6,10 @@ namespace c_entidades
 {
     public partial class Categoria
     {
-        public Categoria()
-        {
-            CatMar = new HashSet<CatMar>();
-        }
+        //public Categoria()
+        //{
+        //    CatMar = new HashSet<CatMar>();
+        //}
 
         public int IdCategoria { get; set; }
         public string Descripcion { get; set; }

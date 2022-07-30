@@ -298,22 +298,200 @@ namespace Proyecto_Web_Inventario
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            //string[] datos = new string[2];
 
-            string[] datos = new string[2];
+            //datos[0] = TextBox2.Text;
+            //datos[1] = TextBox3.Text;
 
-            datos[0] = TextBox2.Text;
-            datos[1] = TextBox3.Text;
+            //try
+            //{
+            //    LN.Insertar(datos, ref mensaje, ref mensajeC);
+            //    TextBox4.Text = "Chido";
+            //}
+            //catch
+            //{
+            //    TextBox4.Text = "MamaWebo.... digo glugluglu :3";
+            //}
 
-            try
-            {
-                LN.Insertar(datos, ref mensaje, ref mensajeC);
-                TextBox4.Text = "Chido";
-            }
-            catch
-            {
-                TextBox4.Text = "MamaWebo.... digo glugluglu :3";
-            }
+            //----------------inicia la tabla cantDisc-----------------------//
+            //string[] datos = new string[2];
 
+            //datos[0] = "1234567892";
+            //datos[1] = "6";
+
+            //try
+            //{
+            //    LN.InsertarcantDisc(datos, ref mensaje, ref mensajeC);
+            //    TextBox6.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox6.Text = "nelson";
+            //}
+            //---------------fin de la tabla cantDisc----------------------//
+
+            //----------------inicia la tabla Categoria-----------------------//
+
+            //string[] datos = new string[1];
+
+            //datos[0] = "hola mundo";
+
+            //try
+            //{
+            //    LN.InsertarCategoria(datos, ref mensaje, ref mensajeC);
+            //    TextBox7.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox7.Text = "nelson";
+            //}
+
+            //---------------fin de la tabla Categoria----------------------//
+
+            //--------------inicio Tabla CatMar---------------------------//
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "1";
+            //datos[1] = "25";
+
+            //try
+            //{
+            //    LN.InsertarCatMar(datos, ref mensaje, ref mensajeC);
+            //    TextBox8.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox8.Text = "nelson";
+            //}
+
+            //-------------fin tabla CatMar-------------------------------//
+
+            //------------inicia tabla computadora final ----------------//
+
+            //string[] datos = new string[11];
+
+            //datos[0] = "1234567899";
+            //datos[1] = "1243363473";
+            //datos[2] = "8";
+            //datos[3] = "1924132423";
+            //datos[4] = "6";
+            //datos[5] = "1325213324";
+            //datos[6] = "5";
+            //datos[7] = "1241352352";
+            //datos[8] = "5";
+            //datos[9] = "K1";
+            //datos[10] = "1";
+            //try
+            //{
+            //    LN.InsertarComputadoraFinal(datos, ref mensaje, ref mensajeC);
+            //    TextBox9.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox9.Text = "nelson";
+            //}
+
+            //-------------fin tabla Computadora final---------------------//
+
+            //------------inicia tabla cpu generico ----------------//
+
+            //string[] datos = new string[6];
+
+            //datos[0] = "12";
+            //datos[1] = "23";
+            //datos[2] = "i5-5570";
+            //datos[3] = "corre a 4.20Ghz";
+            //datos[4] = "5";
+            //datos[5] = "5";
+            //try
+            //{
+            //    LN.InsertarCPUgenerico(datos, ref mensaje, ref mensajeC);
+            //    TextBox10.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox10.Text = "nelson";
+            //}
+
+            //-------------fin tabla Cpu generico---------------------//
+
+            //------------inicia tabla cpu tipo mod ----------------//
+
+            //string[] datos = new string[3];
+
+            //datos[0] = "12";
+            //datos[1] = "2";
+            //datos[2] = "prueba";
+            //try
+            //{
+            //    LN.InsertarCPUTipoMod(datos, ref mensaje, ref mensajeC);
+            //    TextBox11.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox11.Text = "nelson";
+            //}
+
+            //-------------fin tabla Cpu tipo mod---------------------//
+
+            // ------------inicia tabla Disco Duro ----------------//
+
+            //string[] datos = new string[4];
+
+            //datos[0] = "SSD";
+            //datos[1] = "SATA";
+            //datos[2] = "1 TB";
+            //datos[3] = "24";
+            ////datos[4] = "";
+            //try
+            //{
+            //    LN.InsertarDiscoDuro(datos, ref mensaje, ref mensajeC);
+            //    TextBox12.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox12.Text = "nelson";
+            //}
+
+            //-------------fin tabla Disco Duro---------------------//
+
+            //-------------inicio tabla estatus ------------------//
+
+            //string[] datos = new string[1];
+
+            //datos[0] = "NUEVO";
+
+            //try
+            //{
+            //    LN.InsertarEstatus(datos, ref mensaje, ref mensajeC);
+            //    TextBox13.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox13.Text = "nelson";
+            //}
+
+            //---------------fin de la tabla estatus----------//
+
+            //-------------inicio tabla evidencia ------------------//
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "prueba";
+            //datos[1] = "1234567890";
+
+            //try
+            //{
+            //    LN.InsertarEvidencia(datos, ref mensaje, ref mensajeC);
+            //    TextBox14.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox14.Text = "nelson";
+            //}
+
+            //---------------fin de la tabla evidencia----------//
         }
     }
 }

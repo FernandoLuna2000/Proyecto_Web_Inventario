@@ -508,5 +508,230 @@ namespace c_dll
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
                 return respuesta;
         }
+        //aqui ira el insertar de actualizacion //
+
+
+
+
+
+
+        //----------------------------------//
+
+        //----------------inicia la tabla cantDisc-----------------------//
+        public bool InsertarcantDisc(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO cantDisc(num_inv, id_Disco)" +
+                "values (@num_inv, @id_Disco)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
+                new SqlParameter("@id_Disco",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //---------------Fin de cantDisc-----------------------------------//
+
+        //----------------inicia la tabla Categoria-----------------------//
+
+        public bool InsertarCategoria(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Categoria(Descripcion)" +
+                "values (@Descripcion)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Descripcion",SqlDbType.VarChar, 100),
+            };
+            info[0].Value = nuevoDatos[0];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+
+        //---------------fin de la tabla Categoria----------------------//
+
+        //---------------inicia la tabla catMar------------------------//
+
+        public bool InsertarCatMar(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO CatMar(id_Categoria, id_Marca)" +
+                "values (@id_Categoria, @id_Marca)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@id_Categoria",SqlDbType.Int),
+                new SqlParameter("@id_Marca",SqlDbType.Int),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+
+        //---------------Fin de la tabla catMar-----------------------//
+
+        //--------------Inicio de la tabla Computadora final---------//
+
+        public bool InsertarComputadoraFinal(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO computadorafinal(num_inv, num_scpu, id_cpug, num_steclado, id_tecladog, num_smonitor, id_mong, num_smouse, id_mousg, estado, id_Estatus)" +
+                "values (@num_inv, @num_scpu, @id_cpug, @num_steclado, @id_tecladog, @num_smonitor, @id_mong, @num_smouse, @id_mousg, @estado, @id_Estatus)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
+                new SqlParameter("@num_scpu",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_cpug",SqlDbType.Int),
+                new SqlParameter("@num_steclado",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_tecladog",SqlDbType.Int),
+                new SqlParameter("@num_smonitor",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_mong",SqlDbType.Int),
+                new SqlParameter("@num_smouse",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_mousg",SqlDbType.Int),
+                new SqlParameter("@estado",SqlDbType.VarChar, 64),
+                new SqlParameter("@id_Estatus",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
+            info[3].Value = nuevoDatos[3];
+            info[4].Value = Convert.ToInt32(nuevoDatos[4]);
+            info[5].Value = nuevoDatos[5];
+            info[6].Value = Convert.ToInt32(nuevoDatos[6]);
+            info[7].Value = nuevoDatos[7];
+            info[8].Value = Convert.ToInt32(nuevoDatos[8]);
+            info[9].Value = nuevoDatos[9];
+            info[10].Value = Convert.ToInt32(nuevoDatos[10]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla Computadora final---------//
+
+        //--------------Inicio de la tabla CPU generico---------//
+
+        public bool InsertarCPUgenerico(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO CPU_Generico(f_Tcpu, f_MarcaCpu, Modelo, Descripcion, f_tipoRam, id_Gabinete)" +
+                "values (@f_Tcpu, @f_MarcaCpu, @Modelo, @Descripcion, @f_tipoRam, @id_Gabinete)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@f_Tcpu",SqlDbType.Int),
+                new SqlParameter("@f_MarcaCpu",SqlDbType.Int),
+                new SqlParameter("@Modelo",SqlDbType.VarChar, 20),
+                new SqlParameter("@Descripcion",SqlDbType.VarChar, 40),
+                new SqlParameter("@f_tipoRam",SqlDbType.Int),
+                new SqlParameter("@id_Gabinete",SqlDbType.Int),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = nuevoDatos[3];
+            info[4].Value = Convert.ToInt32(nuevoDatos[4]);
+            info[5].Value = Convert.ToInt32(nuevoDatos[5]);
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla Cpu generico -----------//
+
+        //--------------Inicio de la tabla CPU tipo mod---------//
+
+        public bool InsertarCPUTipoMod(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO CPU_TipoMod(id_Tcpu, id_modcpu, nucleos)" +
+                "values (@id_Tcpu, @id_modcpu, @nucleos)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@id_Tcpu",SqlDbType.Int),
+                new SqlParameter("@id_modcpu",SqlDbType.Int),
+                new SqlParameter("@nucleos",SqlDbType.VarChar, 10),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+            info[2].Value = nuevoDatos[2];
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla Cpu tipo mod -----------//
+
+        //--------------Inicio de la tabla Disco Duro (checar tabla no inserta datos)---------//
+
+        public bool InsertarDiscoDuro(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO DiscoDuro(TipoDisco, conector, Capasidad, F_MarcaDisco, Extra)" +
+                "values (@TipoDisco, @conector, @Capasidad, @F_MarcaDisco, @Extra)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@TipoDisco",SqlDbType.VarChar, 20),
+                new SqlParameter("@conector",SqlDbType.VarChar, 10),
+                new SqlParameter("@Capacidad",SqlDbType.VarChar, 12),
+                new SqlParameter("@F_MarcaDisco",SqlDbType.Int),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 25),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = Convert.ToInt32(nuevoDatos[3]);
+            //info[4].Value = nuevoDatos[4];
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla disco duro  -----------//
+
+        public bool InsertarEstatus(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Estatus(Estado)" +
+                "values (@Estado)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Estado",SqlDbType.VarChar, 50),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla Cpu tipo mod -----------//
+
+        //--------------Fin  de la tabla disco duro  -----------//
+
+        public bool InsertarEvidencia(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Evidencia(Evidencia1, num_inv)" +
+                "values (@evidencia1 , @num_inv)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@Evidencia1",SqlDbType.VarChar, 50),
+                new SqlParameter("@num_inv",SqlDbType.Int),
+            };
+
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //--------------Fin  de la tabla Cpu tipo mod -----------//
     }
 }

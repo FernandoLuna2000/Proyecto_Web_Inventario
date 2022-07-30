@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 276px">
 
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
@@ -41,16 +41,61 @@
             <br />
             <br />
             insertar informacion<br />
-            <br />
+            Tabla Modelo CPU<br />
+
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <br />
 
         </div>
         <p>
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         </p>
         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <br />
+        <br />
         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
+        <br />
+        Tabla Actualizacion<br />
+        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla canDisc<br />
+        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla Categoria<br />
+        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla CatMar<br />
+        <asp:TextBox ID="TextBox8" runat="server" style="margin-top: 0px"></asp:TextBox>
+        <br />
+        <br />
+        Tabla Computadora final<br />
+        <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla CPU generico<br />
+        <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla CPU tipo mod<br />
+        <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla DiscoDuro<br />
+        <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla Estatus<br />
+        <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tabla Evidencia<br />
+        <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
