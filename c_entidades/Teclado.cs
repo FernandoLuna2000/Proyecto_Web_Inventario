@@ -7,7 +7,7 @@ namespace c_entidades
     public partial class Teclado
     {
         public int IdTeclado { get; set; }
-        public int? FMarcat { get; set; }
+        public int FMarcat { get; set; }
         public string Conector { get; set; }
 
         public virtual Marca FMarcatNavigation { get; set; }

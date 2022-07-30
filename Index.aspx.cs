@@ -437,13 +437,13 @@ namespace Proyecto_Web_Inventario
 
             // ------------inicia tabla Disco Duro ----------------//
 
-            //string[] datos = new string[4];
+            //string[] datos = new string[5];
 
             //datos[0] = "SSD";
             //datos[1] = "SATA";
             //datos[2] = "1 TB";
             //datos[3] = "24";
-            ////datos[4] = "";
+            //datos[4] = "";
             //try
             //{
             //    LN.InsertarDiscoDuro(datos, ref mensaje, ref mensajeC);
@@ -562,12 +562,12 @@ namespace Proyecto_Web_Inventario
             //}
             // Tabla ModeloCpu ------>Fin
 
-            // Tabla Monitor ------>Inicio---------------------------------------------------------------------------------------------
+            // Tabla Monitor ------>Inicio
             //string[] datos = new string[3];
 
             //datos[0] = "26";
             //datos[1] = "Prueba";
-            //datos[1] = "1900x300";
+            //datos[2] = "1900x300";
 
             //try
             //{
@@ -615,11 +615,11 @@ namespace Proyecto_Web_Inventario
             //}
             // Tabla Ram ------>Fin
 
-            // Tabla Teclado ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Tabla Teclado ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "25";
-            //datos[1] = "Prueba";
+            //datos[1] = "USB";
 
             //try
             //{
@@ -632,13 +632,13 @@ namespace Proyecto_Web_Inventario
             //}
             // Tabla Teclado ------>Fin
 
-            // Tabla TipoCpu ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Tabla TipoCpu ------>Inicio
             //string[] datos = new string[4];
 
             //datos[0] = "Prueba";
             //datos[1] = "Prueba x2";
-            //datos[2] = "Prueba x3";
-            //datos[3] = "Prueba x4";
+            //datos[2] = "";
+            //datos[3] = "";
 
             //try
             //{
@@ -668,10 +668,10 @@ namespace Proyecto_Web_Inventario
             //}
             // Tabla TipoRam ------>Fin
 
-            // Tabla Ubicacion ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Tabla Ubicacion ------>Inicio
             //string[] datos = new string[2];
 
-            //datos[0] = "98765";
+            //datos[0] = "1234567892";
             //datos[1] = "k5";
 
             //try
@@ -685,14 +685,14 @@ namespace Proyecto_Web_Inventario
             //}
             // Tabla Ubicacion ------>Fin
 
-            // Tabla Usuario ------>Inicio--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Tabla Usuario ------>Inicio
             //string[] datos = new string[6];
 
-            //datos[0] = "Omarr";
-            //datos[1] = "Castillro";
-            //datos[2] = "Moralesr";
-            //datos[3] = "omarcrin@hotmail.com";
-            //datos[4] = "holasoryomar";
+            //datos[0] = "Omar";
+            //datos[1] = "Castillo";
+            //datos[2] = "Morales";
+            //datos[3] = "omarcin@hotmail.com";
+            //datos[4] = "holasoyomar";
             //datos[5] = "";
 
             //try

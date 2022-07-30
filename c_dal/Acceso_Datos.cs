@@ -32,7 +32,6 @@ namespace c_dal
             }
             return puerto;
         }
-
         public Boolean BaseSegura(string Sqlinstruc, SqlConnection prAb, ref string mensaje, SqlParameter[] evaluacion)
         {
             Boolean resp = false;
@@ -70,7 +69,6 @@ namespace c_dal
             }
             return resp;
         }
-
         public Boolean BaseSeguraSinParametros(string Sqlinstruc, SqlConnection prAb, ref string mensaje)
         {
             Boolean resp = false;

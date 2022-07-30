@@ -491,10 +491,33 @@ namespace c_dll
             }
             return LUsuario;
         }
-        
-        //aqui ira el insertar de actualizacion //
 
-        //----------------------------------//
+        //aqui ira el insertar de actualizacion //
+        public bool InsertarActualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            bool respuesta = false;
+
+            string instrccion = "INSERT INTO Actualizacion(num_inv,num_serie,descripcion,fecha)" +
+                "values (@num_inv,@num_serie,@descripcion,@fecha)";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@id_Disco",SqlDbType.Int),
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
+                new SqlParameter("@num_inv",SqlDbType.DateTime),
+            };
+            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = nuevoDatos[3];
+            info[4].Value = Convert.ToDateTime(nuevoDatos[4]);
+
+
+            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
+            return respuesta;
+        }
+        //----------------------------------// 
 
         //----------------inicia la tabla cantDisc-----------------------//
         public bool InsertarcantDisc(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
@@ -654,21 +677,21 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO DiscoDuro(TipoDisco, conector, Capasidad, F_MarcaDisco, Extra)" +
-                "values (@TipoDisco, @conector, @Capasidad, @F_MarcaDisco, @Extra)";
+            string instrccion = "INSERT INTO DiscoDuro(TipoDisco,conector,Capacidad,F_MarcaDisco,Extra)" +
+                "values (@TipoDisco,@conector,@Capacidad,@F_MarcaDisco,@Extra)";
             SqlParameter[] info = new SqlParameter[]
             {
-                new SqlParameter("@TipoDisco",SqlDbType.VarChar, 20),
-                new SqlParameter("@conector",SqlDbType.VarChar, 10),
-                new SqlParameter("@Capacidad",SqlDbType.VarChar, 12),
+                new SqlParameter("@TipoDisco",SqlDbType.VarChar, 50),
+                new SqlParameter("@conector",SqlDbType.VarChar, 50),
+                new SqlParameter("@Capacidad",SqlDbType.VarChar, 50),
                 new SqlParameter("@F_MarcaDisco",SqlDbType.Int),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 25),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
             };
             info[0].Value = nuevoDatos[0];
             info[1].Value = nuevoDatos[1];
             info[2].Value = nuevoDatos[2];
             info[3].Value = Convert.ToInt32(nuevoDatos[3]);
-            //info[4].Value = nuevoDatos[4];
+            info[4].Value = nuevoDatos[4];
 
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
             return respuesta;
@@ -800,17 +823,17 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Monitor(f_marcam, conectores, tamano)" +
-                "values (@f_marcam, @conectores, @tamano)";
+            string instrccion = "INSERT INTO monitor(f_marcam,conectores,tamano)" +
+                "values (@f_marcam,@conectores,@tamano)";
             SqlParameter[] info = new SqlParameter[]
             {
                 new SqlParameter("@f_marcam",SqlDbType.Int),
                 new SqlParameter("@conectores",SqlDbType.VarChar, 50),
-                new SqlParameter("@tamano",SqlDbType.Int),
+                new SqlParameter("@tamano",SqlDbType.VarChar, 50),
             };
             info[0].Value = Convert.ToInt32(nuevoDatos[0]);
             info[1].Value = nuevoDatos[1];
-            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
+            info[2].Value = nuevoDatos[2];
 
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
             return respuesta;
@@ -864,12 +887,12 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Teclado(f_marcat,conector)" +
+            string instrccion = "INSERT INTO teclado(f_marcat,conector)" +
                 "values (@f_marcat,@conector)";
             SqlParameter[] info = new SqlParameter[]
             {
                 new SqlParameter("@f_marcat",SqlDbType.Int),
-                new SqlParameter("@conector",SqlDbType.VarChar, 50),
+                new SqlParameter("@conector",SqlDbType.VarChar, 15),
             };
             info[0].Value = Convert.ToInt32(nuevoDatos[0]);
             info[1].Value = nuevoDatos[1];
@@ -884,7 +907,7 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO TipoCpu(Tipo,Familia,Velocidad,Extra)" +
+            string instrccion = "INSERT INTO Tipo_CPU(Tipo,Familia,Velocidad,Extra)" +
                 "values (@Tipo,@Familia,@Velocidad,@Extra)";
             SqlParameter[] info = new SqlParameter[]
             {
@@ -930,17 +953,16 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Ubicacion(num_inv,nombre_laboratorio)" +
-                "values (@num_inv,@nombre_laboratorio)";
+            string instrccion = "INSERT INTO ubicacion (num_inv, nombre_laboratorio)" +
+                "values (@num_inv, @nombre_laboratorio)";
             SqlParameter[] info = new SqlParameter[]
             {
                 new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
                 new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
             };
-
             info[0].Value = nuevoDatos[0];
             info[1].Value = nuevoDatos[1];
-            
+
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
             return respuesta;
         }
@@ -951,7 +973,7 @@ namespace c_dll
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Usuario(nombre,ap_p,ap_m,nom_usuario,password,tipo_usuario)" +
+            string instrccion = "INSERT INTO usuario(nombre, ap_p, ap_m, nom_usuario, password, tipo_usuario)" +
                 "values (@nombre,@ap_p,@ap_m,@nom_usuario,@password,@tipo_usuario)";
             SqlParameter[] info = new SqlParameter[]
             {
@@ -960,7 +982,7 @@ namespace c_dll
                 new SqlParameter("@ap_m",SqlDbType.VarChar, 50),
                 new SqlParameter("@nom_usuario",SqlDbType.VarChar, 50),
                 new SqlParameter("@password",SqlDbType.VarChar, 50),
-                new SqlParameter("@tipo_usuario1",SqlDbType.VarChar, 50),
+                new SqlParameter("@tipo_usuario",SqlDbType.VarChar, 50),
             };
 
             info[0].Value = nuevoDatos[0];
