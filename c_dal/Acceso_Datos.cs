@@ -15,7 +15,6 @@ namespace c_dal
         {
             cableConn = connection;
         }
-
         public SqlConnection ConnectionEstablecida(ref string mensajeC)
         {
             SqlConnection puerto = new SqlConnection();

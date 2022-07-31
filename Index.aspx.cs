@@ -51,13 +51,10 @@ namespace Proyecto_Web_Inventario
                 LN = (Logica_Negocio)Session["negocioServer"];
             }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-
             //Lista Actualizacion --->INICIO
-            Lista_Actualizacion = LN.ListaActualizacion(ref mensaje, ref mensajeC);
+            Lista_Actualizacion = LN.L_Actualizacion(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Actualizacion.Count(); i++)
             {
                 ListBox2.Items.Add(Lista_Actualizacion[i].IdAct.ToString());
@@ -69,7 +66,7 @@ namespace Proyecto_Web_Inventario
             //Lista Actualizacion --->FINAL
 
             //Lista CantDisc --->INICIO
-            Lista_CantDisc = LN.ListaCantDisc(ref mensaje, ref mensajeC);
+            Lista_CantDisc = LN.L_CantDisc(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_CantDisc.Count(); i++)
             {
                 ListBox3.Items.Add(Lista_CantDisc[i].IdCant.ToString());
@@ -79,7 +76,7 @@ namespace Proyecto_Web_Inventario
             //Lista CantDisc --->FINAL
 
             //Lista Categoria --->INICIO
-            Lista_Categoria = LN.ListaCategoria(ref mensaje, ref mensajeC);
+            Lista_Categoria = LN.L_Categoria(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Categoria.Count(); i++)
             {
                 ListBox4.Items.Add(Lista_Categoria[i].IdCategoria.ToString());
@@ -88,7 +85,7 @@ namespace Proyecto_Web_Inventario
             //Lista Categoria --->FINAL
 
             //Lista CatMar --->INICIO
-            Lista_CatMar = LN.ListaCatMar(ref mensaje, ref mensajeC);
+            Lista_CatMar = LN.L_CatMar(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_CatMar.Count(); i++)
             {
                 ListBox5.Items.Add(Lista_CatMar[i].IdCatMar.ToString());
@@ -98,7 +95,7 @@ namespace Proyecto_Web_Inventario
             //Lista CatMar --->FINAL
 
             //Lista CompuFinal --->INICIO
-            Lista_CompuFinal = LN.ListaComputadoraFinal(ref mensaje, ref mensajeC);
+            Lista_CompuFinal = LN.L_ComputadoraFinal(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_CompuFinal.Count(); i++)
             {
                 ListBox6.Items.Add(Lista_CompuFinal[i].NumInv.ToString());
@@ -116,7 +113,7 @@ namespace Proyecto_Web_Inventario
             //Lista CompuFinal --->FINAL
 
             //Lista CPUGenerico --->INICIO
-            Lista_CpuGenerico = LN.ListaCpuGenerico(ref mensaje, ref mensajeC);
+            Lista_CpuGenerico = LN.L_CpuGenerico(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_CpuGenerico.Count(); i++)
             {
                 ListBox7.Items.Add(Lista_CpuGenerico[i].IdCpu.ToString());
@@ -130,7 +127,7 @@ namespace Proyecto_Web_Inventario
             //Lista CPUGenerico --->FINAL
 
             //Lista CpuTipoMod --->INICIO
-            Lista_CpuTipoMod = LN.ListaCpuTipoMod(ref mensaje, ref mensajeC);
+            Lista_CpuTipoMod = LN.L_CpuTipoMod(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_CpuTipoMod.Count(); i++)
             {
                 ListBox8.Items.Add(Lista_CpuTipoMod[i].IdTipoMod.ToString());
@@ -141,7 +138,7 @@ namespace Proyecto_Web_Inventario
             //Lista CpuTipoMod --->FINAL
 
             //Lista DiscoDuro --->INICIO
-            Lista_DiscoDuro = LN.ListaDiscoDuro(ref mensaje, ref mensajeC);
+            Lista_DiscoDuro = LN.L_DiscoDuro(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_DiscoDuro.Count(); i++)
             {
                 ListBox9.Items.Add(Lista_DiscoDuro[i].IdDisco.ToString());
@@ -153,7 +150,7 @@ namespace Proyecto_Web_Inventario
             //Lista DiscoDuro --->FINAL
 
             //Lista Estatus --->INICIO
-            Lista_Estatus = LN.ListaEstatus(ref mensaje, ref mensajeC);
+            Lista_Estatus = LN.L_Estatus(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Estatus.Count(); i++)
             {
                 ListBox10.Items.Add(Lista_Estatus[i].IdEstatus.ToString());
@@ -162,7 +159,7 @@ namespace Proyecto_Web_Inventario
             //Lista Estatus --->FINAL
 
             //Lista Evidencia --->INICIO
-            Lista_Evidencia = LN.ListaEvidencia(ref mensaje, ref mensajeC);
+            Lista_Evidencia = LN.L_Evidencia(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Evidencia.Count(); i++)
             {
                 ListBox11.Items.Add(Lista_Evidencia[i].IdEvidencia.ToString());
@@ -172,7 +169,7 @@ namespace Proyecto_Web_Inventario
             //Lista Evidencia --->FINAL
 
             //Lista Gabinete --->INICIO
-            Lista_Gabinete = LN.ListaGabinete(ref mensaje, ref mensajeC);
+            Lista_Gabinete = LN.L_Gabinete(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Gabinete.Count(); i++)
             {
                 ListBox12.Items.Add(Lista_Gabinete[i].IdGabinete.ToString());
@@ -183,7 +180,7 @@ namespace Proyecto_Web_Inventario
             //Lista Gabinete --->FINAL
 
             //Lista Laboratorio --->INICIO
-            Lista_Laboratorio = LN.ListaLab(ref mensaje, ref mensajeC);
+            Lista_Laboratorio = LN.L_Lab(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Laboratorio.Count(); i++)
             {
                 ListBox13.Items.Add(Lista_Laboratorio[i].NombreLaboratorio.ToString());
@@ -191,7 +188,7 @@ namespace Proyecto_Web_Inventario
             //Lista Laboratorio --->FINAL
 
             //Lista Marca --->INICIO
-            Lista_Marca = LN.ListaMarca(ref mensaje, ref mensajeC);
+            Lista_Marca = LN.L_Marca(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Marca.Count(); i++)
             {
                 ListBox1.Items.Add(Lista_Marca[i].IdMarca.ToString());
@@ -201,7 +198,7 @@ namespace Proyecto_Web_Inventario
             //Lista Marca --->FINAL
 
             //Lista ModeloCpu --->INICIO
-            Lista_ModeloCpu = LN.ListaModeloCpu(ref mensaje, ref mensajeC);
+            Lista_ModeloCpu = LN.L_ModeloCpu(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_ModeloCpu.Count(); i++)
             {
                 ListBox14.Items.Add(Lista_ModeloCpu[i].IdModcpu.ToString());
@@ -211,7 +208,7 @@ namespace Proyecto_Web_Inventario
             //Lista ModeloCpu --->FINAL
 
             //Lista Monitor --->INICIO
-            Lista_Monitor = LN.ListaMonitor(ref mensaje, ref mensajeC);
+            Lista_Monitor = LN.L_Monitor(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Monitor.Count(); i++)
             {
                 ListBox15.Items.Add(Lista_Monitor[i].IdMonitor.ToString());
@@ -222,7 +219,7 @@ namespace Proyecto_Web_Inventario
             //Lista Monitor --->FINAL
 
             //Lista Mouse --->INICIO
-            Lista_Mouse = LN.ListaMouse(ref mensaje, ref mensajeC);
+            Lista_Mouse = LN.L_Mouse(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Mouse.Count(); i++)
             {
                 ListBox16.Items.Add(Lista_Mouse[i].IdMouse.ToString());
@@ -232,7 +229,7 @@ namespace Proyecto_Web_Inventario
             //Lista Mouse --->FINAL
 
             //Lista Ram --->INICIO
-            Lista_Ram = LN.ListaRam(ref mensaje, ref mensajeC);
+            Lista_Ram = LN.L_Ram(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Ram.Count(); i++)
             {
                 ListBox17.Items.Add(Lista_Ram[i].IdRam.ToString());
@@ -243,7 +240,7 @@ namespace Proyecto_Web_Inventario
             //Lista Ram --->FINAL
 
             //Lista Teclado --->INICIO
-            Lista_Teclado = LN.ListaTeclado(ref mensaje, ref mensajeC);
+            Lista_Teclado = LN.L_Teclado(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Teclado.Count(); i++)
             {
                 ListBox18.Items.Add(Lista_Teclado[i].IdTeclado.ToString());
@@ -253,7 +250,7 @@ namespace Proyecto_Web_Inventario
             //Lista Teclado --->FINAL
 
             //Lista TipoCpu --->INICIO
-            Lista_TipoCpu = LN.ListaTipoCpu(ref mensaje, ref mensajeC);
+            Lista_TipoCpu = LN.L_TipoCpu(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_TipoCpu.Count(); i++)
             {
                 ListBox19.Items.Add(Lista_TipoCpu[i].IdTcpu.ToString());
@@ -263,7 +260,7 @@ namespace Proyecto_Web_Inventario
             //Lista TipoCpu --->FINAL
 
             //Lista TipoRam --->INICIO
-            Lista_TipoRam = LN.ListaTipoRam(ref mensaje, ref mensajeC);
+            Lista_TipoRam = LN.L_TipoRam(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_TipoRam.Count(); i++)
             {
                 ListBox20.Items.Add(Lista_TipoRam[i].IdTipoRam.ToString());
@@ -272,7 +269,7 @@ namespace Proyecto_Web_Inventario
             //Lista TipoRam --->FINAL
 
             //Lista Ubicacion --->INICIO
-            Lista_Ubicacion = LN.ListaUbicacion(ref mensaje, ref mensajeC);
+            Lista_Ubicacion = LN.L_Ubicacion(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Ubicacion.Count(); i++)
             {
                 ListBox21.Items.Add(Lista_Ubicacion[i].NumInv.ToString());
@@ -281,7 +278,7 @@ namespace Proyecto_Web_Inventario
             //Lista Ubicacion --->FINAL
 
             //Lista Usuario --->INICIO
-            Lista_Usuario = LN.ListaUsuario(ref mensaje, ref mensajeC);
+            Lista_Usuario = LN.L_Usuario(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Usuario.Count(); i++)
             {
                 ListBox22.Items.Add(Lista_Usuario[i].IdUsuario.ToString());
@@ -295,8 +292,6 @@ namespace Proyecto_Web_Inventario
             //Lista Usuario --->FINAL
             TextBox1.Text = mensajeC + " " + mensaje;
         }
-
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             //string[] datos = new string[2];
@@ -314,7 +309,39 @@ namespace Proyecto_Web_Inventario
             //    TextBox4.Text = "MamaWebo.... digo glugluglu :3";
             //}
 
-            //----------------inicia la tabla cantDisc-----------------------//
+            //string[] datos = new string[4];
+
+            //datos[0] = "1234567890";
+            //datos[1] = "14651456136";
+            //datos[2] = "prueba";
+            //datos[3] = "2020-03-25";
+
+
+            //try
+            //{
+            //    LN.Insert_cantDisc(datos, ref mensaje, ref mensajeC);
+            //    TextBox5.Text = "ahuevooo";
+            //}
+            //catch
+            //{
+            //    TextBox5.Text = "nelson";
+            //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ////----------------inicia la tabla cantDisc-----------------------//
             //string[] datos = new string[2];
 
             //datos[0] = "1234567892";
@@ -322,16 +349,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarcantDisc(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_cantDisc(datos, ref mensaje, ref mensajeC);
             //    TextBox6.Text = "ahuevooo";
             //}
             //catch
             //{
             //    TextBox6.Text = "nelson";
             //}
-            //---------------fin de la tabla cantDisc----------------------//
+            ////---------------fin de la tabla cantDisc----------------------//
 
-            //----------------inicia la tabla Categoria-----------------------//
+            ////----------------inicia la tabla Categoria-----------------------//
 
             //string[] datos = new string[1];
 
@@ -339,7 +366,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarCategoria(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Categoria(datos, ref mensaje, ref mensajeC);
             //    TextBox7.Text = "ahuevooo";
             //}
             //catch
@@ -347,9 +374,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox7.Text = "nelson";
             //}
 
-            //---------------fin de la tabla Categoria----------------------//
+            ////---------------fin de la tabla Categoria----------------------//
 
-            //--------------inicio Tabla CatMar---------------------------//
+            ////--------------inicio Tabla CatMar---------------------------//
 
             //string[] datos = new string[2];
 
@@ -358,7 +385,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarCatMar(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_CatMar(datos, ref mensaje, ref mensajeC);
             //    TextBox8.Text = "ahuevooo";
             //}
             //catch
@@ -366,9 +393,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox8.Text = "nelson";
             //}
 
-            //-------------fin tabla CatMar-------------------------------//
+            ////-------------fin tabla CatMar-------------------------------//
 
-            //------------inicia tabla computadora final ----------------//
+            ////------------inicia tabla computadora final ----------------//
 
             //string[] datos = new string[11];
 
@@ -385,7 +412,7 @@ namespace Proyecto_Web_Inventario
             //datos[10] = "1";
             //try
             //{
-            //    LN.InsertarComputadoraFinal(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_ComputadoraFinal(datos, ref mensaje, ref mensajeC);
             //    TextBox9.Text = "ahuevooo";
             //}
             //catch
@@ -393,9 +420,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox9.Text = "nelson";
             //}
 
-            //-------------fin tabla Computadora final---------------------//
+            ////-------------fin tabla Computadora final---------------------//
 
-            //------------inicia tabla cpu generico ----------------//
+            ////------------inicia tabla cpu generico ----------------//
 
             //string[] datos = new string[6];
 
@@ -407,7 +434,7 @@ namespace Proyecto_Web_Inventario
             //datos[5] = "5";
             //try
             //{
-            //    LN.InsertarCPUgenerico(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_CPUgenerico(datos, ref mensaje, ref mensajeC);
             //    TextBox10.Text = "ahuevooo";
             //}
             //catch
@@ -415,9 +442,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox10.Text = "nelson";
             //}
 
-            //-------------fin tabla Cpu generico---------------------//
+            ////-------------fin tabla Cpu generico---------------------//
 
-            //------------inicia tabla cpu tipo mod ----------------//
+            ////------------inicia tabla cpu tipo mod ----------------//
 
             //string[] datos = new string[3];
 
@@ -426,7 +453,7 @@ namespace Proyecto_Web_Inventario
             //datos[2] = "prueba";
             //try
             //{
-            //    LN.InsertarCPUTipoMod(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_CPUTipoMod(datos, ref mensaje, ref mensajeC);
             //    TextBox11.Text = "ahuevooo";
             //}
             //catch
@@ -434,9 +461,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox11.Text = "nelson";
             //}
 
-            //-------------fin tabla Cpu tipo mod---------------------//
+            ////-------------fin tabla Cpu tipo mod---------------------//
 
-            // ------------inicia tabla Disco Duro ----------------//
+            //// ------------inicia tabla Disco Duro ----------------//
 
             //string[] datos = new string[5];
 
@@ -447,7 +474,7 @@ namespace Proyecto_Web_Inventario
             //datos[4] = "";
             //try
             //{
-            //    LN.InsertarDiscoDuro(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_DiscoDuro(datos, ref mensaje, ref mensajeC);
             //    TextBox12.Text = "ahuevooo";
             //}
             //catch
@@ -455,9 +482,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox12.Text = "nelson";
             //}
 
-            //-------------fin tabla Disco Duro---------------------//
+            ////-------------fin tabla Disco Duro---------------------//
 
-            //-------------inicio tabla estatus ------------------//
+            ////-------------inicio tabla estatus ------------------//
 
             //string[] datos = new string[1];
 
@@ -465,7 +492,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarEstatus(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Estatus(datos, ref mensaje, ref mensajeC);
             //    TextBox13.Text = "ahuevooo";
             //}
             //catch
@@ -473,9 +500,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox13.Text = "nelson";
             //}
 
-            //---------------fin de la tabla estatus----------//
+            ////---------------fin de la tabla estatus----------//
 
-            //-------------inicio tabla evidencia ------------------//
+            ////-------------inicio tabla evidencia ------------------//
 
             //string[] datos = new string[2];
 
@@ -484,7 +511,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarEvidencia(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Evidencia(datos, ref mensaje, ref mensajeC);
             //    TextBox14.Text = "ahuevooo";
             //}
             //catch
@@ -492,9 +519,9 @@ namespace Proyecto_Web_Inventario
             //    TextBox14.Text = "nelson";
             //}
 
-            //---------------fin de la tabla evidencia----------//
+            ////---------------fin de la tabla evidencia----------//
 
-            //Tabla Gabinete ------> Inicio
+            ////Tabla Gabinete ------> Inicio
             //string[] datos = new string[3];
 
             //datos[0] = "Prueba";
@@ -503,32 +530,32 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarGabinete(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Gabinete(datos, ref mensaje, ref mensajeC);
             //    Label1.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label1.Text = "nelson";
             //}
-            // Tabla Gabinete ------>Fin
+            //// Tabla Gabinete ------>Fin
 
-            // Tabla Laboratorio ------>Inicio
+            ////Tabla Laboratorio ------> Inicio
             //string[] datos = new string[1];
 
             //datos[0] = "K5";
 
             //try
             //{
-            //    LN.InsertarLaboratorio(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Laboratorio(datos, ref mensaje, ref mensajeC);
             //    Label2.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label2.Text = "nelson";
             //}
-            // Tabla Laboratorio ------>Fin
+            //// Tabla Laboratorio ------>Fin
 
-            // Tabla Marca ------>Inicio
+            //// Tabla Marca ------>Inicio
             //string[] datos = new string[3];
 
             //datos[0] = "Prueba";
@@ -537,16 +564,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarMarca(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Marca(datos, ref mensaje, ref mensajeC);
             //    Label3.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label3.Text = "nelson";
             //}
-            // Tabla Marca ------>Fin
+            //// Tabla Marca ------>Fin
 
-            // Tabla ModeloCpu ------>Inicio
+            //// Tabla ModeloCpu ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "Prueba";
@@ -554,16 +581,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarModeloCpu(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_ModeloCpu(datos, ref mensaje, ref mensajeC);
             //    Label4.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label4.Text = "nelson";
             //}
-            // Tabla ModeloCpu ------>Fin
+            //// Tabla ModeloCpu ------>Fin
 
-            // Tabla Monitor ------>Inicio
+            //// Tabla Monitor ------>Inicio
             //string[] datos = new string[3];
 
             //datos[0] = "26";
@@ -572,16 +599,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarMonitor(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Monitor(datos, ref mensaje, ref mensajeC);
             //    Label5.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label5.Text = "nelson";
             //}
-            // Tabla Monitor ------>Fin
+            //// Tabla Monitor ------>Fin
 
-            // Tabla Mouse ------>Inicio
+            //// Tabla Mouse ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "27";
@@ -589,16 +616,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarMouse(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Mouse(datos, ref mensaje, ref mensajeC);
             //    Label6.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label6.Text = "nelson";
             //}
-            // Tabla Mouse ------>Fin
+            //// Tabla Mouse ------>Fin
 
-            // Tabla Ram ------>Inicio
+            //// Tabla Ram ------>Inicio
             //string[] datos = new string[3];
 
             //datos[0] = "9";
@@ -607,16 +634,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarRam(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Ram(datos, ref mensaje, ref mensajeC);
             //    Label7.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label7.Text = "nelson";
             //}
-            // Tabla Ram ------>Fin
+            //// Tabla Ram ------>Fin
 
-            // Tabla Teclado ------>Inicio
+            //// Tabla Teclado ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "25";
@@ -624,16 +651,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarTeclado(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Teclado(datos, ref mensaje, ref mensajeC);
             //    Label8.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label8.Text = "nelson";
             //}
-            // Tabla Teclado ------>Fin
+            //// Tabla Teclado ------>Fin
 
-            // Tabla TipoCpu ------>Inicio
+            //// Tabla TipoCpu ------>Inicio
             //string[] datos = new string[4];
 
             //datos[0] = "Prueba";
@@ -643,16 +670,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarTipoCpu(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_TipoCpu(datos, ref mensaje, ref mensajeC);
             //    Label9.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label9.Text = "nelson";
             //}
-            // Tabla TipoCpu ------>Fin
+            //// Tabla TipoCpu ------>Fin
 
-            // Tabla TipoRam ------>Inicio
+            //// Tabla TipoRam ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "Prueba";
@@ -660,16 +687,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarTipoRam(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_TipoRam(datos, ref mensaje, ref mensajeC);
             //    Label10.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label10.Text = "nelson";
             //}
-            // Tabla TipoRam ------>Fin
+            //// Tabla TipoRam ------>Fin
 
-            // Tabla Ubicacion ------>Inicio
+            //// Tabla Ubicacion ------>Inicio
             //string[] datos = new string[2];
 
             //datos[0] = "1234567892";
@@ -677,16 +704,16 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarUbicacion(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Ubicacion(datos, ref mensaje, ref mensajeC);
             //    Label11.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label11.Text = "nelson";
             //}
-            // Tabla Ubicacion ------>Fin
+            //// Tabla Ubicacion ------>Fin
 
-            // Tabla Usuario ------>Inicio
+            //// Tabla Usuario ------>Inicio
             //string[] datos = new string[6];
 
             //datos[0] = "Omar";
@@ -698,24 +725,23 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.InsertarUsuario(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Usuario(datos, ref mensaje, ref mensajeC);
             //    Label12.Text = "ahuevooo";
             //}
             //catch
             //{
             //    Label12.Text = "nelson";
             //}
-            //Tabla Usuario ------> Fin
+            ////Tabla Usuario ------> Fin
 
         }
-
         protected void Button3_Click(object sender, EventArgs e)
         {
-            // Tabla Actualizacion ------>Inicio
+            //// Tabla Actualizacion ------>Inicio
 
             //string[] datos = new string[4];
 
-            //string fecha =  DateTime.Now.ToString();
+            //string fecha = DateTime.Now.ToString();
 
             //datos[0] = "1234567899";
             //datos[1] = "1456234523";
@@ -724,7 +750,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarTabActualizacion(datos, ref mensaje, ref mensajeC, 1044);
+            //    LN.Act_TabActualizacion(datos, ref mensaje, ref mensajeC, 1044);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -732,9 +758,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error";
             //}
 
-            //Tabla Actualizacion -------------------------------------> Fin
+            ////Tabla Actualizacion -------------------------------------> Fin
 
-            // Tabla cantDisc------------------------------------------>Inicio
+            //// Tabla cantDisc------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -743,7 +769,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCantDisc(datos, ref mensaje, ref mensajeC, 11);
+            //    LN.Act_CabtDisc(datos, ref mensaje, ref mensajeC, 8);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -751,9 +777,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla CantDisc-- -----------------------------------------> Fin
+            ////Tabla CantDisc-- -----------------------------------------> Fin
 
-            // Tabla Categoria ------------------------------------------>Inicio
+            //// Tabla Categoria ------------------------------------------>Inicio
 
             //string[] datos = new string[1];
 
@@ -761,7 +787,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCategoria(datos, ref mensaje, ref mensajeC, 2);
+            //    LN.Act_Categoria(datos, ref mensaje, ref mensajeC, 2);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -769,10 +795,10 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Cantegoria--------------------------------------------> Fin
+            ////Tabla Cantegoria--------------------------------------------> Fin
 
 
-            // Tabla CatMar ------------------------------------------>Inicio
+            //// Tabla CatMar ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -781,7 +807,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCatMar(datos, ref mensaje, ref mensajeC, 3);
+            //    LN.Act_CatMar(datos, ref mensaje, ref mensajeC, 3);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -789,9 +815,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla CatMar--------------------------------------------> Fin
+            ////Tabla CatMar--------------------------------------------> Fin
 
-            // Tabla Computadora final ------------------------------------------>Inicio
+            //// Tabla Computadora final ------------------------------------------>Inicio
 
             //string[] datos = new string[10];
 
@@ -808,7 +834,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCompuFinal(datos, ref mensaje, ref mensajeC, 1234567899);
+            //    LN.Act_CompuFinal(datos, ref mensaje, ref mensajeC, 1234567899);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -816,9 +842,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Computadora final --------------------------------------------> Fin
+            ////Tabla Computadora final --------------------------------------------> Fin
 
-            // Tabla Cpu_generico ------------------------------------------>Inicio
+            //// Tabla Cpu_generico ------------------------------------------>Inicio
 
             //string[] datos = new string[16];
 
@@ -831,7 +857,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCPU_generico(datos, ref mensaje, ref mensajeC, 11);
+            //    LN.Act_CPU_generico(datos, ref mensaje, ref mensajeC, 11);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -839,9 +865,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Cpu_generico --------------------------------------------> Fin
+            ////Tabla Cpu_generico --------------------------------------------> Fin
 
-            // Tabla Cpu_Tipomod ------------------------------------------>Inicio
+            //// Tabla Cpu_Tipomod ------------------------------------------>Inicio
 
             //string[] datos = new string[3];
 
@@ -851,7 +877,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarCpu_tipomod(datos, ref mensaje, ref mensajeC, 1);
+            //    LN.Act_Cpu_tipomod(datos, ref mensaje, ref mensajeC, 1);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -859,9 +885,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Cpu_tipomod--------------------------------------------> Fin
+            ////Tabla Cpu_tipomod--------------------------------------------> Fin
 
-            // Tabla disco duro ------------------------------------------>Inicio
+            //// Tabla disco duro ------------------------------------------>Inicio
 
             //string[] datos = new string[5];
 
@@ -873,7 +899,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarDiscoDuro(datos, ref mensaje, ref mensajeC, 7);
+            //    LN.Act_DiscoDuro(datos, ref mensaje, ref mensajeC, 7);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -881,9 +907,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla disco duro--------------------------------------------> Fin
+            ////Tabla disco duro--------------------------------------------> Fin
 
-            // Tabla estatus ------------------------------------------>Inicio
+            //// Tabla estatus ------------------------------------------>Inicio
 
             //string[] datos = new string[1];
 
@@ -891,7 +917,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarEstatus(datos, ref mensaje, ref mensajeC, 4);
+            //    LN.Act_Estatus(datos, ref mensaje, ref mensajeC, 4);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -899,11 +925,11 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla estatus--------------------------------------------> Fin
+            ////Tabla estatus--------------------------------------------> Fin
 
-            //Tabla disco duro--------------------------------------------> Fin
+            ////Tabla disco duro--------------------------------------------> Fin
 
-            // Tabla esvidencia ------------------------------------------>Inicio
+            //// Tabla esvidencia ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -912,7 +938,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarEvidencia(datos, ref mensaje, ref mensajeC, 1);
+            //    LN.Act_Evidencia(datos, ref mensaje, ref mensajeC, 1);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -920,9 +946,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla evidencia--------------------------------------------> Fin
+            ////Tabla evidencia--------------------------------------------> Fin
 
-            // Tabla gabinete ------------------------------------------>Inicio
+            //// Tabla gabinete ------------------------------------------>Inicio
 
             //string[] datos = new string[3];
 
@@ -932,7 +958,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarGabinete(datos, ref mensaje, ref mensajeC, 6);
+            //    LN.Act_Gabinete(datos, ref mensaje, ref mensajeC, 6);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -940,12 +966,12 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla gabinete--------------------------------------------> Fin
+            ////Tabla gabinete--------------------------------------------> Fin
 
-            // Tabla laboratorio ------------------------------------------>Inicio
-            //Tabla laboratorio--------------------------------------------> Fin
+            //// Tabla laboratorio ------------------------------------------>Inicio
+            ////Tabla laboratorio--------------------------------------------> Fin
 
-            // Tabla Marca ------------------------------------------>Inicio
+            //// Tabla Marca ------------------------------------------>Inicio
 
             //string[] datos = new string[3];
 
@@ -955,7 +981,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarMarca(datos, ref mensaje, ref mensajeC, 31);
+            //    LN.Act_Marca(datos, ref mensaje, ref mensajeC, 31);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -963,9 +989,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Marca--------------------------------------------> Fin
+            ////Tabla Marca--------------------------------------------> Fin
 
-            // Tabla Modelo CPU ------------------------------------------>Inicio
+            //// Tabla Modelo CPU ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -974,7 +1000,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarModeloCpu(datos, ref mensaje, ref mensajeC, 18);
+            //    LN.Act_ModeloCpu(datos, ref mensaje, ref mensajeC, 18);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -982,9 +1008,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla ModeloCPU--------------------------------------------> Fin
+            ////Tabla ModeloCPU--------------------------------------------> Fin
 
-            // Tabla Monitor ------------------------------------------>Inicio
+            //// Tabla Monitor ------------------------------------------>Inicio
 
             //string[] datos = new string[3];
 
@@ -994,7 +1020,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarMonitor(datos, ref mensaje, ref mensajeC, 5);
+            //    LN.Act_Monitor(datos, ref mensaje, ref mensajeC, 5);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1002,9 +1028,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Monitor--------------------------------------------> Fin
+            ////Tabla Monitor--------------------------------------------> Fin
 
-            // Tabla Mouse ------------------------------------------>Inicio
+            //// Tabla Mouse ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -1013,7 +1039,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarMouse(datos, ref mensaje, ref mensajeC, 6);
+            //    LN.Act_Mouse(datos, ref mensaje, ref mensajeC, 6);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1021,9 +1047,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Mouse--------------------------------------------> Fin
+            ////Tabla Mouse--------------------------------------------> Fin
 
-            // Tabla Ram ------------------------------------------>Inicio
+            //// Tabla Ram ------------------------------------------>Inicio
 
             //string[] datos = new string[3];
 
@@ -1033,7 +1059,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarRam(datos, ref mensaje, ref mensajeC, 5);
+            //    LN.Act_Ram(datos, ref mensaje, ref mensajeC, 5);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1041,9 +1067,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla Ram--------------------------------------------> Fin
+            ////Tabla Ram--------------------------------------------> Fin
 
-            // Tabla teclado ------------------------------------------>Inicio
+            //// Tabla teclado ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -1052,7 +1078,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarTeclado(datos, ref mensaje, ref mensajeC, 6);
+            //    LN.Act_Teclado(datos, ref mensaje, ref mensajeC, 6);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1060,9 +1086,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla teclado--------------------------------------------> Fin
+            ////Tabla teclado--------------------------------------------> Fin
 
-            // Tabla TipoCPU ------------------------------------------>Inicio
+            //// Tabla TipoCPU ------------------------------------------>Inicio
 
             //string[] datos = new string[4];
 
@@ -1073,7 +1099,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarTipoCPU(datos, ref mensaje, ref mensajeC, 13);
+            //    LN.Act_TipoCPU(datos, ref mensaje, ref mensajeC, 13);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1081,9 +1107,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla tipocpu--------------------------------------------> Fin
+            ////Tabla tipocpu--------------------------------------------> Fin
 
-            // Tabla TipoRAM ------------------------------------------>Inicio
+            //// Tabla TipoRAM ------------------------------------------>Inicio
 
             //string[] datos = new string[2];
 
@@ -1092,7 +1118,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarTipoRAM(datos, ref mensaje, ref mensajeC, 9);
+            //    LN.Act_TipoRAM(datos, ref mensaje, ref mensajeC, 9);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1100,9 +1126,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla tipoRAM--------------------------------------------> Fin
+            ////Tabla tipoRAM--------------------------------------------> Fin
 
-            // Tabla ubicacion ------------------------------------------>Inicio
+            //// Tabla ubicacion ------------------------------------------>Inicio
 
             //string[] datos = new string[1];
 
@@ -1110,7 +1136,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarUbicaciones(datos, ref mensaje, ref mensajeC, 1234567892);
+            //    LN.Act_Ubicaciones(datos, ref mensaje, ref mensajeC, 1234567892);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1118,9 +1144,9 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla ubicacion--------------------------------------------> Fin
+            ////Tabla ubicacion--------------------------------------------> Fin
 
-            // Tabla usuario ------------------------------------------>Inicio
+            //// Tabla usuario ------------------------------------------>Inicio
 
             //string[] datos = new string[6];
 
@@ -1133,7 +1159,7 @@ namespace Proyecto_Web_Inventario
 
             //try
             //{
-            //    LN.ActualizarUsuario(datos, ref mensaje, ref mensajeC, 1);
+            //    LN.Act_Usuario(datos, ref mensaje, ref mensajeC, 1);
             //    Label13.Text = "se actualizo";
             //}
             //catch
@@ -1141,276 +1167,273 @@ namespace Proyecto_Web_Inventario
             //    Label13.Text = "error checa tus datos";
             //}
 
-            //Tabla usuario--------------------------------------------> Fin
-
-
-
+            ////Tabla usuario--------------------------------------------> Fin
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
-            //EliminarActualizacion--> Inicio
+            ////EliminarActualizacion--> Inicio
             //try
             //{
-            //    LN.Eliminaractualizacion(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_actualizacion(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarActualizacion--> Final
+            ////EliminarActualizacion--> Final
 
-            //EliminarCantDisc--> Inicio
+            ////EliminarCantDisc--> Inicio
             //try
             //{
-            //    LN.EliminarCantDisc(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_CantDisc(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarCantDisc--> Final
+            ////EliminarCantDisc--> Final
 
-            //EliminarCategoria--> Inicio
+            ////EliminarCategoria--> Inicio-------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarCategoria(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Categoria(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarCategoria--> Final
+            ////EliminarCategoria--> Final
 
-            //EliminarCatMar--> Inicio
+            ////EliminarCatMar--> Inicio
             //try
             //{
-            //    LN.EliminarCatMar(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_CatMar(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarCatMar--> Final
+            ////EliminarCatMar--> Final
 
-            //EliminarComputadoraFinal--> Inicio
+            ////EliminarComputadoraFinal--> Inicio--------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarComputadorafinal(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Computadorafinal(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarComputadoraFinal--> Final
+            ////EliminarComputadoraFinal--> Final
 
-            //EliminarCpuGenerico--> Inicio
+            ////EliminarCpuGenerico--> Inicio
             //try
             //{
-            //    LN.EliminarCPU_Generico(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_CPU_Generico(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarCpuGenerico--> Final
+            ////EliminarCpuGenerico--> Final
 
-            //EliminarCpuTipoMod--> Inicio
+            ////EliminarCpuTipoMod--> Inicio
             //try
             //{
-            //    LN.EliminarCPU_TipoMod(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_CPU_TipoMod(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarCpuTipoMod--> Final
+            ////EliminarCpuTipoMod--> Final
 
-            //EliminarDiscoDuro--> Inicio
+            ////EliminarDiscoDuro--> Inicio----------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarDiscoDuro(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_DiscoDuro(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarDiscoDuro--> Final
+            ////EliminarDiscoDuro--> Final
 
-            //EliminarEstatus--> Inicio
+            ////EliminarEstatus--> Inicio
             //try
             //{
-            //    LN.EliminarEstatus(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Estatus(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //Eliminarstatus--> Final
+            ////Eliminarstatus--> Final
 
-            //EliminarEvidencia--> Inicio
+            ////EliminarEvidencia--> Inicio
             //try
             //{
-            //    LN.EliminarEvidencia(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Evidencia(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarEvidencian--> Final
+            ////EliminarEvidencian--> Final
 
-            //EliminarGabinete--> Inicio
+            ////EliminarGabinete--> Inicio-----------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarGabinete(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Gabinete(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarGabinete--> Final
+            ////EliminarGabinete--> Final
 
-            //EliminarLaboratorio--> Inicio
+            ////EliminarLaboratorio--> Inicio---------------------------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarLaboratorio(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Laboratorio(ref mensaje, ref mensajeC, 3);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarLaboratorio--> Final
+            ////EliminarLaboratorio--> Final
 
-            //EliminarMarca--> Inicio
+            ////EliminarMarca--> Inicio
             //try
             //{
-            //    LN.EliminarMarca(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Marca(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarrMarca--> Final
+            ////EliminarrMarca--> Final
 
-            //EliminarModelo--> Inicio
+            ////EliminarModelo--> Inicio
             //try
             //{
-            //    LN.EliminarModelo(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Modelo(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarModelo--> Final
+            ////EliminarModelo--> Final
 
-            //EliminarMonitor-> Inicio
+            ////EliminarMonitor-> Inicio
             //try
             //{
-            //    LN.EliminarMonitor(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Monitor(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarMonitor--> Final
+            ////EliminarMonitor--> Final
 
-            //EliminarMouse--> Inicio
+            ////EliminarMouse--> Inicio
             //try
             //{
-            //    LN.EliminarMouse(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Mouse(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarMouse--> Final
+            ////EliminarMouse--> Final
 
-            //EliminarRam--> Inicio
+            ////EliminarRam--> Inicio--------------------------------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarRam(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Ram(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarRam--> Final
+            ////EliminarRam--> Final
 
-            //EliminarTeclado--> Inicio
+            ////EliminarTeclado--> Inicio
             //try
             //{
-            //    LN.EliminarTeclado(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Teclado(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarTeclado--> Final
+            ////EliminarTeclado--> Final
 
-            //EliminarTipoCpu-> Inicio
+            ////EliminarTipoCpu-> Inicio-----------------------------------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.EliminarTipocpu(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Tipocpu(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarTipoCpu--> Final
+            ////EliminarTipoCpu--> Final
 
-            //EliminarTipoRam--> Inicio
+            ////EliminarTipoRam--> Inicio
             //try
             //{
-            //    LN.EliminarTipoRAM(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_TipoRAM(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarTipoRam--> Final
+            ////EliminarTipoRam--> Final
 
-            //EliminarUbicacion--> Inicio
+            ////EliminarUbicacion--> Inicio
             //try
             //{
-            //    LN.EliminarUbicacion(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Ubicacion(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarUbicacion--> Final
+            ////EliminarUbicacion--> Final
 
-            //EliminarUsuario--> Inicio
+            ////EliminarUsuario--> Inicio
             //try
             //{
-            //    LN.EliminarUsuario(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Usuario(ref mensaje, ref mensajeC, 11);
             //    Label14.Text = "se elimino";
             //}
             //catch
             //{
             //    Label14.Text = "error checa tus datos";
             //}
-            //EliminarUsuario--> Final
+            ////EliminarUsuario--> Final
         }
     }
 }

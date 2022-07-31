@@ -13,2038 +13,1014 @@ namespace c_dll
     public class Logica_Negocio
     {
         private Acceso_Datos AC = null;
+
+        private CRUD OPC = null; 
         public Logica_Negocio(string connection)
         {
             AC = new Acceso_Datos(connection);
+            OPC = new CRUD(connection);
         }
 
-        public List<Actualizacion> ListaActualizacion(ref string mensaje, ref string mensajeC)//Metodo de la Lista Actualización
+        //<--------------------------------------------------------------------------------------------Listas Mostrar-------------------------------------------------------------------------------------------->
+        public List<Actualizacion> L_Actualizacion(ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from actualizacion;", etiqueta = "InventarioPCsLabs";//Variables y Utilidades
-            DataSet dataSet = null;
-            DataTable dataTable = null;
+            return OPC.ListaActualizacion(ref mensaje, ref mensajeC);
+        }
+        public List<CantDisc> L_CantDisc(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaCantDisc(ref mensaje, ref mensajeC);
+        }
+        public List<Categoria> L_Categoria(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaCategoria(ref mensaje, ref mensajeC);
+        }
+        public List<CatMar> L_CatMar(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaCatMar(ref mensaje, ref mensajeC);
+        }
+        public List<Computadorafinal> L_ComputadoraFinal(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaComputadoraFinal(ref mensaje, ref mensajeC);
+        }
+        public List<CpuGenerico> L_CpuGenerico(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaCpuGenerico(ref mensaje, ref mensajeC);
+        }
+        public List<CpuTipoMod> L_CpuTipoMod(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaCpuTipoMod(ref mensaje, ref mensajeC);
+        }
+        public List<DiscoDuro> L_DiscoDuro(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaDiscoDuro(ref mensaje, ref mensajeC);
+        }
+        public List<Estatus> L_Estatus(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaEstatus(ref mensaje, ref mensajeC);
+        }
+        public List<Evidencia> L_Evidencia(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaEvidencia(ref mensaje, ref mensajeC);
+        }
+        public List<Gabinete> L_Gabinete(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaGabinete(ref mensaje, ref mensajeC);
+        }
+        public List<Laboratorio> L_Lab(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaLab(ref mensaje, ref mensajeC);
+        }
+        public List<Marca> L_Marca(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaMarca(ref mensaje, ref mensajeC);
+        }
+        public List<ModeloCpu> L_ModeloCpu(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaModeloCpu(ref mensaje, ref mensajeC);
+        }
+        public List<Monitor> L_Monitor(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaMonitor(ref mensaje, ref mensajeC);
+        }
+        public List<Mouse> L_Mouse(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaMouse(ref mensaje, ref mensajeC);
+        }
+        public List<Ram> L_Ram(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaRam(ref mensaje, ref mensajeC);
+        }
+        public List<Teclado> L_Teclado(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaTeclado(ref mensaje, ref mensajeC);
+        }
+        public List<TipoCpu> L_TipoCpu(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaTipoCpu(ref mensaje, ref mensajeC);
+        }
+        public List<TipoRam> L_TipoRam(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaTipoRam(ref mensaje, ref mensajeC);
+        }
+        public List<Ubicacion> L_Ubicacion(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaUbicacion(ref mensaje, ref mensajeC);
+        }
+        public List<Usuario> L_Usuario(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaUsuario(ref mensaje, ref mensajeC);
+        }
 
-            List<Actualizacion> actualizacion = new List<Actualizacion>();//Creacion de una lista del tipo Actualizacion para trabajar
+        //<--------------------------------------------------------------------------------------------Insertar-------------------------------------------------------------------------------------------->
 
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);//Se llena el DataSet con los datos de la BD
-            if (dataSet != null)//Si e DataSet tiene datos entonces
+        public string Insert_Actualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        {
+            string resp = "";
+            if (!OPC.InsertarActualizacion(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];//Se crea un DataTable y se llena con la informacion del DataSet
-                actualizacion = dataTable.AsEnumerable().Select(row => new Actualizacion//El datatable es como un numerable y se hace una seleccion, cada row será igual a un nuevo objeto de a clase seleccionada
-                {//Por cada iterancia vamos a pasar los parámetros de mi objeto
-                    IdAct = row.Field<int>("id_act"),
-                    NumInv = row.Field<string>("num_inv"),
-                    NumSerie = row.Field<string>("num_serie"),
-                    Descripcion = row.Field<string>("descripcion"),
-                    Fecha = row.Field<DateTime>("fecha"),
-                }).ToList();//Se añade la información a la Lista
+                resp = "nu";
+
             }
-            return actualizacion;//Se retorna la Lista 
-        }
-        public List<CantDisc> ListaCantDisc(ref string mensaje, ref string mensajeC)//Metodo de la Lista CantDisc
-        {
-            string comandoSql = "select * from cantDisc;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<CantDisc> cantDiscs = new List<CantDisc>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                cantDiscs = dataTable.AsEnumerable().Select(row => new CantDisc
-                {
-                    IdCant = row.Field<int>("id_cant"),
-                    NumInv = row.Field<string>("num_inv"),
-                    IdDisco = row.Field<int>("id_Disco"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return cantDiscs;
+            return resp;
         }
-        public List<Categoria> ListaCategoria(ref string mensaje, ref string mensajeC)//Metodo de la Lista Categoria
+        public string Insert_cantDisc(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from Categoria;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Categoria> categoria = new List<Categoria>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarcantDisc(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                categoria = dataTable.AsEnumerable().Select(row => new Categoria
-                {
-                    IdCategoria = row.Field<int>("id_Categoria"),
-                    Descripcion = row.Field<string>("Descripcion"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return categoria;
-        }
-        public List<CatMar> ListaCatMar(ref string mensaje, ref string mensajeC)//Metodo de la Lista CatMar
-        {
-            string comandoSql = "select * from CatMar;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<CatMar> CatMar = new List<CatMar>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                CatMar = dataTable.AsEnumerable().Select(row => new CatMar
-                {
-                    IdCatMar = row.Field<int>("id_CatMar"),
-                    IdCategoria = row.Field<int>("id_Categoria"),
-                    IdMarca = row.Field<int>("id_Marca"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return CatMar;
+            return resp;
         }
-        public List<Computadorafinal> ListaComputadoraFinal(ref string mensaje, ref string mensajeC)//Metodo de la Lista ComputadoraFinal
+        public string Insert_Categoria(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from computadorafinal;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Computadorafinal> CompuFinal = new List<Computadorafinal>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarCategoria(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                CompuFinal = dataTable.AsEnumerable().Select(row => new Computadorafinal
-                {
-                    NumInv = row.Field<string>("num_inv"),
-                    NumScpu = row.Field<string>("num_scpu"),
-                    IdCpug = row.Field<int>("id_cpug"),
-                    NumSteclado = row.Field<string>("num_steclado"),
-                    IdTecladog = row.Field<int>("id_tecladog"),
-                    NumSmonitor = row.Field<string>("num_smonitor"),
-                    IdMong = row.Field<int>("id_mong"),
-                    NumSmouse = row.Field<string>("num_smouse"),
-                    IdMousg = row.Field<int>("id_mousg"),
-                    Estado = row.Field<string>("estado"),
-                    IdEstatus = row.Field<int>("id_Estatus"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return CompuFinal;
-        }
-        public List<CpuGenerico> ListaCpuGenerico(ref string mensaje, ref string mensajeC)//Metodo de la Lista CpuGenerico
-        {
-            string comandoSql = "select * from Cpu_Generico;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<CpuGenerico> CpuGenerico = new List<CpuGenerico>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                CpuGenerico = dataTable.AsEnumerable().Select(row => new CpuGenerico
-                {
-                    IdCpu = row.Field<int>("id_CPU"),
-                    FTcpu = row.Field<int>("f_Tcpu"),
-                    FMarcaCpu = row.Field<int>("f_MarcaCpu"),
-                    Modelo = row.Field<string>("Modelo"),
-                    Descripcion = row.Field<string>("Descripcion"),
-                    FTipoRam = row.Field<int>("f_tipoRam"),
-                    IdGabinete = row.Field<int>("id_Gabinete"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return CpuGenerico;
+            return resp;
         }
-        public List<CpuTipoMod> ListaCpuTipoMod(ref string mensaje, ref string mensajeC)//Metodo de la Lista CpuTipoMod
+        public string Insert_CatMar(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from CPU_TipoMod ;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<CpuTipoMod> CpuTipoMod = new List<CpuTipoMod>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarCatMar(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                CpuTipoMod = dataTable.AsEnumerable().Select(row => new CpuTipoMod
-                {
-                    IdTipoMod = row.Field<int>("id_TipoMod"),
-                    IdTcpu = row.Field<int>("id_Tcpu"),
-                    IdModcpu = row.Field<int>("id_modcpu"),
-                    Nucleos = row.Field<string>("nucleos"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return CpuTipoMod;
-        }
-        public List<DiscoDuro> ListaDiscoDuro(ref string mensaje, ref string mensajeC)//Metodo de la Lista DiscoDuro
-        {
-            string comandoSql = "select * from DiscoDuro ;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<DiscoDuro> DiscoDuro = new List<DiscoDuro>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                DiscoDuro = dataTable.AsEnumerable().Select(row => new DiscoDuro
-                {
-                    IdDisco = row.Field<int>("id_Disco"),
-                    TipoDisco = row.Field<string>("TipoDisco"),
-                    Conector = row.Field<string>("conector"),
-                    Capacidad = row.Field<string>("Capacidad"),
-                    FMarcaDisco = row.Field<int>("F_MarcaDisco"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return DiscoDuro;
+            return resp;
         }
-        public List<Estatus> ListaEstatus(ref string mensaje, ref string mensajeC)//Metodo de la Lista Estatus
+        public string Insert_ComputadoraFinal(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from Estatus ;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Estatus> estatus = new List<Estatus>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarComputadoraFinal(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                estatus = dataTable.AsEnumerable().Select(row => new Estatus
-                {
-                    IdEstatus = row.Field<int>("id_Estatus"),
-                    Estado = row.Field<string>("Estado"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return estatus;
-        }
-        public List<Evidencia> ListaEvidencia(ref string mensaje, ref string mensajeC)//Metodo de la Lista Evidencia
-        {
-            string comandoSql = "select * from Evidencia ;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Evidencia> evidencia = new List<Evidencia>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                evidencia = dataTable.AsEnumerable().Select(row => new Evidencia
-                {
-                    IdEvidencia = row.Field<int>("id_Evidencia"),
-                    Evidencia1 = row.Field<string>("Evidencia1"),
-                    NumInv = row.Field<string>("num_inv"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return evidencia;
+            return resp;
+
         }
-        public List<Gabinete> ListaGabinete(ref string mensaje, ref string mensajeC)//Metodo de la Lista Gabinete
+        public string Insert_CPUgenerico(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoSql = "select * from Gabinete ;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Gabinete> gabinete = new List<Gabinete>();
-
-            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarCPUgenerico(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                gabinete = dataTable.AsEnumerable().Select(row => new Gabinete
-                {
-                    IdGabinete = row.Field<int>("id_Gabinete"),
-                    Modelo = row.Field<string>("Modelo"),
-                    TipoForma = row.Field<string>("TipoForma"),
-                    FMarca = row.Field<int>("F_Marca"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return gabinete;
-        }
-        public List<Laboratorio> ListaLab(ref string mensaje, ref string mensajeC)//Metodo de la Lista Laboratorio
-        {
-            string comandoMySql = "select * from Laboratorio;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Laboratorio> LLab = new List<Laboratorio>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LLab = dataTable.AsEnumerable().Select(row => new Laboratorio
-                {
-                    NombreLaboratorio = row.Field<string>("nombre_laboratorio"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LLab;
+            return resp;
         }
-        public List<Marca> ListaMarca(ref string mensaje, ref string mensajeC)//Metodo de la Lista Marca
+        public string Insert_CPUTipoMod(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoMySql = "select * from Marca;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<Marca> LMarca = new List<Marca>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarCPUTipoMod(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                LMarca = dataTable.AsEnumerable().Select(row => new Marca
-                {
-                    IdMarca = row.Field<int>("Id_Marca"),
-                    Marca1 = row.Field<string>("Marca"),
-                    IdComponente = row.Field<short>("Id_Componente"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return LMarca;
-        }
-        public List<ModeloCpu> ListaModeloCpu(ref string mensaje, ref string mensajeC)//Metodo de la Lista ModeloCpu revisar como trae la informacion
-        {
-            string comandoMySql = "select * from ModeloCPU;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-
-            List<ModeloCpu> LModeloCpu = new List<ModeloCpu>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LModeloCpu = dataTable.AsEnumerable().Select(row => new ModeloCpu
-                {
-                    IdModcpu = row.Field<int>("id_modcpu"),
-                    ModeloCpu1 = row.Field<string>("modeloCPU"),
-                    //FMarca = row.Field<int>("f_marca"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LModeloCpu;
+            return resp;
         }
-        public List<Monitor> ListaMonitor(ref string mensaje, ref string mensajeC)//Metodo de la Lista Monitor
+        public string Insert_DiscoDuro(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoMySql = "select * from Monitor;", etiqueta = "InventarioPCsLabs";//cambio
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Monitor> LMonitor = new List<Monitor>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarDiscoDuro(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                LMonitor = dataTable.AsEnumerable().Select(row => new Monitor
-                {
-                    IdMonitor = row.Field<int>("id_monitor"),
-                    FMarcam = row.Field<int>("f_marcam"),
-                    Conectores = row.Field<string>("conectores"),
-                    Tamano = row.Field<string>("tamano"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return LMonitor; 
-        }
-        public List<Mouse> ListaMouse(ref string mensaje, ref string mensajeC)//Metodo de la Lista Mouse
-        {
-            string comandoMySql = "select * from Mouse;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Mouse> LMouse = new List<Mouse>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LMouse = dataTable.AsEnumerable().Select(row => new Mouse
-                {
-                    IdMouse = row.Field<int>("id_mouse"),
-                    FMarcamouse = row.Field<int>("f_marcamouse"),
-                    Conector = row.Field<string>("conector"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LMouse;
+            return resp;
         }
-        public List<Ram> ListaRam(ref string mensaje, ref string mensajeC)//Metodo de la Lista Ram
+        public string Insert_Estatus(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoMySql = "select * from Ram;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Ram> LRam = new List<Ram>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarEstatus(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                LRam = dataTable.AsEnumerable().Select(row => new Ram
-                {
-                    IdRam = row.Field<int>("id_RAM"),
-                    Capacidad = row.Field<short>("Capacidad"),
-                    Velocidad = row.Field<string>("Velocidad"),
-                    FTipoR = row.Field<int>("F_TipoR"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return LRam; 
-        }
-        public List<Teclado> ListaTeclado(ref string mensaje, ref string mensajeC)//Metodo de la Lista Teclado
-        {
-            string comandoMySql = "select * from Teclado;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Teclado> LTeclado = new List<Teclado>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LTeclado = dataTable.AsEnumerable().Select(row => new Teclado
-                {
-                    IdTeclado = row.Field<int>("id_teclado"),
-                    FMarcat = row.Field<int>("f_marcat"),
-                    Conector = row.Field<string>("conector"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LTeclado; 
+            return resp;
         }
-        public List<TipoCpu> ListaTipoCpu(ref string mensaje, ref string mensajeC)//Metodo de la Lista TipoCpu
+        public string Insert_Evidencia(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoMySql = "select * from Tipo_Cpu;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<TipoCpu> LTipoCpu = new List<TipoCpu>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarEvidencia(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                LTipoCpu = dataTable.AsEnumerable().Select(row => new TipoCpu
-                {
-                    IdTcpu = row.Field<int>("id_Tcpu"),
-                    Tipo = row.Field<string>("Tipo"),
-                    Familia = row.Field<string>("Familia"),
-                    //Velocidad = row.Field<string>("Velocidad"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return LTipoCpu;
-        }
-        public List<TipoRam> ListaTipoRam(ref string mensaje, ref string mensajeC)//Metodo de la Lista TipoRam
-        {
-            string comandoMySql = "select * from TipoRAM;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<TipoRam> LTipoRam = new List<TipoRam>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LTipoRam = dataTable.AsEnumerable().Select(row => new TipoRam
-                {
-                    IdTipoRam = row.Field<int>("id_tipoRam"),
-                    Tipo = row.Field<string>("Tipo"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LTipoRam;
+            return resp;
         }
-        public List<Ubicacion> ListaUbicacion(ref string mensaje, ref string mensajeC)//Metodo de la Lista Ubicación
+        public string Insert_Gabinete(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            string comandoMySql = "select * from Ubicacion;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Ubicacion> LUbicacion = new List<Ubicacion>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            string resp = "";
+            if (!OPC.InsertarGabinete(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                dataTable = dataSet.Tables[0];
-                LUbicacion = dataTable.AsEnumerable().Select(row => new Ubicacion
-                {
-                    NumInv = row.Field<string>("num_inv"),
-                    NombreLaboratorio = row.Field<string>("nombre_laboratorio"),
-                }).ToList();
+                resp = "nu";
+
             }
-            return LUbicacion;
-        }
-        public List<Usuario> ListaUsuario(ref string mensaje, ref string mensajeC)//Metodo de la Lista Usuario
-        {
-            string comandoMySql = "select * from Usuario;", etiqueta = "InventarioPCsLabs";
-            DataSet dataSet = null;
-            DataTable dataTable = null;
-            List<Usuario> LUsuario = new List<Usuario>();
-
-            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
-            if (dataSet != null)
+            else
             {
-                dataTable = dataSet.Tables[0];
-                LUsuario = dataTable.AsEnumerable().Select(row => new Usuario
-                {
-                    IdUsuario = row.Field<int>("id_usuario"),
-                    Nombre = row.Field<string>("nombre"),
-                    ApP = row.Field<string>("ap_p"),
-                    ApM = row.Field<string>("ap_m"),
-                    NomUsuario = row.Field<string>("nom_usuario"),
-                    Password = row.Field<string>("password"),
-                    TipoUsuario = row.Field<string>("tipo_usuario"),
-                }).ToList();
+                resp = "Viejo sabroso:3";
             }
-            return LUsuario;
+            return resp;
         }
-
-        //aqui ira el insertar de actualizacion //
-        public bool InsertarActualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Laboratorio(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Actualizacion(num_inv,num_serie,descripcion,fecha)" +
-                "values (@num_inv,@num_serie,@descripcion,@fecha)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarLaboratorio(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@id_Disco",SqlDbType.Int),
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
-                new SqlParameter("@num_inv",SqlDbType.DateTime),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = Convert.ToDateTime(nuevoDatos[4]);
-
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //----------------------------------// 
+                resp = "nu";
 
-        //----------------inicia la tabla cantDisc-----------------------//
-        public bool InsertarcantDisc(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO cantDisc(num_inv, id_Disco)" +
-                "values (@num_inv, @id_Disco)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
-                new SqlParameter("@id_Disco",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //---------------Fin de cantDisc-----------------------------------//
-
-        //----------------inicia la tabla Categoria-----------------------//
-
-        public bool InsertarCategoria(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Marca(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Categoria(Descripcion)" +
-                "values (@Descripcion)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarMarca(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@Descripcion",SqlDbType.VarChar, 100),
-            };
-            info[0].Value = nuevoDatos[0];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-
-        //---------------fin de la tabla Categoria----------------------//
-
-        //---------------inicia la tabla catMar------------------------//
+                resp = "nu";
 
-        public bool InsertarCatMar(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO CatMar(id_Categoria, id_Marca)" +
-                "values (@id_Categoria, @id_Marca)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@id_Categoria",SqlDbType.Int),
-                new SqlParameter("@id_Marca",SqlDbType.Int),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-
-        //---------------Fin de la tabla catMar-----------------------//
-
-        //--------------Inicio de la tabla Computadora final---------//
-
-        public bool InsertarComputadoraFinal(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_ModeloCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO computadorafinal(num_inv, num_scpu, id_cpug, num_steclado, id_tecladog, num_smonitor, id_mong, num_smouse, id_mousg, estado, id_Estatus)" +
-                "values (@num_inv, @num_scpu, @id_cpug, @num_steclado, @id_tecladog, @num_smonitor, @id_mong, @num_smouse, @id_mousg, @estado, @id_Estatus)";
-            SqlParameter[] info = new SqlParameter[]
-            {
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
-                new SqlParameter("@num_scpu",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_cpug",SqlDbType.Int),
-                new SqlParameter("@num_steclado",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_tecladog",SqlDbType.Int),
-                new SqlParameter("@num_smonitor",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_mong",SqlDbType.Int),
-                new SqlParameter("@num_smouse",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_mousg",SqlDbType.Int),
-                new SqlParameter("@estado",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_Estatus",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = Convert.ToInt32(nuevoDatos[4]);
-            info[5].Value = nuevoDatos[5];
-            info[6].Value = Convert.ToInt32(nuevoDatos[6]);
-            info[7].Value = nuevoDatos[7];
-            info[8].Value = Convert.ToInt32(nuevoDatos[8]);
-            info[9].Value = nuevoDatos[9];
-            info[10].Value = Convert.ToInt32(nuevoDatos[10]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //--------------Fin  de la tabla Computadora final---------//
-
-        //--------------Inicio de la tabla CPU generico---------//
-
-        public bool InsertarCPUgenerico(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO CPU_Generico(f_Tcpu, f_MarcaCpu, Modelo, Descripcion, f_tipoRam, id_Gabinete)" +
-                "values (@f_Tcpu, @f_MarcaCpu, @Modelo, @Descripcion, @f_tipoRam, @id_Gabinete)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarModeloCpu(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@f_Tcpu",SqlDbType.Int),
-                new SqlParameter("@f_MarcaCpu",SqlDbType.Int),
-                new SqlParameter("@Modelo",SqlDbType.VarChar, 20),
-                new SqlParameter("@Descripcion",SqlDbType.VarChar, 40),
-                new SqlParameter("@f_tipoRam",SqlDbType.Int),
-                new SqlParameter("@id_Gabinete",SqlDbType.Int),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = Convert.ToInt32(nuevoDatos[4]);
-            info[5].Value = Convert.ToInt32(nuevoDatos[5]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //--------------Fin  de la tabla Cpu generico -----------//
+                resp = "nu";
 
-        //--------------Inicio de la tabla CPU tipo mod---------//
-
-        public bool InsertarCPUTipoMod(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO CPU_TipoMod(id_Tcpu, id_modcpu, nucleos)" +
-                "values (@id_Tcpu, @id_modcpu, @nucleos)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@id_Tcpu",SqlDbType.Int),
-                new SqlParameter("@id_modcpu",SqlDbType.Int),
-                new SqlParameter("@nucleos",SqlDbType.VarChar, 10),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-            info[2].Value = nuevoDatos[2];
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //--------------Fin  de la tabla Cpu tipo mod -----------//
-
-        //--------------Inicio de la tabla Disco Duro (checar tabla no inserta datos)---------//
-
-        public bool InsertarDiscoDuro(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Monitor(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO DiscoDuro(TipoDisco,conector,Capacidad,F_MarcaDisco,Extra)" +
-                "values (@TipoDisco,@conector,@Capacidad,@F_MarcaDisco,@Extra)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarMonitor(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@TipoDisco",SqlDbType.VarChar, 50),
-                new SqlParameter("@conector",SqlDbType.VarChar, 50),
-                new SqlParameter("@Capacidad",SqlDbType.VarChar, 50),
-                new SqlParameter("@F_MarcaDisco",SqlDbType.Int),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = Convert.ToInt32(nuevoDatos[3]);
-            info[4].Value = nuevoDatos[4];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //--------------Fin  de la tabla disco duro  -----------//
-
-        public bool InsertarEstatus(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
+                resp = "nu";
 
-            string instrccion = "INSERT INTO Estatus(Estado)" +
-                "values (@Estado)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@Estado",SqlDbType.VarChar, 50),
-            };
-
-            info[0].Value = nuevoDatos[0];
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //--------------Fin  de la tabla Cpu tipo mod -----------//
-
-        //--------------Fin  de la tabla disco duro  -----------//
-
-        public bool InsertarEvidencia(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Mouse(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Evidencia(Evidencia1, num_inv)" +
-                "values (@evidencia1 , @num_inv)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarMouse(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@Evidencia1",SqlDbType.VarChar, 50),
-                new SqlParameter("@num_inv",SqlDbType.Int),
-            };
+                resp = "nu";
 
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //--------------Fin  de la tabla Cpu tipo mod -----------//
-
-        //Insertar Gabinete-------- Inicio
-        public bool InsertarGabinete(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Gabinete (Modelo,TipoForma,F_Marca)" +
-                "values (@Modelo,@TipoForma,@F_Marca)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@Modelo",SqlDbType.VarChar, 50),
-                new SqlParameter("@TipoForma",SqlDbType.VarChar, 50),
-                new SqlParameter("@F_Marca",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Gabinete-------- Fin
-
-        //Insertar Laboratorio-------- Inicio
-        public bool InsertarLaboratorio(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Ram(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Laboratorio (nombre_laboratorio)" +
-                "values (@nombre_laboratorio)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarRam(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = nuevoDatos[0];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //Insertar Laboratorio-------- Fin
-
-        //Insertar Marca-------- Inicio
-        public bool InsertarMarca(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
+                resp = "nu";
 
-            string instrccion = "INSERT INTO Marca (Marca, Id_Componente, Extra)" +
-                "values (@Marca, @Id_Componente, @Extra)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@Marca",SqlDbType.VarChar, 50),
-                new SqlParameter("@Id_Componente",SqlDbType.Int),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-            info[2].Value = nuevoDatos[2];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Marca-------- Fin
-
-        //Insertar ModeloCPU-------- Inicio
-        public bool InsertarModeloCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Teclado(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO ModeloCPU(modeloCPU, f_marca)" +
-                "values (@modeloCPU, @f_marca)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarTeclado(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@modeloCPU",SqlDbType.VarChar, 50),
-                new SqlParameter("@f_marca",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = Convert.ToInt32(nuevoDatos[1]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //Insertar ModeloCPU-------- Fin
-
-        //Insertar Monitor-------- Inicio
-        public bool InsertarMonitor(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
+                resp = "nu";
 
-            string instrccion = "INSERT INTO monitor(f_marcam,conectores,tamano)" +
-                "values (@f_marcam,@conectores,@tamano)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@f_marcam",SqlDbType.Int),
-                new SqlParameter("@conectores",SqlDbType.VarChar, 50),
-                new SqlParameter("@tamano",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Monitor-------- Fin
-
-        //Insertar Mouse-------- Inicio
-        public bool InsertarMouse(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_TipoCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Mouse(f_marcamouse, conector)" +
-                "values (@f_marcamouse, @conector)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarTipoCpu(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@f_marcamouse",SqlDbType.Int),
-                new SqlParameter("@conector",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = nuevoDatos[1];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //Insertar Mouse-------- Fin
-
-        //Insertar Ram-------- Inicio
-        public bool InsertarRam(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
+                resp = "nu";
 
-            string instrccion = "INSERT INTO Ram(Capacidad,Velocidad,F_TipoR)" +
-                "values (@Capacidad,@Velocidad,@F_TipoR)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@Capacidad",SqlDbType.SmallInt),
-                new SqlParameter("@Velocidad",SqlDbType.VarChar, 50),
-                new SqlParameter("@F_TipoR",SqlDbType.Int),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = Convert.ToInt32(nuevoDatos[2]);
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Ram-------- Fin
-
-        //Insertar Teclado-------- Inicio
-        public bool InsertarTeclado(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_TipoRam(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO teclado(f_marcat,conector)" +
-                "values (@f_marcat,@conector)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarTipoRam(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@f_marcat",SqlDbType.Int),
-                new SqlParameter("@conector",SqlDbType.VarChar, 15),
-            };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
-            info[1].Value = nuevoDatos[1];
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //Insertar Teclado-------- Fin
-
-        //Insertar TipoCpu-------- Inicio
-        public bool InsertarTipoCpu(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO Tipo_CPU(Tipo,Familia,Velocidad,Extra)" +
-                "values (@Tipo,@Familia,@Velocidad,@Extra)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@Tipo",SqlDbType.VarChar, 50),
-                new SqlParameter("@Familia",SqlDbType.VarChar, 50),
-                new SqlParameter("@Velocidad",SqlDbType.VarChar, 50),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-            };
-
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar TipoCpu-------- Fin
-
-        //Insertar TipoRam-------- Inicio
-        public bool InsertarTipoRam(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Ubicacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO TipoRam(Tipo,Extra)" +
-                "values (@Tipo,@Extra)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarUbicacion(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@Tipo",SqlDbType.VarChar, 50),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-            };
-
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
-        }
-        //Insertar TipoRam-------- Fin
-
-        //Insertar Ubicacion-------- Inicio
-        public bool InsertarUbicacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
-        {
-            bool respuesta = false;
+                resp = "nu";
 
-            string instrccion = "INSERT INTO ubicacion (num_inv, nombre_laboratorio)" +
-                "values (@num_inv, @nombre_laboratorio)";
-            SqlParameter[] info = new SqlParameter[]
+            }
+            else
             {
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
-                new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Ubicacion-------- Fin
-
-        //Insertar Usuario-------- Inicio
-        public bool InsertarUsuario(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insert_Usuario(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
-            bool respuesta = false;
-
-            string instrccion = "INSERT INTO usuario(nombre, ap_p, ap_m, nom_usuario, password, tipo_usuario)" +
-                "values (@nombre,@ap_p,@ap_m,@nom_usuario,@password,@tipo_usuario)";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.InsertarUsuario(nuevoDatos, ref mensaje, ref mensajeC))
             {
-                new SqlParameter("@nombre",SqlDbType.VarChar, 50),
-                new SqlParameter("@ap_p",SqlDbType.VarChar, 50),
-                new SqlParameter("@ap_m",SqlDbType.VarChar, 50),
-                new SqlParameter("@nom_usuario",SqlDbType.VarChar, 50),
-                new SqlParameter("@password",SqlDbType.VarChar, 50),
-                new SqlParameter("@tipo_usuario",SqlDbType.VarChar, 50),
-            };
+                resp = "nu";
 
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = nuevoDatos[4];
-            info[5].Value = nuevoDatos[5];
-            
-            respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Insertar Usuario-------- Fin
 
-        // editar actualizacion---------
-        public bool ActualizarTabActualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int id)
-        {
-            bool respuesta = false;
+        //<--------------------------------------------------------------------------------------------Modificar-------------------------------------------------------------------------------------------->
 
-            string instruccion = "UPDATE actualizacion " +
-                " set num_inv = @num_inv, num_serie = @num_serie, descripcion = @descripcion, fecha = @fecha" +
-                " where id_act = @id_act;";
-            SqlParameter[] evalucion = new SqlParameter[]
+        public string Act_TabActualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int id)
+        {
+            string resp = "";
+            if (!OPC.ActualizarTabActualizacion(nuevoDatos, ref mensaje, ref mensajeC, id))
             {
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
-                new SqlParameter("@num_serie",SqlDbType.VarChar, 11),
-                new SqlParameter("@descripcion",SqlDbType.VarChar, 64),
-                new SqlParameter("@fecha",SqlDbType.DateTime),
-                new SqlParameter("@id_act",SqlDbType.Int),
-            };
-            evalucion[0].Value = nuevoDatos[0];
-            evalucion[1].Value = nuevoDatos[1];
-            evalucion[2].Value = nuevoDatos[2];
-            evalucion[3].Value = nuevoDatos[3];
-            evalucion[4].Value = id;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, evalucion);
-            return respuesta;
-
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar actualizacion-----fin
-
-        // editar cantDisc---------
-        public bool ActualizarCantDisc(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_CabtDisc(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE cantDisc " +
-                "set num_inv = @num_inv, id_Disco = @id_Disco" +
-                " where id_cant = @id_cant;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCantDisc(nuevoDatos, ref mensaje, ref mensajeC, ID))
             {
-                new SqlParameter("@num_inv", SqlDbType.VarChar, 10),
-                new SqlParameter("@id_Disco", SqlDbType.Int),
-                new SqlParameter("@id_cant", SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar CantDisc-----fin
-
-        // editar cantegoria---------
-        public bool ActualizarCategoria(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Categoria(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Categoria " +
-                "set Descripcion = @Descripcion " +
-                " where id_Categoria = @id_Categoria;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCategoria(nuevoDatos,ref Mensaje,ref MensajeC, ID))
             {
-                new SqlParameter("@Descripcion", SqlDbType.VarChar, 100),
-                new SqlParameter("@id_Categoria", SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Cantegoria-----fin
-
-
-        // editar cantegoria---------
-        public bool ActualizarCatMar(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_CatMar(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE CatMar " +
-                "set id_Categoria = @id_Categoria, id_Marca = @id_Marca " +
-                " where id_CatMar = @id_CatMar;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCatMar(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Categoria", SqlDbType.Int),
-                new SqlParameter("@id_Marca", SqlDbType.Int),
-                new SqlParameter("@id_CatMar", SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Cantegoria-----fin
-
-        // editar computadora final---------
-        public bool ActualizarCompuFinal(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_CompuFinal(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE computadorafinal " +
-                "set num_scpu = @num_scpu,id_cpug = @id_cpug, num_steclado = @num_steclado, id_tecladog =  @id_tecladog, num_smonitor = @num_smonitor, id_mong = @id_mong, num_smouse = @num_smouse, id_mousg = @id_mousg, estado =@estado, id_Estatus = @id_Estatus  " +
-                " where num_inv = @num_inv;";
-            SqlParameter[] info = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCompuFinal(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@num_scpu",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_cpug",SqlDbType.Int),
-                new SqlParameter("@num_steclado",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_tecladog",SqlDbType.Int),
-                new SqlParameter("@num_smonitor",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_mong",SqlDbType.Int),
-                new SqlParameter("@num_smouse",SqlDbType.VarChar, 11),
-                new SqlParameter("@id_mousg",SqlDbType.Int),
-                new SqlParameter("@estado",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_Estatus",SqlDbType.Int),
-                new SqlParameter("@num_inv",SqlDbType.Int),
-            };
-            info[0].Value = nuevoDatos[0];
-            info[1].Value = nuevoDatos[1];
-            info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = nuevoDatos[4];
-            info[5].Value = nuevoDatos[5];
-            info[6].Value = nuevoDatos[6];
-            info[7].Value = nuevoDatos[7];
-            info[8].Value = nuevoDatos[8];
-            info[9].Value = nuevoDatos[9];
-            info[10].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, info);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Computadora final-----fin
-
-        // editar CPU_Generico---------
-        public bool ActualizarCPU_generico(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_CPU_generico(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE CPU_Generico " +
-                "set f_Tcpu = @f_Tcpu, f_MarcaCpu = @f_MarcaCpu, Modelo = @Modelo, Descripcion = @Descripcion, f_tipoRam = @f_tipoRam, id_Gabinete = @id_Gabinete " +
-                " where id_CPU = @id_CPU;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCPU_generico(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@f_Tcpu", SqlDbType.Int),
-                new SqlParameter("@f_MarcaCpu", SqlDbType.Int),
-                new SqlParameter("@Modelo", SqlDbType.VarChar, 20),
-                new SqlParameter("@Descripcion", SqlDbType.VarChar, 40),
-                new SqlParameter("@f_tipoRam", SqlDbType.Int),
-                new SqlParameter("@id_Gabinete", SqlDbType.Int),
-                new SqlParameter("@id_CPU", SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = nuevoDatos[3];
-            evaluacion[4].Value = nuevoDatos[4];
-            evaluacion[5].Value = nuevoDatos[5];
-            evaluacion[6].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Cpu generico-----fin
-
-        // editar cpu_tipomod ---------------
-        public bool ActualizarCpu_tipomod(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Cpu_tipomod(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE CPU_TipoMod " +
-                "set id_Tcpu = @id_Tcpu, id_modcpu = @id_modcpu, nucleos = @nucleos " +
-                " where id_TipoMod = @id_TipoMod;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarCpu_tipomod(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Tcpu", SqlDbType.Int),
-                new SqlParameter("@id_modcpu", SqlDbType.Int),
-                new SqlParameter("@nucleos", SqlDbType.VarChar, 10),
-                new SqlParameter("@id_TipoMod", SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Cpu_tipomod-----fin
-
-        // editar disco duro---------
-        public bool ActualizarDiscoDuro(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_DiscoDuro(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE DiscoDuro " +
-                "set TipoDisco = @TipoDisco, conector = @conector, Capacidad = @Capacidad, F_MarcaDisco = @F_MarcaDisco, Extra = @Extra " +
-                " where id_Disco = @id_Disco;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarDiscoDuro(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                 new SqlParameter("@TipoDisco",SqlDbType.VarChar, 50),
-                new SqlParameter("@conector",SqlDbType.VarChar, 50),
-                new SqlParameter("@Capacidad",SqlDbType.VarChar, 50),
-                new SqlParameter("@F_MarcaDisco",SqlDbType.Int),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-                new SqlParameter("@id_Disco",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = nuevoDatos[3];
-            evaluacion[4].Value = nuevoDatos[4];
-            evaluacion[5].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar disco duro -----fin
-
-        // editar estatus---------
-        public bool ActualizarEstatus(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Estatus(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Estatus " +
-                "set  Estado = @Estado " +
-                " where id_Estatus = @id_Estatus;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarEstatus(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Estado",SqlDbType.VarChar, 50),
-                new SqlParameter("@id_Estatus",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar estatus -----fin
-
-        // editar evidencia---------
-        public bool ActualizarEvidencia(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Evidencia(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Evidencia " +
-                "set  Evidencia1 = @Evidencia1, num_inv = @num_inv " +
-                " where id_Evidencia = @id_Evidencia;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarEvidencia(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Evidencia1",SqlDbType.VarChar, 100),
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
-                new SqlParameter("@id_Evidencia",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar evidencia -----fin
-
-        // editar gabinete---------
-        public bool ActualizarGabinete(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Gabinete(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Gabinete " +
-                "set  Modelo = @Modelo, TipoForma = @TipoForma, F_Marca = @F_Marca " +
-                " where id_Gabinete = @id_Gabinete;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarGabinete(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Modelo",SqlDbType.VarChar, 10),
-                new SqlParameter("@TipoForma",SqlDbType.VarChar, 30),
-                new SqlParameter("@F_Marca",SqlDbType.Int),
-                new SqlParameter("@id_Gabinete",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar gabinete -----fin
-
-        // editar Laboratorio (checar tabla )---------
-        public bool Actualizarlaboratorio(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_laboratorio(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE laboratorio " +
-                "set  Modelo = @Modelo, TipoForma = @TipoForma, F_Marca = @F_Marca " +
-                " where id_Gabinete = @id_Gabinete;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.Actualizarlaboratorio(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Modelo",SqlDbType.VarChar, 10),
-                new SqlParameter("@TipoForma",SqlDbType.VarChar, 30),
-                new SqlParameter("@F_Marca",SqlDbType.Int),
-                new SqlParameter("@id_Gabinete",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar laboratorio -----fin
-
-        // editar Marca-------------------
-        public bool ActualizarMarca(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Marca(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Marca " +
-                "set  Marca = @Marca, id_Componente = @id_Componente, Extra = @Extra " +
-                " where id_Marca = @id_Marca;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarMarca(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Marca",SqlDbType.VarChar, 50),
-                new SqlParameter("@id_Componente",SqlDbType.Int),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
-                new SqlParameter("@id_Marca",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Marca ---------fin
-
-        // editar Modelocpu-------------------
-        public bool ActualizarModeloCpu(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_ModeloCpu(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE ModeloCPU " +
-                "set  modeloCPU = @modeloCPU, f_marca = @f_marca " +
-                " where id_modcpu = @id_modcpu;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarModeloCpu(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@modeloCPU",SqlDbType.VarChar, 50),
-                new SqlParameter("@f_marca",SqlDbType.Int),
-                new SqlParameter("@id_modcpu",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Modelocpu ---------fin
-
-        // editar Monitor-------------------
-        public bool ActualizarMonitor(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Monitor(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE monitor " +
-                "set  f_marcam = @f_marcam, conectores = @conectores, tamano = @tamano " +
-                " where id_monitor = @id_monitor;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarMonitor(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@f_marcam",SqlDbType.Int),
-                new SqlParameter("@conectores",SqlDbType.VarChar, 64),
-                new SqlParameter("@tamano",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_monitor",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Monitor ---------fin
-
-        // editar Modelocpu-------------------
-        public bool ActualizarMouse(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Mouse(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE mouse " +
-                "set  f_marcamouse = @f_marcamouse, conector = @conector " +
-                " where id_mouse = @id_mouse;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarMouse(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@f_marcamouse",SqlDbType.Int),
-                new SqlParameter("@conector",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_mouse",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Modelocpu ---------fin
-
-        // editar Ram-------------------
-        public bool ActualizarRam(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Ram(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE RAM " +
-                "set  Capacidad = @Capacidad, Velocidad = @Velocidad, F_TipoR = @F_TipoR " +
-                " where id_RAM = @id_RAM;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarRam(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Capacidad",SqlDbType.SmallInt),
-                new SqlParameter("@Velocidad",SqlDbType.VarChar, 15),
-                new SqlParameter("@F_TipoR",SqlDbType.Int),
-                new SqlParameter("@id_RAM",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar ram ---------fin
-
-        // editar Modelocpu-------------------
-        public bool ActualizarTeclado(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Teclado(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE teclado " +
-                "set  f_marcat = @f_marcat, conector = @conector " +
-                " where id_teclado = @id_teclado;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarTeclado(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@f_marcat",SqlDbType.Int),
-                new SqlParameter("@conector",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_teclado",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar Modelocpu ---------fin
-
-        // editar Tipocpu-------------------
-        public bool ActualizarTipoCPU(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_TipoCPU(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE Tipo_CPU " +
-                "set  Tipo = @Tipo, Familia = @Familia, Velocidad = @Velocidad, Extra = @Extra " +
-                " where id_Tcpu = @id_Tcpu;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarTipoCPU(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Tipo",SqlDbType.VarChar, 40),
-                new SqlParameter("@Familia",SqlDbType.VarChar, 30),
-                new SqlParameter("@Velocidad",SqlDbType.VarChar, 50),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 30),
-                new SqlParameter("@id_Tcpu",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = nuevoDatos[3];
-            evaluacion[4].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar TipoCPU-------------fin
-
-        // editar TipoRAM-------------------
-        public bool ActualizarTipoRAM(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_TipoRAM(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE TipoRAM " +
-                "set  Tipo = @Tipo, Extra = @Extra " +
-                " where id_tipoRam = @id_tipoRam;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarTipoRAM(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@Tipo",SqlDbType.VarChar, 40),
-                new SqlParameter("@Extra",SqlDbType.VarChar, 30),
-                new SqlParameter("@id_tipoRam",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar TipoRAM-------------fin
-
-        // editar ubicacion-------------------
-        public bool ActualizarUbicaciones(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Ubicaciones(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE ubicacion " +
-                "set  nombre_laboratorio = @nombre_laboratorio " +
-                " where num_inv = @num_inv;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarUbicaciones(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 40),
-                new SqlParameter("@num_inv",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar ubicacion-------------fin
-
-        // editar usuario-------------------
-        public bool ActualizarUsuario(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        public string Act_Usuario(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "UPDATE usuario " +
-                "set  nombre = @nombre, ap_p = @ap_p, ap_m = @ap_m, nom_usuario = @nom_usuario, password = @password, tipo_usuario = @tipo_usuario " +
-                " where id_usuario = @id_usuario;";
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.ActualizarUsuario(nuevoDatos, ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@nombre",SqlDbType.VarChar, 64),
-                new SqlParameter("@ap_p",SqlDbType.VarChar, 64),
-                new SqlParameter("@ap_m",SqlDbType.VarChar, 64),
-                new SqlParameter("@nom_usuario",SqlDbType.VarChar, 64),
-                new SqlParameter("@password",SqlDbType.VarChar, 64),
-                new SqlParameter("@tipo_usuario",SqlDbType.VarChar, 64),
-                new SqlParameter("@id_usuario",SqlDbType.Int),
-            };
-
-            evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = nuevoDatos[3];
-            evaluacion[4].Value = nuevoDatos[4];
-            evaluacion[5].Value = nuevoDatos[5];
-            evaluacion[6].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+                resp = "nu";
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        // editar ubicacion-------------fin
-
-
-
-        //eliminar CantDisc -------inicio
-
-    
-
 
-        //eliminar CantDisc---------Fin
+        //<--------------------------------------------------------------------------------------------Eliminar-------------------------------------------------------------------------------------------->
 
-        //EliminarActualizacion--> Inicio
-        public bool Eliminaractualizacion(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_actualizacion(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from actualizacion where id_act = @id_act";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.Eliminaractualizacion(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_act",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarActualizacion--> Final
-
-        //EliminarCantDisc--> Inicio
-        public bool EliminarCantDisc(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_CantDisc(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from cantDisc where id_cant = @id_cant";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarCantDisc(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_cant",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarCantDisc--> Final
-
-        //EliminarCategoria--> Inicio
-        public bool EliminarCategoria(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Categoria(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Categoria where id_Categoria = @id_Categoria";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarCategoria(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Categoria",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+                resp = "nu";
 
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarCategoria--> Final
-
-        //EliminarCatMar--> Inicio
-        public bool EliminarCatMar(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_CatMar(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from CatMar where id_CatMar = @id_CatMar";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarCatMar(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_CatMar",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+                resp = "nu";
 
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarCatMar--> Final
-
-        //EliminarComputadoraFinal--> Inicio
-        public bool EliminarComputadorafinal(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Computadorafinal(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from computadorafinal where num_inv = @num_inv";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarComputadorafinal(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@num_inv",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarComputadoraFinal--> Final
-
-        //EliminarCpuGenerico--> Inicio
-        public bool EliminarCPU_Generico(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_CPU_Generico(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from CPU_Generico where id_CPU = @id_CPU";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarCPU_Generico(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_CPU",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarCpuGenerico--> Final
-
-        //EliminarCpuTipoMod--> Inicio
-        public bool EliminarCPU_TipoMod(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_CPU_TipoMod(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from CPU_TipoMod where id_TipoMod = @id_TipoMod";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarCPU_TipoMod(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_TipoMod",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarCpuTipoMod--> Final
-
-        //EliminarDiscoDuro--> Inicio
-        public bool EliminarDiscoDuro(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_DiscoDuro(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from DiscoDuro where id_Disco = @id_Disco";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarDiscoDuro(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Disco",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarDiscoDuro--> Final
-
-        //EliminarEstatus--> Inicio
-        public bool EliminarEstatus(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Estatus(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Estatus where id_Estatus = @id_Estatus";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarEstatus(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Estatus",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //Eliminarstatus--> Final
-
-        //EliminarEvidencia--> Inicio
-        public bool EliminarEvidencia(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Evidencia(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Evidencia where id_Evidencia = @id_Evidencia";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarEvidencia(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Evidencia",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarEvidencian--> Final
-
-        //EliminarGabinete--> Inicio
-        public bool EliminarGabinete(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Gabinete(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Gabinete where id_Gabinete = @id_Gabinete";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarGabinete(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Gabinete",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarGabinete--> Final
-
-        //EliminarLaboratorio--> Inicio
-        public bool EliminarLaboratorio(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Laboratorio(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from laboratorio where nombre_laboratorio = @nombre_laboratorio";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarLaboratorio(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@nombre_laboratorio",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+                resp = "nu";
 
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarLaboratorio--> Final
-
-        //EliminarMarca--> Inicio
-        public bool EliminarMarca(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Marca(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Marca where id_Marca = @id_Marca";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarMarca(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Marca",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+                resp = "nu";
 
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarrMarca--> Final
-
-        //EliminarModelo--> Inicio
-        public bool EliminarModelo(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Modelo(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from ModeloCPU where id_modcpu = @id_modcpu";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarModelo(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_modcpu",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarModelo--> Final
-
-        //EliminarMonitor-> Inicio
-        public bool EliminarMonitor(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Monitor(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from monitor where id_monitor = @id_monitor";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarMonitor(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_monitor",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarMonitor--> Final
-
-        //EliminarMouse--> Inicio
-        public bool EliminarMouse(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Mouse(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from mouse where id_mouse = @id_mouse";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarMouse(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_mouse",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarMouse--> Final
-
-        //EliminarRam--> Inicio
-        public bool EliminarRam(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Ram(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from RAM where id_RAM = @id_RAM";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarRam(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_RAM",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarRam--> Final
-
-        //EliminarTeclado--> Inicio
-        public bool EliminarTeclado(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Teclado(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from teclado where id_teclado = @id_teclado";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarTeclado(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_teclado",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+                resp = "nu";
 
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarTeclado--> Final
-
-        //EliminarTipoCpu-> Inicio
-        public bool EliminarTipocpu(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Tipocpu(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from Tipo_CPU where id_Tcpu = @id_Tcpu";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarTipocpu(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_Tcpu",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarTipoCpu--> Final
-
-        //EliminarTipoRam--> Inicio
-        public bool EliminarTipoRAM(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_TipoRAM(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from TipoRAM where id_tipoRam = @id_tipoRam";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarTipoRAM(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_tipoRam",SqlDbType.Int)
-            };
-
-            evaluacion[0].Value = ID;
+                resp = "nu";
 
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarTipoRam--> Final
-
-        //EliminarUbicacion--> Inicio
-        public bool EliminarUbicacion(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Ubicacion(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from ubicacion where num_inv = @num_inv";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarUbicacion(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@num_inv",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarUbicacion--> Final
-
-        //EliminarUsuario--> Inicio
-        public bool EliminarUsuario(ref string Mensaje, ref string MensajeC, int ID)
+        public string Elim_Usuario(ref string Mensaje, ref string MensajeC, int ID)
         {
-            bool respuesta = false;
-
-            string instruccion = "DELETE from usuario where id_usuario = @id_usuario";
-
-            SqlParameter[] evaluacion = new SqlParameter[]
+            string resp = "";
+            if (!OPC.EliminarUsuario(ref Mensaje, ref MensajeC, ID))
             {
-                new SqlParameter("@id_usuario",SqlDbType.Int)
-            };
+                resp = "nu";
 
-            evaluacion[0].Value = ID;
-
-            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
-
-            return respuesta;
+            }
+            else
+            {
+                resp = "Viejo sabroso:3";
+            }
+            return resp;
         }
-        //EliminarUsuario--> Final
     }
 }
