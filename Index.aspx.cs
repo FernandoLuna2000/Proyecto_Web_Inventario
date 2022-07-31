@@ -924,15 +924,216 @@ namespace Proyecto_Web_Inventario
 
             // Tabla gabinete ------------------------------------------>Inicio
 
-            string[] datos = new string[3];
+            //string[] datos = new string[3];
 
-            datos[0] = "generico";
-            datos[1] = "Media Torre";
-            datos[2] = "25";
+            //datos[0] = "generico";
+            //datos[1] = "Media Torre";
+            //datos[2] = "25";
+
+            //try
+            //{
+            //    LN.ActualizarGabinete(datos, ref mensaje, ref mensajeC, 6);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla gabinete--------------------------------------------> Fin
+
+            // Tabla laboratorio ------------------------------------------>Inicio
+            //Tabla laboratorio--------------------------------------------> Fin
+
+            // Tabla Marca ------------------------------------------>Inicio
+
+            //string[] datos = new string[3];
+
+            //datos[0] = "hp";
+            //datos[1] = "2";
+            //datos[2] = "";
+
+            //try
+            //{
+            //    LN.ActualizarMarca(datos, ref mensaje, ref mensajeC, 31);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla Marca--------------------------------------------> Fin
+
+            // Tabla Modelo CPU ------------------------------------------>Inicio
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "Ryzen7";
+            //datos[1] = "23";
+
+            //try
+            //{
+            //    LN.ActualizarModeloCpu(datos, ref mensaje, ref mensajeC, 18);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla ModeloCPU--------------------------------------------> Fin
+
+            // Tabla Monitor ------------------------------------------>Inicio
+
+            //string[] datos = new string[3];
+
+            //datos[0] = "26";
+            //datos[1] = "vga";
+            //datos[2] = "480x250";
+
+            //try
+            //{
+            //    LN.ActualizarMonitor(datos, ref mensaje, ref mensajeC, 5);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla Monitor--------------------------------------------> Fin
+
+            // Tabla Mouse ------------------------------------------>Inicio
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "27";
+            //datos[1] = "ps27";
+
+            //try
+            //{
+            //    LN.ActualizarMouse(datos, ref mensaje, ref mensajeC, 6);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla Mouse--------------------------------------------> Fin
+
+            // Tabla Ram ------------------------------------------>Inicio
+
+            //string[] datos = new string[3];
+
+            //datos[0] = "4";
+            //datos[1] = "500";
+            //datos[2] = "5";
+
+            //try
+            //{
+            //    LN.ActualizarRam(datos, ref mensaje, ref mensajeC, 5);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla Ram--------------------------------------------> Fin
+
+            // Tabla teclado ------------------------------------------>Inicio
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "25";
+            //datos[1] = "usb";
+
+            //try
+            //{
+            //    LN.ActualizarTeclado(datos, ref mensaje, ref mensajeC, 6);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla teclado--------------------------------------------> Fin
+
+            // Tabla TipoCPU ------------------------------------------>Inicio
+
+            //string[] datos = new string[4];
+
+            //datos[0] = "corei6";
+            //datos[1] = "2ra.generacion";
+            //datos[2] = "";
+            //datos[3] = "";
+
+            //try
+            //{
+            //    LN.ActualizarTipoCPU(datos, ref mensaje, ref mensajeC, 13);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla tipocpu--------------------------------------------> Fin
+
+            // Tabla TipoRAM ------------------------------------------>Inicio
+
+            //string[] datos = new string[2];
+
+            //datos[0] = "DIMM DDR2";
+            //datos[1] = "";
+
+            //try
+            //{
+            //    LN.ActualizarTipoRAM(datos, ref mensaje, ref mensajeC, 9);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla tipoRAM--------------------------------------------> Fin
+
+            // Tabla ubicacion ------------------------------------------>Inicio
+
+            //string[] datos = new string[1];
+
+            //datos[0] = "k1";
+
+            //try
+            //{
+            //    LN.ActualizarUbicaciones(datos, ref mensaje, ref mensajeC, 1234567892);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
+
+            //Tabla ubicacion--------------------------------------------> Fin
+
+            // Tabla usuario ------------------------------------------>Inicio
+
+            string[] datos = new string[6];
+
+            datos[0] = "carlos";
+            datos[1] = "fernandez";
+            datos[2] = "torres";
+            datos[3] = "charly";
+            datos[4] = "124351";
+            datos[5] = "";
 
             try
             {
-                LN.ActualizarGabinete(datos, ref mensaje, ref mensajeC, 6);
+                LN.ActualizarUsuario(datos, ref mensaje, ref mensajeC, 1);
                 Label13.Text = "se actualizo";
             }
             catch
@@ -940,7 +1141,8 @@ namespace Proyecto_Web_Inventario
                 Label13.Text = "error checa tus datos";
             }
 
-            //Tabla gabinete--------------------------------------------> Fin
+            //Tabla usuario--------------------------------------------> Fin
+
 
 
         }
