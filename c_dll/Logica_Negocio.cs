@@ -1602,12 +1602,38 @@ namespace c_dll
 
         //eliminar CantDisc -------inicio
 
+    
+
+
+        //eliminar CantDisc---------Fin
+
+        //EliminarActualizacion--> Inicio
+        public bool Eliminaractualizacion(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from actualizacion where id_act = @id_act";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_act",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarActualizacion--> Final
+
+        //EliminarCantDisc--> Inicio
         public bool EliminarCantDisc(ref string Mensaje, ref string MensajeC, int ID)
         {
             bool respuesta = false;
 
             string instruccion = "DELETE from cantDisc where id_cant = @id_cant";
-            
+
             SqlParameter[] evaluacion = new SqlParameter[]
             {
                 new SqlParameter("@id_cant",SqlDbType.Int)
@@ -1619,8 +1645,406 @@ namespace c_dll
 
             return respuesta;
         }
+        //EliminarCantDisc--> Final
 
+        //EliminarCategoria--> Inicio
+        public bool EliminarCategoria(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
 
-        //eliminar CantDisc---------Fin
+            string instruccion = "DELETE from Categoria where id_Categoria = @id_Categoria";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Categoria",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarCategoria--> Final
+
+        //EliminarCatMar--> Inicio
+        public bool EliminarCatMar(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from CatMar where id_CatMar = @id_CatMar";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_CatMar",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarCatMar--> Final
+
+        //EliminarComputadoraFinal--> Inicio
+        public bool EliminarComputadorafinal(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from computadorafinal where num_inv = @num_inv";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarComputadoraFinal--> Final
+
+        //EliminarCpuGenerico--> Inicio
+        public bool EliminarCPU_Generico(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from CPU_Generico where id_CPU = @id_CPU";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_CPU",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarCpuGenerico--> Final
+
+        //EliminarCpuTipoMod--> Inicio
+        public bool EliminarCPU_TipoMod(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from CPU_TipoMod where id_TipoMod = @id_TipoMod";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_TipoMod",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarCpuTipoMod--> Final
+
+        //EliminarDiscoDuro--> Inicio
+        public bool EliminarDiscoDuro(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from DiscoDuro where id_Disco = @id_Disco";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Disco",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarDiscoDuro--> Final
+
+        //EliminarEstatus--> Inicio
+        public bool EliminarEstatus(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from Estatus where id_Estatus = @id_Estatus";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Estatus",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //Eliminarstatus--> Final
+
+        //EliminarEvidencia--> Inicio
+        public bool EliminarEvidencia(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from Evidencia where id_Evidencia = @id_Evidencia";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Evidencia",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarEvidencian--> Final
+
+        //EliminarGabinete--> Inicio
+        public bool EliminarGabinete(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from Gabinete where id_Gabinete = @id_Gabinete";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Gabinete",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarGabinete--> Final
+
+        //EliminarLaboratorio--> Inicio
+        public bool EliminarLaboratorio(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from laboratorio where nombre_laboratorio = @nombre_laboratorio";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@nombre_laboratorio",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarLaboratorio--> Final
+
+        //EliminarMarca--> Inicio
+        public bool EliminarMarca(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from Marca where id_Marca = @id_Marca";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Marca",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarrMarca--> Final
+
+        //EliminarModelo--> Inicio
+        public bool EliminarModelo(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from ModeloCPU where id_modcpu = @id_modcpu";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_modcpu",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarModelo--> Final
+
+        //EliminarMonitor-> Inicio
+        public bool EliminarMonitor(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from monitor where id_monitor = @id_monitor";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_monitor",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarMonitor--> Final
+
+        //EliminarMouse--> Inicio
+        public bool EliminarMouse(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from mouse where id_mouse = @id_mouse";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_mouse",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarMouse--> Final
+
+        //EliminarRam--> Inicio
+        public bool EliminarRam(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from RAM where id_RAM = @id_RAM";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_RAM",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarRam--> Final
+
+        //EliminarTeclado--> Inicio
+        public bool EliminarTeclado(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from teclado where id_teclado = @id_teclado";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_teclado",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarTeclado--> Final
+
+        //EliminarTipoCpu-> Inicio
+        public bool EliminarTipocpu(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from Tipo_CPU where id_Tcpu = @id_Tcpu";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Tcpu",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarTipoCpu--> Final
+
+        //EliminarTipoRam--> Inicio
+        public bool EliminarTipoRAM(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from TipoRAM where id_tipoRam = @id_tipoRam";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_tipoRam",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarTipoRam--> Final
+
+        //EliminarUbicacion--> Inicio
+        public bool EliminarUbicacion(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from ubicacion where num_inv = @num_inv";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarUbicacion--> Final
+
+        //EliminarUsuario--> Inicio
+        public bool EliminarUsuario(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from usuario where id_usuario = @id_usuario";
+
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_usuario",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        //EliminarUsuario--> Final
     }
 }

@@ -1122,24 +1122,24 @@ namespace Proyecto_Web_Inventario
 
             // Tabla usuario ------------------------------------------>Inicio
 
-            string[] datos = new string[6];
+            //string[] datos = new string[6];
 
-            datos[0] = "carlos";
-            datos[1] = "fernandez";
-            datos[2] = "torres";
-            datos[3] = "charly";
-            datos[4] = "124351";
-            datos[5] = "";
+            //datos[0] = "carlos";
+            //datos[1] = "fernandez";
+            //datos[2] = "torres";
+            //datos[3] = "charly";
+            //datos[4] = "124351";
+            //datos[5] = "";
 
-            try
-            {
-                LN.ActualizarUsuario(datos, ref mensaje, ref mensajeC, 1);
-                Label13.Text = "se actualizo";
-            }
-            catch
-            {
-                Label13.Text = "error checa tus datos";
-            }
+            //try
+            //{
+            //    LN.ActualizarUsuario(datos, ref mensaje, ref mensajeC, 1);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
 
             //Tabla usuario--------------------------------------------> Fin
 
@@ -1148,16 +1148,269 @@ namespace Proyecto_Web_Inventario
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
-            
-            try
-            {
-                LN.EliminarCantDisc(ref mensaje, ref mensajeC, 11);
-                Label14.Text = "se elimino";
-            }
-            catch
-            {
-                Label14.Text = "error checa tus datos";
-            }
+            //EliminarActualizacion--> Inicio
+            //try
+            //{
+            //    LN.Eliminaractualizacion(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarActualizacion--> Final
+
+            //EliminarCantDisc--> Inicio
+            //try
+            //{
+            //    LN.EliminarCantDisc(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarCantDisc--> Final
+
+            //EliminarCategoria--> Inicio
+            //try
+            //{
+            //    LN.EliminarCategoria(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarCategoria--> Final
+
+            //EliminarCatMar--> Inicio
+            //try
+            //{
+            //    LN.EliminarCatMar(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarCatMar--> Final
+
+            //EliminarComputadoraFinal--> Inicio
+            //try
+            //{
+            //    LN.EliminarComputadorafinal(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarComputadoraFinal--> Final
+
+            //EliminarCpuGenerico--> Inicio
+            //try
+            //{
+            //    LN.EliminarCPU_Generico(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarCpuGenerico--> Final
+
+            //EliminarCpuTipoMod--> Inicio
+            //try
+            //{
+            //    LN.EliminarCPU_TipoMod(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarCpuTipoMod--> Final
+
+            //EliminarDiscoDuro--> Inicio
+            //try
+            //{
+            //    LN.EliminarDiscoDuro(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarDiscoDuro--> Final
+
+            //EliminarEstatus--> Inicio
+            //try
+            //{
+            //    LN.EliminarEstatus(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //Eliminarstatus--> Final
+
+            //EliminarEvidencia--> Inicio
+            //try
+            //{
+            //    LN.EliminarEvidencia(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarEvidencian--> Final
+
+            //EliminarGabinete--> Inicio
+            //try
+            //{
+            //    LN.EliminarGabinete(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarGabinete--> Final
+
+            //EliminarLaboratorio--> Inicio
+            //try
+            //{
+            //    LN.EliminarLaboratorio(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarLaboratorio--> Final
+
+            //EliminarMarca--> Inicio
+            //try
+            //{
+            //    LN.EliminarMarca(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarrMarca--> Final
+
+            //EliminarModelo--> Inicio
+            //try
+            //{
+            //    LN.EliminarModelo(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarModelo--> Final
+
+            //EliminarMonitor-> Inicio
+            //try
+            //{
+            //    LN.EliminarMonitor(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarMonitor--> Final
+
+            //EliminarMouse--> Inicio
+            //try
+            //{
+            //    LN.EliminarMouse(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarMouse--> Final
+
+            //EliminarRam--> Inicio
+            //try
+            //{
+            //    LN.EliminarRam(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarRam--> Final
+
+            //EliminarTeclado--> Inicio
+            //try
+            //{
+            //    LN.EliminarTeclado(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarTeclado--> Final
+
+            //EliminarTipoCpu-> Inicio
+            //try
+            //{
+            //    LN.EliminarTipocpu(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarTipoCpu--> Final
+
+            //EliminarTipoRam--> Inicio
+            //try
+            //{
+            //    LN.EliminarTipoRAM(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarTipoRam--> Final
+
+            //EliminarUbicacion--> Inicio
+            //try
+            //{
+            //    LN.EliminarUbicacion(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarUbicacion--> Final
+
+            //EliminarUsuario--> Inicio
+            //try
+            //{
+            //    LN.EliminarUsuario(ref mensaje, ref mensajeC, 11);
+            //    Label14.Text = "se elimino";
+            //}
+            //catch
+            //{
+            //    Label14.Text = "error checa tus datos";
+            //}
+            //EliminarUsuario--> Final
         }
     }
 }
