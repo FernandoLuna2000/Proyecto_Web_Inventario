@@ -996,5 +996,340 @@ namespace c_dll
             return respuesta;
         }
         //Insertar Usuario-------- Fin
+
+        // editar actualizacion---------
+        public bool ActualizarTabActualizacion(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int id)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE actualizacion " +
+                " set num_inv = @num_inv, num_serie = @num_serie, descripcion = @descripcion, fecha = @fecha" +
+                " where id_act = @id_act;";
+            SqlParameter[] evalucion = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
+                new SqlParameter("@num_serie",SqlDbType.VarChar, 11),
+                new SqlParameter("@descripcion",SqlDbType.VarChar, 64),
+                new SqlParameter("@fecha",SqlDbType.DateTime),
+                new SqlParameter("@id_act",SqlDbType.Int),
+            };
+            evalucion[0].Value = nuevoDatos[0];
+            evalucion[1].Value = nuevoDatos[1];
+            evalucion[2].Value = nuevoDatos[2];
+            evalucion[3].Value = nuevoDatos[3];
+            evalucion[4].Value = id;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, evalucion);
+            return respuesta;
+
+        }
+        // editar actualizacion-----fin
+
+        // editar cantDisc---------
+        public bool ActualizarCantDisc(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE cantDisc " +
+                "set num_inv = @num_inv, id_Disco = @id_Disco" +
+                " where id_cant = @id_cant;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@num_inv", SqlDbType.VarChar, 10),
+                new SqlParameter("@id_Disco", SqlDbType.Int),
+                new SqlParameter("@id_cant", SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar CantDisc-----fin
+
+        // editar cantegoria---------
+        public bool ActualizarCategoria(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE Categoria " +
+                "set Descripcion = @Descripcion " +
+                " where id_Categoria = @id_Categoria;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@Descripcion", SqlDbType.VarChar, 100),
+                new SqlParameter("@id_Categoria", SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar Cantegoria-----fin
+
+
+        // editar cantegoria---------
+        public bool ActualizarCatMar(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE CatMar " +
+                "set id_Categoria = @id_Categoria, id_Marca = @id_Marca " +
+                " where id_CatMar = @id_CatMar;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Categoria", SqlDbType.Int),
+                new SqlParameter("@id_Marca", SqlDbType.Int),
+                new SqlParameter("@id_CatMar", SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar Cantegoria-----fin
+
+        // editar computadora final---------
+        public bool ActualizarCompuFinal(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE computadorafinal " +
+                "set num_scpu = @num_scpu,id_cpug = @id_cpug, num_steclado = @num_steclado, id_tecladog =  @id_tecladog, num_smonitor = @num_smonitor, id_mong = @id_mong, num_smouse = @num_smouse, id_mousg = @id_mousg, estado =@estado, id_Estatus = @id_Estatus  " +
+                " where num_inv = @num_inv;";
+            SqlParameter[] info = new SqlParameter[]
+            {
+                new SqlParameter("@num_scpu",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_cpug",SqlDbType.Int),
+                new SqlParameter("@num_steclado",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_tecladog",SqlDbType.Int),
+                new SqlParameter("@num_smonitor",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_mong",SqlDbType.Int),
+                new SqlParameter("@num_smouse",SqlDbType.VarChar, 11),
+                new SqlParameter("@id_mousg",SqlDbType.Int),
+                new SqlParameter("@estado",SqlDbType.VarChar, 64),
+                new SqlParameter("@id_Estatus",SqlDbType.Int),
+                new SqlParameter("@num_inv",SqlDbType.Int),
+            };
+            info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
+            info[2].Value = nuevoDatos[2];
+            info[3].Value = nuevoDatos[3];
+            info[4].Value = nuevoDatos[4];
+            info[5].Value = nuevoDatos[5];
+            info[6].Value = nuevoDatos[6];
+            info[7].Value = nuevoDatos[7];
+            info[8].Value = nuevoDatos[8];
+            info[9].Value = nuevoDatos[9];
+            info[10].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, info);
+
+            return respuesta;
+        }
+        // editar Computadora final-----fin
+
+        // editar CPU_Generico---------
+        public bool ActualizarCPU_generico(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE CPU_Generico " +
+                "set f_Tcpu = @f_Tcpu, f_MarcaCpu = @f_MarcaCpu, Modelo = @Modelo, Descripcion = @Descripcion, f_tipoRam = @f_tipoRam, id_Gabinete = @id_Gabinete " +
+                " where id_CPU = @id_CPU;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@f_Tcpu", SqlDbType.Int),
+                new SqlParameter("@f_MarcaCpu", SqlDbType.Int),
+                new SqlParameter("@Modelo", SqlDbType.VarChar, 20),
+                new SqlParameter("@Descripcion", SqlDbType.VarChar, 40),
+                new SqlParameter("@f_tipoRam", SqlDbType.Int),
+                new SqlParameter("@id_Gabinete", SqlDbType.Int),
+                new SqlParameter("@id_CPU", SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = nuevoDatos[2];
+            evaluacion[3].Value = nuevoDatos[3];
+            evaluacion[4].Value = nuevoDatos[4];
+            evaluacion[5].Value = nuevoDatos[5];
+            evaluacion[6].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar Cpu generico-----fin
+
+        // editar cpu_tipomod ---------------
+        public bool ActualizarCpu_tipomod(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE CPU_TipoMod " +
+                "set id_Tcpu = @id_Tcpu, id_modcpu = @id_modcpu, nucleos = @nucleos " +
+                " where id_TipoMod = @id_TipoMod;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_Tcpu", SqlDbType.Int),
+                new SqlParameter("@id_modcpu", SqlDbType.Int),
+                new SqlParameter("@nucleos", SqlDbType.VarChar, 10),
+                new SqlParameter("@id_TipoMod", SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = nuevoDatos[2];
+            evaluacion[3].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar Cpu_tipomod-----fin
+
+        // editar disco duro---------
+        public bool ActualizarDiscoDuro(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE DiscoDuro " +
+                "set TipoDisco = @TipoDisco, conector = @conector, Capacidad = @Capacidad, F_MarcaDisco = @F_MarcaDisco, Extra = @Extra " +
+                " where id_Disco = @id_Disco;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                 new SqlParameter("@TipoDisco",SqlDbType.VarChar, 50),
+                new SqlParameter("@conector",SqlDbType.VarChar, 50),
+                new SqlParameter("@Capacidad",SqlDbType.VarChar, 50),
+                new SqlParameter("@F_MarcaDisco",SqlDbType.Int),
+                new SqlParameter("@Extra",SqlDbType.VarChar, 50),
+                new SqlParameter("@id_Disco",SqlDbType.Int),
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = nuevoDatos[2];
+            evaluacion[3].Value = nuevoDatos[3];
+            evaluacion[4].Value = nuevoDatos[4];
+            evaluacion[5].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar disco duro -----fin
+
+        // editar estatus---------
+        public bool ActualizarEstatus(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE Estatus " +
+                "set  Estado = @Estado " +
+                " where id_Estatus = @id_Estatus;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@Estado",SqlDbType.VarChar, 50),
+                new SqlParameter("@id_Estatus",SqlDbType.Int),
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar estatus -----fin
+
+        // editar evidencia---------
+        public bool ActualizarEvidencia(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE Evidencia " +
+                "set  Evidencia1 = @Evidencia1, num_inv = @num_inv " +
+                " where id_Evidencia = @id_Evidencia;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@Evidencia1",SqlDbType.VarChar, 100),
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
+                new SqlParameter("@id_Evidencia",SqlDbType.Int),
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar evidencia -----fin
+
+        // editar evidencia---------
+        public bool ActualizarGabinete(string[] nuevoDatos, ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "UPDATE Gabinete " +
+                "set  Modelo = @Modelo, TipoForma = @TipoForma, F_Marca = @F_Marca " +
+                " where id_Gabinete = @id_Gabinete;";
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@Modelo",SqlDbType.VarChar, 10),
+                new SqlParameter("@TipoForma",SqlDbType.VarChar, 30),
+                new SqlParameter("@F_Marca",SqlDbType.Int),
+                new SqlParameter("@id_Gabinete",SqlDbType.Int),
+            };
+
+            evaluacion[0].Value = nuevoDatos[0];
+            evaluacion[1].Value = nuevoDatos[1];
+            evaluacion[2].Value = nuevoDatos[2];
+            evaluacion[3].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+        // editar evidencia -----fin
+
+
+
+
+
+        //eliminar CantDisc -------inicio
+
+        public bool EliminarCantDisc(ref string Mensaje, ref string MensajeC, int ID)
+        {
+            bool respuesta = false;
+
+            string instruccion = "DELETE from cantDisc where id_cant = @id_cant";
+            
+            SqlParameter[] evaluacion = new SqlParameter[]
+            {
+                new SqlParameter("@id_cant",SqlDbType.Int)
+            };
+
+            evaluacion[0].Value = ID;
+
+            respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
+
+            return respuesta;
+        }
+
+
+        //eliminar CantDisc---------Fin
     }
 }

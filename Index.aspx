@@ -142,8 +142,21 @@
         Tabla Usuario<br />
         <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label>
         <br />
+        <br />
+        ///////////////////////<br />
+        pruebas de editar tablas :v
         <p>
-            &nbsp;</p>
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
+        &nbsp;<asp:Label ID="Label13" runat="server" Text="Label"></asp:Label>
+        </p>
+        ////////////////////
+        <br />
+        pruebas de eliminar datos
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Button" />
+        <asp:Label ID="Label14" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>
