@@ -40,16 +40,12 @@
             <asp:ListBox ID="ListBox22" runat="server"></asp:ListBox>
             <br />
             <br />
+            <br />
+            <br />
+            <br />
             insertar informacion<br />
-            Tabla Modelo CPU<br />
-
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 
         </div>
-        <p>
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-        </p>
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />

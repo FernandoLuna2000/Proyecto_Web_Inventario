@@ -294,21 +294,7 @@ namespace Proyecto_Web_Inventario
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
-            //string[] datos = new string[2];
-
-            //datos[0] = TextBox2.Text;
-            //datos[1] = TextBox3.Text;
-
-            //try
-            //{
-            //    LN.Insertar(datos, ref mensaje, ref mensajeC);
-            //    TextBox4.Text = "Chido";
-            //}
-            //catch
-            //{
-            //    TextBox4.Text = "MamaWebo.... digo glugluglu :3";
-            //}
-
+            ////----------------inicia la tabla Actualizacion-----------------------//
             //string[] datos = new string[4];
 
             //datos[0] = "1234567890";
@@ -316,30 +302,16 @@ namespace Proyecto_Web_Inventario
             //datos[2] = "prueba";
             //datos[3] = "2020-03-25";
 
-
             //try
             //{
-            //    LN.Insert_cantDisc(datos, ref mensaje, ref mensajeC);
+            //    LN.Insert_Actualizacion(datos, ref mensaje, ref mensajeC);
             //    TextBox5.Text = "ahuevooo";
             //}
             //catch
             //{
             //    TextBox5.Text = "nelson";
             //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            ////----------------Fin de la tabla Actualizacion-----------------------//
 
             ////----------------inicia la tabla cantDisc-----------------------//
             //string[] datos = new string[2];
@@ -540,9 +512,10 @@ namespace Proyecto_Web_Inventario
             //// Tabla Gabinete ------>Fin
 
             ////Tabla Laboratorio ------> Inicio
-            //string[] datos = new string[1];
+            //string[] datos = new string[2];
 
-            //datos[0] = "K5";
+            //datos[0] = "1";
+            //datos[1] = "k9";
 
             //try
             //{
@@ -969,6 +942,19 @@ namespace Proyecto_Web_Inventario
             ////Tabla gabinete--------------------------------------------> Fin
 
             //// Tabla laboratorio ------------------------------------------>Inicio
+            //string[] datos = new string[1];
+
+            //datos[0] = "hfgy";
+
+            //try
+            //{
+            //    LN.Act_laboratorio(datos, ref mensaje, ref mensajeC, 1);
+            //    Label13.Text = "se actualizo";
+            //}
+            //catch
+            //{
+            //    Label13.Text = "error checa tus datos";
+            //}
             ////Tabla laboratorio--------------------------------------------> Fin
 
             //// Tabla Marca ------------------------------------------>Inicio
@@ -1195,10 +1181,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarCantDisc--> Final
 
-            ////EliminarCategoria--> Inicio-------------------------------------------------------------------------------
+            ////EliminarCategoria--> Inicio
             //try
             //{
-            //    LN.Elim_Categoria(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Categoria(ref mensaje, ref mensajeC, 1);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1219,10 +1205,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarCatMar--> Final
 
-            ////EliminarComputadoraFinal--> Inicio--------------------------------------------------------------------------------
+            ////EliminarComputadoraFinal--> Inicio
             //try
             //{
-            //    LN.Elim_Computadorafinal(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Computadorafinal(ref mensaje, ref mensajeC, 1234567899);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1234,7 +1220,7 @@ namespace Proyecto_Web_Inventario
             ////EliminarCpuGenerico--> Inicio
             //try
             //{
-            //    LN.Elim_CPU_Generico(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_CPU_Generico(ref mensaje, ref mensajeC, 10);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1255,10 +1241,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarCpuTipoMod--> Final
 
-            ////EliminarDiscoDuro--> Inicio----------------------------------------------------------------------------------------------
+            ////EliminarDiscoDuro--> Inicio
             //try
             //{
-            //    LN.Elim_DiscoDuro(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_DiscoDuro(ref mensaje, ref mensajeC, 8);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1291,10 +1277,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarEvidencian--> Final
 
-            ////EliminarGabinete--> Inicio-----------------------------------------------------------------------------------------------
+            ////EliminarGabinete--> Inicio
             //try
             //{
-            //    LN.Elim_Gabinete(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Gabinete(ref mensaje, ref mensajeC, 7);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1306,7 +1292,7 @@ namespace Proyecto_Web_Inventario
             ////EliminarLaboratorio--> Inicio---------------------------------------------------------------------------------------------------------------
             //try
             //{
-            //    LN.Elim_Laboratorio(ref mensaje, ref mensajeC, 3);
+            //    LN.Elim_Laboratorio(ref mensaje, ref mensajeC, 1);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1363,10 +1349,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarMouse--> Final
 
-            ////EliminarRam--> Inicio--------------------------------------------------------------------------------------------------------------------
+            ////EliminarRam--> Inicio
             //try
             //{
-            //    LN.Elim_Ram(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Ram(ref mensaje, ref mensajeC, 6);
             //    Label14.Text = "se elimino";
             //}
             //catch
@@ -1387,10 +1373,10 @@ namespace Proyecto_Web_Inventario
             //}
             ////EliminarTeclado--> Final
 
-            ////EliminarTipoCpu-> Inicio-----------------------------------------------------------------------------------------------------------------------
+            ////EliminarTipoCpu-> Inicio
             //try
             //{
-            //    LN.Elim_Tipocpu(ref mensaje, ref mensajeC, 11);
+            //    LN.Elim_Tipocpu(ref mensaje, ref mensajeC, 14);
             //    Label14.Text = "se elimino";
             //}
             //catch

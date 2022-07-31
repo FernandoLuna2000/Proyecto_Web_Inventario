@@ -501,21 +501,19 @@ namespace c_dal
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Actualizacion(num_inv,num_serie,descripcion,fecha)" +
-                "values (@num_inv,@num_serie,@descripcion,@fecha)";
+            string instrccion = "INSERT INTO actualizacion ( num_inv, num_serie, descripcion, fecha )" +
+                "values ( @num_inv, @num_serie, @descripcion, @fecha )";
             SqlParameter[] info = new SqlParameter[]
             {
-                new SqlParameter("@id_Disco",SqlDbType.Int),
-                new SqlParameter("@num_inv",SqlDbType.VarChar, 50),
-                new SqlParameter("@num_serie",SqlDbType.VarChar, 50),
-                new SqlParameter("@descripcion",SqlDbType.VarChar, 50),
+                new SqlParameter("@num_inv",SqlDbType.VarChar, 10),
+                new SqlParameter("@num_serie",SqlDbType.VarChar, 11),
+                new SqlParameter("@descripcion",SqlDbType.VarChar, 64),
                 new SqlParameter("@fecha",SqlDbType.DateTime),
             };
-            info[0].Value = Convert.ToInt32(nuevoDatos[0]);
+            info[0].Value = nuevoDatos[0];
             info[1].Value = nuevoDatos[1];
             info[2].Value = nuevoDatos[2];
-            info[3].Value = nuevoDatos[3];
-            info[4].Value = Convert.ToDateTime(nuevoDatos[4]);
+            info[3].Value = Convert.ToDateTime(nuevoDatos[3]);
 
 
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
@@ -767,13 +765,15 @@ namespace c_dal
         {
             bool respuesta = false;
 
-            string instrccion = "INSERT INTO Laboratorio (nombre_laboratorio)" +
-                "values (@nombre_laboratorio)";
+            string instrccion = "INSERT INTO laboratorio (nombre_laboratorio, descripcion)" +
+                "values (@nombre_laboratorio, @descripcion)";
             SqlParameter[] info = new SqlParameter[]
             {
                 new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 50),
+                new SqlParameter("@descripcion",SqlDbType.VarChar, 50),
             };
             info[0].Value = nuevoDatos[0];
+            info[1].Value = nuevoDatos[1];
 
             respuesta = AC.BaseSegura(instrccion, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, info);
             return respuesta;
@@ -1316,20 +1316,16 @@ namespace c_dal
             bool respuesta = false;
 
             string instruccion = "UPDATE laboratorio " +
-                "set  Modelo = @Modelo, TipoForma = @TipoForma, F_Marca = @F_Marca " +
-                " where id_Gabinete = @id_Gabinete;";
+                "set descripcion = @descripcion" +
+                " where nombre_laboratorio = @nombre_laboratorio;";
             SqlParameter[] evaluacion = new SqlParameter[]
             {
-                new SqlParameter("@Modelo",SqlDbType.VarChar, 10),
-                new SqlParameter("@TipoForma",SqlDbType.VarChar, 30),
-                new SqlParameter("@F_Marca",SqlDbType.Int),
-                new SqlParameter("@id_Gabinete",SqlDbType.Int),
+                new SqlParameter("@descripcion",SqlDbType.VarChar, 30),
+                new SqlParameter("@nombre_laboratorio",SqlDbType.Int),
             };
 
             evaluacion[0].Value = nuevoDatos[0];
-            evaluacion[1].Value = nuevoDatos[1];
-            evaluacion[2].Value = nuevoDatos[2];
-            evaluacion[3].Value = ID;
+            evaluacion[1].Value = ID;
 
             respuesta = AC.BaseSegura(instruccion, AC.ConnectionEstablecida(ref MensajeC), ref Mensaje, evaluacion);
 
@@ -1650,11 +1646,11 @@ namespace c_dal
         {
             bool respuesta = false;
 
-            string instruccion = "DELETE from Categoria where id_Categoria = @id_Categoria";
+            string instruccion = "DELETE from Categoria where Id_Categoria = @Id_Categoria";
 
             SqlParameter[] evaluacion = new SqlParameter[]
             {
-                new SqlParameter("@id_Categoria",SqlDbType.Int)
+                new SqlParameter("@Id_Categoria",SqlDbType.Int)
             };
 
             evaluacion[0].Value = ID;
@@ -1835,6 +1831,7 @@ namespace c_dal
             SqlParameter[] evaluacion = new SqlParameter[]
             {
                 new SqlParameter("@nombre_laboratorio",SqlDbType.Int)
+                //new SqlParameter("@nombre_laboratorio",SqlDbType.VarChar, 64)
             };
 
             evaluacion[0].Value = ID;
