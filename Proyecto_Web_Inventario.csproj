@@ -67,16 +67,360 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="actualizarCantDisc.aspx" />
+    <Content Include="actualizarCantMar.aspx" />
+    <Content Include="actualizarComputadoraFinal.aspx" />
+    <Content Include="ActualizarCPUgenerico.aspx" />
+    <Content Include="actualizarCPUtipomod.aspx" />
+    <Content Include="actualizarDiscoDuro.aspx" />
+    <Content Include="actualizarEstatus.aspx" />
+    <Content Include="actualizarEvidencia.aspx" />
+    <Content Include="actualizarGabinete.aspx" />
+    <Content Include="actualizarMarca.aspx" />
+    <Content Include="actualizarModeloCPU.aspx" />
+    <Content Include="actualizarMonitor.aspx" />
+    <Content Include="ActualizarMouse.aspx" />
+    <Content Include="actualizarRam.aspx" />
+    <Content Include="ActualizarTabActualizar.aspx" />
+    <Content Include="actualizarCategoria.aspx" />
+    <Content Include="ActualizarTeclado.aspx" />
+    <Content Include="actualizarTipocpu.aspx" />
+    <Content Include="actualizarTipoRam.aspx" />
+    <Content Include="actualizarUbicacion.aspx" />
+    <Content Include="actualizarUsuario.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="insertarTablaActualizar.aspx" />
+    <Content Include="insertarTablaCantDisc.aspx" />
+    <Content Include="InsertarTablaCategoria.aspx" />
+    <Content Include="insertarTablaCatMar.aspx" />
+    <Content Include="insertarTablaComputadoraFinal.aspx" />
+    <Content Include="insertartablaCPUgenerico.aspx" />
+    <Content Include="insertarTablaCPUTipoGenerico.aspx" />
+    <Content Include="InsertarTablaDiscoDuro.aspx" />
+    <Content Include="InsertarTablaEstatus.aspx" />
+    <Content Include="InsertarTablaEvidencia.aspx" />
+    <Content Include="InsertarTablaGabinete.aspx" />
+    <Content Include="InsertarTablaLaboratorio.aspx" />
+    <Content Include="InsertarTablaMarca.aspx" />
+    <Content Include="InsertarTablaModeloCPU.aspx" />
+    <Content Include="InsertarTablaMonitor.aspx" />
+    <Content Include="InsertarTablaMouse.aspx" />
+    <Content Include="InsertarTablaRam.aspx" />
+    <Content Include="InsertarTablaTeclado.aspx" />
+    <Content Include="InsertarTablaTipoCpu.aspx" />
+    <Content Include="InsertarTablaTipoRam.aspx" />
+    <Content Include="InsertarTablaUbicacion.aspx" />
+    <Content Include="InsertarTablaUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="actualizarCantDisc.aspx.cs">
+      <DependentUpon>actualizarCantDisc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarCantDisc.aspx.designer.cs">
+      <DependentUpon>actualizarCantDisc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarCantMar.aspx.cs">
+      <DependentUpon>actualizarCantMar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarCantMar.aspx.designer.cs">
+      <DependentUpon>actualizarCantMar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarComputadoraFinal.aspx.cs">
+      <DependentUpon>actualizarComputadoraFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarComputadoraFinal.aspx.designer.cs">
+      <DependentUpon>actualizarComputadoraFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarCPUgenerico.aspx.cs">
+      <DependentUpon>ActualizarCPUgenerico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarCPUgenerico.aspx.designer.cs">
+      <DependentUpon>ActualizarCPUgenerico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarCPUtipomod.aspx.cs">
+      <DependentUpon>actualizarCPUtipomod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarCPUtipomod.aspx.designer.cs">
+      <DependentUpon>actualizarCPUtipomod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarDiscoDuro.aspx.cs">
+      <DependentUpon>actualizarDiscoDuro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarDiscoDuro.aspx.designer.cs">
+      <DependentUpon>actualizarDiscoDuro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarEstatus.aspx.cs">
+      <DependentUpon>actualizarEstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarEstatus.aspx.designer.cs">
+      <DependentUpon>actualizarEstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarEvidencia.aspx.cs">
+      <DependentUpon>actualizarEvidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarEvidencia.aspx.designer.cs">
+      <DependentUpon>actualizarEvidencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarGabinete.aspx.cs">
+      <DependentUpon>actualizarGabinete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarGabinete.aspx.designer.cs">
+      <DependentUpon>actualizarGabinete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarMarca.aspx.cs">
+      <DependentUpon>actualizarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarMarca.aspx.designer.cs">
+      <DependentUpon>actualizarMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarModeloCPU.aspx.cs">
+      <DependentUpon>actualizarModeloCPU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarModeloCPU.aspx.designer.cs">
+      <DependentUpon>actualizarModeloCPU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarMonitor.aspx.cs">
+      <DependentUpon>actualizarMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarMonitor.aspx.designer.cs">
+      <DependentUpon>actualizarMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarMouse.aspx.cs">
+      <DependentUpon>ActualizarMouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarMouse.aspx.designer.cs">
+      <DependentUpon>ActualizarMouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarRam.aspx.cs">
+      <DependentUpon>actualizarRam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarRam.aspx.designer.cs">
+      <DependentUpon>actualizarRam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarTabActualizar.aspx.cs">
+      <DependentUpon>ActualizarTabActualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarTabActualizar.aspx.designer.cs">
+      <DependentUpon>ActualizarTabActualizar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarCategoria.aspx.cs">
+      <DependentUpon>actualizarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarCategoria.aspx.designer.cs">
+      <DependentUpon>actualizarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarTeclado.aspx.cs">
+      <DependentUpon>ActualizarTeclado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarTeclado.aspx.designer.cs">
+      <DependentUpon>ActualizarTeclado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarTipocpu.aspx.cs">
+      <DependentUpon>actualizarTipocpu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarTipocpu.aspx.designer.cs">
+      <DependentUpon>actualizarTipocpu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarTipoRam.aspx.cs">
+      <DependentUpon>actualizarTipoRam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarTipoRam.aspx.designer.cs">
+      <DependentUpon>actualizarTipoRam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarUbicacion.aspx.cs">
+      <DependentUpon>actualizarUbicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarUbicacion.aspx.designer.cs">
+      <DependentUpon>actualizarUbicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="actualizarUsuario.aspx.cs">
+      <DependentUpon>actualizarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizarUsuario.aspx.designer.cs">
+      <DependentUpon>actualizarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarTablaActualizar.aspx.cs">
+      <DependentUpon>insertarTablaActualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarTablaActualizar.aspx.designer.cs">
+      <DependentUpon>insertarTablaActualizar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarTablaCantDisc.aspx.cs">
+      <DependentUpon>insertarTablaCantDisc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarTablaCantDisc.aspx.designer.cs">
+      <DependentUpon>insertarTablaCantDisc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaCategoria.aspx.cs">
+      <DependentUpon>InsertarTablaCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaCategoria.aspx.designer.cs">
+      <DependentUpon>InsertarTablaCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarTablaCatMar.aspx.cs">
+      <DependentUpon>insertarTablaCatMar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarTablaCatMar.aspx.designer.cs">
+      <DependentUpon>insertarTablaCatMar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarTablaComputadoraFinal.aspx.cs">
+      <DependentUpon>insertarTablaComputadoraFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarTablaComputadoraFinal.aspx.designer.cs">
+      <DependentUpon>insertarTablaComputadoraFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertartablaCPUgenerico.aspx.cs">
+      <DependentUpon>insertartablaCPUgenerico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertartablaCPUgenerico.aspx.designer.cs">
+      <DependentUpon>insertartablaCPUgenerico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarTablaCPUTipoGenerico.aspx.cs">
+      <DependentUpon>insertarTablaCPUTipoGenerico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarTablaCPUTipoGenerico.aspx.designer.cs">
+      <DependentUpon>insertarTablaCPUTipoGenerico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaDiscoDuro.aspx.cs">
+      <DependentUpon>InsertarTablaDiscoDuro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaDiscoDuro.aspx.designer.cs">
+      <DependentUpon>InsertarTablaDiscoDuro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaEstatus.aspx.cs">
+      <DependentUpon>InsertarTablaEstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaEstatus.aspx.designer.cs">
+      <DependentUpon>InsertarTablaEstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaEvidencia.aspx.cs">
+      <DependentUpon>InsertarTablaEvidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaEvidencia.aspx.designer.cs">
+      <DependentUpon>InsertarTablaEvidencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaGabinete.aspx.cs">
+      <DependentUpon>InsertarTablaGabinete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaGabinete.aspx.designer.cs">
+      <DependentUpon>InsertarTablaGabinete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaLaboratorio.aspx.cs">
+      <DependentUpon>InsertarTablaLaboratorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaLaboratorio.aspx.designer.cs">
+      <DependentUpon>InsertarTablaLaboratorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaMarca.aspx.cs">
+      <DependentUpon>InsertarTablaMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaMarca.aspx.designer.cs">
+      <DependentUpon>InsertarTablaMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaModeloCPU.aspx.cs">
+      <DependentUpon>InsertarTablaModeloCPU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaModeloCPU.aspx.designer.cs">
+      <DependentUpon>InsertarTablaModeloCPU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaMonitor.aspx.cs">
+      <DependentUpon>InsertarTablaMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaMonitor.aspx.designer.cs">
+      <DependentUpon>InsertarTablaMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaMouse.aspx.cs">
+      <DependentUpon>InsertarTablaMouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaMouse.aspx.designer.cs">
+      <DependentUpon>InsertarTablaMouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaRam.aspx.cs">
+      <DependentUpon>InsertarTablaRam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaRam.aspx.designer.cs">
+      <DependentUpon>InsertarTablaRam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaTeclado.aspx.cs">
+      <DependentUpon>InsertarTablaTeclado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaTeclado.aspx.designer.cs">
+      <DependentUpon>InsertarTablaTeclado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaTipoCpu.aspx.cs">
+      <DependentUpon>InsertarTablaTipoCpu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaTipoCpu.aspx.designer.cs">
+      <DependentUpon>InsertarTablaTipoCpu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaTipoRam.aspx.cs">
+      <DependentUpon>InsertarTablaTipoRam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaTipoRam.aspx.designer.cs">
+      <DependentUpon>InsertarTablaTipoRam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaUbicacion.aspx.cs">
+      <DependentUpon>InsertarTablaUbicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaUbicacion.aspx.designer.cs">
+      <DependentUpon>InsertarTablaUbicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTablaUsuario.aspx.cs">
+      <DependentUpon>InsertarTablaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarTablaUsuario.aspx.designer.cs">
+      <DependentUpon>InsertarTablaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
