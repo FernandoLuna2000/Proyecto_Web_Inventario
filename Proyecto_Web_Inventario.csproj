@@ -88,7 +88,9 @@
     <Content Include="actualizarTipoRam.aspx" />
     <Content Include="actualizarUbicacion.aspx" />
     <Content Include="actualizarUsuario.aspx" />
+    <Content Include="Equipo_lab.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="Informacion_Equipos.aspx" />
     <Content Include="insertarTablaActualizar.aspx" />
     <Content Include="insertarTablaCantDisc.aspx" />
     <Content Include="InsertarTablaCategoria.aspx" />
@@ -111,6 +113,10 @@
     <Content Include="InsertarTablaTipoRam.aspx" />
     <Content Include="InsertarTablaUbicacion.aspx" />
     <Content Include="InsertarTablaUsuario.aspx" />
+    <Content Include="Inventary.aspx" />
+    <Content Include="Laboratory.aspx" />
+    <Content Include="Monitor_Lab.aspx" />
+    <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -261,12 +267,26 @@
     <Compile Include="actualizarUsuario.aspx.designer.cs">
       <DependentUpon>actualizarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Equipo_lab.aspx.cs">
+      <DependentUpon>Equipo_lab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Equipo_lab.aspx.designer.cs">
+      <DependentUpon>Equipo_lab.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informacion_Equipos.aspx.cs">
+      <DependentUpon>Informacion_Equipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informacion_Equipos.aspx.designer.cs">
+      <DependentUpon>Informacion_Equipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="insertarTablaActualizar.aspx.cs">
       <DependentUpon>insertarTablaActualizar.aspx</DependentUpon>
@@ -421,6 +441,27 @@
     </Compile>
     <Compile Include="InsertarTablaUsuario.aspx.designer.cs">
       <DependentUpon>InsertarTablaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventary.aspx.cs">
+      <DependentUpon>Inventary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventary.aspx.designer.cs">
+      <DependentUpon>Inventary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratory.aspx.cs">
+      <DependentUpon>Laboratory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laboratory.aspx.designer.cs">
+      <DependentUpon>Laboratory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor_Lab.aspx.cs">
+      <DependentUpon>Monitor_Lab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Monitor_Lab.aspx.designer.cs">
+      <DependentUpon>Monitor_Lab.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
