@@ -47,6 +47,8 @@ namespace Proyecto_Web_Inventario
         {
             ListBox1.Items.Clear();
 
+            
+
             string msj = "", msjc = "", conector = "", marca = "", numin = "", mause = "", Mmouse = "", Monitor = "", MMonitor = "", CPU = "", MCPU = "", Disc = "";
             numin = DropDownList1.SelectedItem.Text;
 
@@ -58,14 +60,7 @@ namespace Proyecto_Web_Inventario
             //el conector es igual a la lisa teclado donde el id de teclado sea = a la lista de computadora final donde el num_inv sea = al numero de inventario que ya tengo 
             //el fistrordefault es para que me traiga el primer dato y el .idteclado es lo que estoy buscando (sub consulta de una consulta)
 
-            ///conector = Lista_CompuFinal.Where(x => x.NumInv == ListaMonitor.Where(y => Convert.ToString(y.IdMonitor) == numin).FirstOrDefault().(Convert.ToString(IdMonitor))).FirstOrDefault().IdMong;
-
-            //marca es = a la lista de marcas donde  el id de la marca sea = a la lista del teclado donde el conector sea = al conector que ya tenemos
-
-            //marca = Lista_Marca.Where(x => x.IdMarca == Lista_Teclado.Where(y => y.Conector == conector).FirstOrDefault().FMarcat).FirstOrDefault().Marca1.ToString();
-
-            //conector = Lista_CompuFinal.Where(x => x.NumInv == ListaMonitor.Where(y => Convert.ToInt32(y.IdMonitor) == numin).FirstOrDefault().IdTecladog).FirstOrDefault().Conector;
-
+            //conector = Lista_CompuFinal.Where(x => x.NumInv == ListaMonitor.Where(y => y.IdMonitor.ToString() == numin).FirstOrDefault().IdMonitor.ToString()).FirstOrDefault().IdMong;
 
             ListBox1.Items.Add("Equipos con ese tipo de Monitor = " + numin);
             ListBox1.Items.Add("Los equipos pertenecen al laboratorio = " + conector);

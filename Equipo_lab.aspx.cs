@@ -16,6 +16,10 @@ namespace Proyecto_Web_Inventario
         List<Computadorafinal> Lista_CompuFinal = new List<Computadorafinal>();
         List<Laboratorio> ListaLab = new List<Laboratorio>();
         List<DiscoDuro> ListaDiscoDuro = new List<DiscoDuro>();
+        List<CantDisc> cantdiscList = new List<CantDisc>();
+        List<Ubicacion> ubiList = new List<Ubicacion>();
+        List<Computadorafinal> temp = new List<Computadorafinal>();
+
         string msj = "", msjc = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -52,10 +56,21 @@ namespace Proyecto_Web_Inventario
             Lista_CompuFinal = LN.L_ComputadoraFinal(ref msj, ref msjc);
             ListaLab = LN.L_Lab(ref msj, ref msjc);
             ListaDiscoDuro = LN.L_DiscoDuro(ref msj, ref msjc);
+            cantdiscList = LN.L_CantDisc(ref msj, ref msjc);
+            ubiList = LN.L_Ubicacion(ref msj, ref msjc);
 
-            conector = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
+            var a = ListaDiscoDuro.Where(z => z.TipoDisco == "SSD").FirstOrDefault().IdDisco;
 
-            ListBox1.Items.Add("Conector del Teclado = " + conector);
+            var b = cantdiscList.Where(y => y.IdDisco == a).FirstOrDefault().NumInv;
+
+
+             temp = Lista_CompuFinal.Where(x => x.NumInv == b).ToList();
+
+            conector = temp.Where(x => x.NumInv == ubiList.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NumInv).FirstOrDefault().NumInv;
+
+            //conector = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
+
+            ListBox1.Items.Add("Equipos con tipo de disco SSD = " + conector);
         }
     }
 }

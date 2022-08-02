@@ -15,6 +15,7 @@ namespace Proyecto_Web_Inventario
         Logica_Negocio LN = null;
         List<Computadorafinal> Lista_CompuFinal = new List<Computadorafinal>();
         List<Laboratorio> ListaLab = new List<Laboratorio>();
+        List<Ubicacion> ubiList = new List<Ubicacion>();
         string msj = "", msjc = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,10 +51,13 @@ namespace Proyecto_Web_Inventario
 
             Lista_CompuFinal = LN.L_ComputadoraFinal(ref msj, ref msjc);
             ListaLab = LN.L_Lab(ref msj, ref msjc);
+            ubiList = LN.L_Ubicacion(ref msj, ref msjc);
 
             //el conector es igual a la lisa teclado donde el id de teclado sea = a la lista de computadora final donde el num_inv sea = al numero de inventario que ya tengo 
             //el fistrordefault es para que me traiga el primer dato y el .idteclado es lo que estoy buscando (sub consulta de una consulta)
-            equipos = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
+            //equipos = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
+
+            equipos = Lista_CompuFinal.Where(x => x.NumInv == ubiList.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NumInv).FirstOrDefault().NumInv;
 
             ListBox1.Items.Add("Equipos = " + equipos);
         }
