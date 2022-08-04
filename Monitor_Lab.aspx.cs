@@ -47,7 +47,7 @@ namespace Proyecto_Web_Inventario
         {
             ListBox1.Items.Clear();
 
-            
+            //*Seleccionando un tipo de monitor que aparezcan los equipos que tienen ese tipo de monitor y a que laboratorio pertenecen *
 
             string msj = "", msjc = "", conector = "", marca = "", numin = "", mause = "", Mmouse = "", Monitor = "", MMonitor = "", CPU = "", MCPU = "", Disc = "";
             numin = DropDownList1.SelectedItem.Text;

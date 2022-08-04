@@ -16,6 +16,7 @@ namespace Proyecto_Web_Inventario
         List<Computadorafinal> Lista_CompuFinal = new List<Computadorafinal>();
         List<Laboratorio> ListaLab = new List<Laboratorio>();
         List<Actualizacion> ListaActualizacion = new List<Actualizacion>();
+        List<c_entidades.Ubicacion> Lista_Ubica = new List<c_entidades.Ubicacion>();
         string msj = "", msjc = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,27 +45,24 @@ namespace Proyecto_Web_Inventario
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //*Dando el número de inventario del equipo, que diga en que laboratorio se encuentra y muestre los detalles de sus actualizaciones.*
             ListBox1.Items.Clear();
 
-            string msj = "", msjc = "", conector = "", marca = "", numin = "";
+            string msj = "", msjc = "", conector = "", ubi = "", numin = "", lab = "", act = "";
             numin = DropDownList1.SelectedItem.Text;
 
             Lista_CompuFinal = LN.L_ComputadoraFinal(ref msj, ref msjc);
             ListaLab = LN.L_Lab(ref msj, ref msjc);
             ListaActualizacion = LN.L_Actualizacion(ref msj, ref msjc);
+            Lista_Ubica = LN.L_Ubicacion(ref msj, ref msjc);
 
-            //el conector es igual a la lisa teclado donde el id de teclado sea = a la lista de computadora final donde el num_inv sea = al numero de inventario que ya tengo 
-            //el fistrordefault es para que me traiga el primer dato y el .idteclado es lo que estoy buscando (sub consulta de una consulta)
+            conector = Lista_CompuFinal.Where(x=>x.NumInv == numin).FirstOrDefault().NumInv;
+            ubi = Lista_Ubica.Where(x => x.NombreLaboratorio == conector).FirstOrDefault().NombreLaboratorio;
+            lab = ListaLab.Where(x => x.NombreLaboratorio == ubi).FirstOrDefault().NombreLaboratorio;
+            act = ListaActualizacion.Where(x => x.NumInv == ubi).FirstOrDefault().NumInv;
 
-            //conector = ListaLab.Where(x => Convert.ToUInt32(x.NombreLaboratorio)  == Lista_CompuFinal.Where(y => y.NumInv == numin).FirstOrDefault()).FirstOrDefault();
+            ListBox1.Items.Add("Prueba = " + ubi + "Prueba = " + act);
 
-            //marca es = a la lista de marcas donde  el id de la marca sea = a la lista del teclado donde el conector sea = al conector que ya tenemos
-
-            //marca = Lista_Marca.Where(x => x.IdMarca == Lista_Teclado.Where(y => y.Conector == conector).FirstOrDefault().FMarcat).FirstOrDefault().Marca1.ToString();
-
-            ListBox1.Items.Add("Numero de Inventario = " + numin);
-            ListBox1.Items.Add("Conector del Teclado = " + conector);
-            ListBox1.Items.Add("Marca del Teclado = " + marca);
         }
     }
 }

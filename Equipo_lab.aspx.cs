@@ -63,8 +63,7 @@ namespace Proyecto_Web_Inventario
 
             var b = cantdiscList.Where(y => y.IdDisco == a).FirstOrDefault().NumInv;
 
-
-             temp = Lista_CompuFinal.Where(x => x.NumInv == b).ToList();
+            temp = Lista_CompuFinal.Where(x => x.NumInv == b).ToList();
 
             conector = temp.Where(x => x.NumInv == ubiList.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NumInv).FirstOrDefault().NumInv;
 
