@@ -67,8 +67,6 @@ namespace Proyecto_Web_Inventario
 
             conector = temp.Where(x => x.NumInv == ubiList.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NumInv).FirstOrDefault().NumInv;
 
-            //conector = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
-
             ListBox1.Items.Add("Equipos con tipo de disco SSD = " + conector);
         }
     }

@@ -203,7 +203,7 @@
                      <br />
            <asp:Button ID="Button2" class="botones"  runat="server" Text="Laboratorio" PostBackUrl="~/Laboratory.aspx" />
                      <br />
-            <asp:Button ID="Button3" class="botones"  runat="server" Text="Inventario" PostBackUrl="~/Inventary.aspx" />
+            <asp:Button ID="Button3" class="botones"  runat="server" Text="Inventario" PostBackUrl="~/Inventario_Equipos.aspx" />
                       <br />
             <asp:Button ID="Button4" class="botones"  runat="server" Text="Equipo_lab" PostBackUrl="~/Equipo_lab.aspx" />
                       <br />
