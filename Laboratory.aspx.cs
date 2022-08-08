@@ -55,7 +55,6 @@ namespace Proyecto_Web_Inventario
 
             //el conector es igual a la lisa teclado donde el id de teclado sea = a la lista de computadora final donde el num_inv sea = al numero de inventario que ya tengo 
             //el fistrordefault es para que me traiga el primer dato y el .idteclado es lo que estoy buscando (sub consulta de una consulta)
-            //equipos = Lista_CompuFinal.Where(x => x.NumInv == ListaLab.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NombreLaboratorio).FirstOrDefault().Estado;
 
             equipos = Lista_CompuFinal.Where(x => x.NumInv == ubiList.Where(y => y.NombreLaboratorio == numin).FirstOrDefault().NumInv).FirstOrDefault().NumInv;
 

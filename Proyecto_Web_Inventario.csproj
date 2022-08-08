@@ -113,8 +113,10 @@
     <Content Include="InsertarTablaTipoRam.aspx" />
     <Content Include="InsertarTablaUbicacion.aspx" />
     <Content Include="InsertarTablaUsuario.aspx" />
+    <Content Include="Inventario_Equipos.aspx" />
     <Content Include="Inventary.aspx" />
     <Content Include="Laboratory.aspx" />
+    <Content Include="Monitores_Laboratorios_2.aspx" />
     <Content Include="Monitor_Lab.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
@@ -442,6 +444,13 @@
     <Compile Include="InsertarTablaUsuario.aspx.designer.cs">
       <DependentUpon>InsertarTablaUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inventario_Equipos.aspx.cs">
+      <DependentUpon>Inventario_Equipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventario_Equipos.aspx.designer.cs">
+      <DependentUpon>Inventario_Equipos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inventary.aspx.cs">
       <DependentUpon>Inventary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,6 +464,13 @@
     </Compile>
     <Compile Include="Laboratory.aspx.designer.cs">
       <DependentUpon>Laboratory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Monitores_Laboratorios_2.aspx.cs">
+      <DependentUpon>Monitores_Laboratorios_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Monitores_Laboratorios_2.aspx.designer.cs">
+      <DependentUpon>Monitores_Laboratorios_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Monitor_Lab.aspx.cs">
       <DependentUpon>Monitor_Lab.aspx</DependentUpon>
