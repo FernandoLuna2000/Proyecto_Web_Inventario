@@ -13,7 +13,7 @@ namespace Proyecto_Web_Inventario
     public partial class InsertarTablaMarca : System.Web.UI.Page
     {
         Logica_Negocio LN = null;
-
+        List<Marca> Lista_Marca = new List<Marca>();
         string mensaje = "", mensajeC = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,6 +21,22 @@ namespace Proyecto_Web_Inventario
             {
                 LN = new Logica_Negocio(ConfigurationManager.ConnectionStrings["BDInventario"].ConnectionString);
                 Session["negocioServer"] = LN;
+
+
+                Lista_Marca = LN.L_Marca(ref mensaje, ref mensajeC);
+                DropDownList1.Items.Add("");
+                for (int i = 0; i < Lista_Marca.Count; i++)
+                {
+                    DropDownList1.Items.Add(Lista_Marca[i].Marca1.ToString());
+                }
+
+                Lista_Marca = LN.L_Marca(ref mensaje, ref mensajeC);
+                DropDownList2.Items.Add("");
+                for (int i = 0; i < Lista_Marca.Count; i++)
+                {
+                    DropDownList2.Items.Add(Lista_Marca[i].IdComponente.ToString());
+                }
+
             }
             else
             {
@@ -32,8 +48,8 @@ namespace Proyecto_Web_Inventario
         {
             string[] datos = new string[3];
 
-            datos[0] = TextBox1.Text;
-            datos[1] = TextBox2.Text;
+            datos[0] = DropDownList1.SelectedItem.Text;
+            datos[1] = DropDownList2.SelectedItem.Text;
             datos[2] = "";
 
             try

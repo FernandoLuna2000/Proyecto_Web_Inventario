@@ -53,6 +53,16 @@ namespace Proyecto_Web_Inventario
             datos[5] = lista_cpugenerico.Where(x => x.IdCpu == Id).FirstOrDefault().IdGabinete.ToString();
 
             LN.Act_CPU_generico(datos, ref mensaje, ref mensajeC, Id);
+            try
+            {
+                LN.Elim_CPU_Generico(ref mensaje, ref mensajeC, Id);
+
+                Label1.Text = "se actualizo";
+            }
+            catch
+            {
+                Label1.Text = "error al actualizar";
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)

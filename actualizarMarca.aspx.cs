@@ -28,6 +28,22 @@ namespace Proyecto_Web_Inventario
                 {
                     DropDownList1.Items.Add(lista_marca[i].IdMarca.ToString());
                 }
+
+                lista_marca = LN.L_Marca(ref mensaje, ref mensajeC);
+                DropDownList2.Items.Add("");
+                for (int i = 0; i < lista_marca.Count; i++)
+                {
+                    DropDownList2.Items.Add(lista_marca[i].Marca1.ToString());
+                }
+
+
+                lista_marca = LN.L_Marca(ref mensaje, ref mensajeC);
+                DropDownList3.Items.Add("");
+                for (int i = 0; i < lista_marca.Count; i++)
+                {
+                    DropDownList3.Items.Add(lista_marca[i].IdComponente.ToString());
+                }
+
             }
             else
             {
@@ -41,11 +57,21 @@ namespace Proyecto_Web_Inventario
             lista_marca = LN.L_Marca(ref mensaje, ref mensajeC);
             string[] datos = new string[3];
 
-            datos[0] = TextBox2.Text;
-            datos[1] = TextBox3.Text;
+            datos[0] = DropDownList2.SelectedItem.Text;
+            datos[1] = DropDownList3.SelectedItem.Text;
             datos[2] = "";
 
             LN.Act_Marca(datos, ref mensaje, ref mensajeC, Id);
+
+            try
+            {
+                Label1.Text = "se actualizo";
+            }
+            catch
+            {
+                Label1.Text = "error al actualizar";
+            }
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)

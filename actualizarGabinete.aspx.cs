@@ -14,6 +14,7 @@ namespace Proyecto_Web_Inventario
     {
         Logica_Negocio LN = null;
         List<Gabinete> lista_gabinete = new List<Gabinete>();
+        List<Marca> lista_marca = new List<Marca>();
         string mensaje = "", mensajeC = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,30 @@ namespace Proyecto_Web_Inventario
                 {
                     DropDownList1.Items.Add(lista_gabinete[i].IdGabinete.ToString());
                 }
+
+                lista_gabinete = LN.L_Gabinete(ref mensaje, ref mensajeC);
+                DropDownList2.Items.Add("");
+                for (int i = 0; i < lista_gabinete.Count; i++)
+                {
+                    DropDownList2.Items.Add(lista_gabinete[i].Modelo.ToString());
+                }
+
+
+                lista_gabinete = LN.L_Gabinete(ref mensaje, ref mensajeC);
+                DropDownList3.Items.Add("");
+                for (int i = 0; i < lista_gabinete.Count; i++)
+                {
+                    DropDownList3.Items.Add(lista_gabinete[i].TipoForma.ToString());
+                }
+
+
+                lista_marca = LN.L_Marca(ref mensaje, ref mensajeC);
+                DropDownList4.Items.Add("");
+                for (int i = 0; i < lista_marca.Count; i++)
+                {
+                    DropDownList4.Items.Add(lista_marca[i].IdMarca.ToString());
+                }
+
             }
             else
             {
@@ -41,11 +66,20 @@ namespace Proyecto_Web_Inventario
             lista_gabinete = LN.L_Gabinete(ref mensaje, ref mensajeC);
             string[] datos = new string[3];
 
-            datos[0] = TextBox2.Text;
-            datos[1] = TextBox3.Text;
-            datos[2] = lista_gabinete.Where(x => x.IdGabinete == Id).FirstOrDefault().FMarca.ToString();
+            datos[0] = DropDownList2.SelectedItem.Text;
+            datos[1] = DropDownList3.SelectedItem.Text;
+            datos[2] = DropDownList4.SelectedItem.Text;
 
             LN.Act_Gabinete(datos, ref mensaje, ref mensajeC, Id);
+            try
+            {
+
+                Label1.Text = "se actualizo";
+            }
+            catch
+            {
+                Label1.Text = "error al actualizar";
+            }
 
         }
 

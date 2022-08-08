@@ -9,20 +9,27 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+       <div>
              <h2>Editar o Eliminar Tabla Gabinete</h2>
         <p>Seleccione el id</p>
 
             <asp:DropDownList ID="DropDownList1" runat="server">
             </asp:DropDownList>
 
-        <p>escribe el modelo del gabinete:</p>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <p>selecciona el modelo del gabinete:</p>
+             <asp:DropDownList ID="DropDownList2" runat="server">
+             </asp:DropDownList>
         
              <br />
              <br />
-             escribe el tipo de forma que tiene el gabinete<br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+             selecciona el tipo de forma que tiene el gabinete<br />
+             <asp:DropDownList ID="DropDownList3" runat="server">
+             </asp:DropDownList>
+             <br />
+             <br />
+             selecciona el id de marca<br />
+             <asp:DropDownList ID="DropDownList4" runat="server">
+             </asp:DropDownList>
         
              <br />
             <br />

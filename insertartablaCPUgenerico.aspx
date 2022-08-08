@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+       <div>
             Agregar Datos del Procesador<br />
             <br />
             Selecciona el id del tipo de cpu<br />
@@ -17,7 +17,7 @@
             </asp:DropDownList>
             <br />
             <br />
-            Selecciona el id de la marca del cp<br />
+            Selecciona la marca del cpu<br />
             <asp:DropDownList ID="DropDownList2" runat="server">
             </asp:DropDownList>
             <br />
@@ -30,12 +30,12 @@
             <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
             <br />
             <br />
-            Selecciona el id del tipo de ram<br />
+            Selecciona el tipo de ram<br />
             <asp:DropDownList ID="DropDownList3" runat="server">
             </asp:DropDownList>
             <br />
             <br />
-            Selecciona el id del gabinete<br />
+            Selecciona el tipo de gabinete<br />
             <asp:DropDownList ID="DropDownList4" runat="server">
             </asp:DropDownList>
             <br />

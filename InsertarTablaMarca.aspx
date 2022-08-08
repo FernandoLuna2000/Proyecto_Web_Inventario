@@ -9,16 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+       <div>
             Agregar Datos
+            Tabla Marca<br />
+            <br />
+            Selecciona la Marca del Producto<br />
+            <asp:DropDownList ID="DropDownList1" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
-            Escribe la Marca del Producto<br />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Escribe el id del componente<br />
-            <asp:TextBox ID="TextBox2" runat="server" style="margin-bottom: 0px"></asp:TextBox>
+            selecciona el id del componente<br />
+            <asp:DropDownList ID="DropDownList2" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar Datos" />
