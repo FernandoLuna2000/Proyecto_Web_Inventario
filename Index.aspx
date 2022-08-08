@@ -246,6 +246,30 @@
             <asp:ListBox ID="ListBox20" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox21" runat="server"></asp:ListBox>
             <asp:ListBox ID="ListBox22" runat="server"></asp:ListBox>
+                    <br />
+                    Visualizacion Remedial<br />
+                    <br />
+                    Tabla Marca<asp:GridView ID="GridView1" runat="server">
+                    </asp:GridView>
+                    <br />
+                    <br />
+                    <br />
+                    Tabla Gabinete<br />
+                    <asp:GridView ID="GridView2" runat="server">
+                    </asp:GridView>
+                    <br />
+                    <br />
+                    Tabla Cpu-Generico<br />
+                    <asp:GridView ID="GridView3" runat="server">
+                    </asp:GridView>
+                    <br />
+                    <br />
+                    Tabla Computadora Final
+                    <br />
+                    <asp:GridView ID="GridView4" runat="server">
+                    </asp:GridView>
+                    <br />
+
                 </div>
             </section>
     </div>

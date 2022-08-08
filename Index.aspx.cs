@@ -53,6 +53,22 @@ namespace Proyecto_Web_Inventario
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+            string mensaje = "", mensajeC = "";
+
+            GridView1.DataSource = LN.tablaMarca(ref mensaje, ref mensajeC);
+            GridView1.DataBind();
+
+            GridView2.DataSource = LN.tablagabinete(ref mensaje, ref mensajeC);
+            GridView2.DataBind();
+
+            GridView3.DataSource = LN.tablacpugenerico(ref mensaje, ref mensajeC);
+            GridView3.DataBind();
+
+            GridView4.DataSource = LN.tablacompu_fi(ref mensaje, ref mensajeC);
+            GridView4.DataBind();
+
+            //txtToast.Text = mensajeC + " " + mensaje;
             //Lista Actualizacion --->INICIO
             Lista_Actualizacion = LN.L_Actualizacion(ref mensaje, ref mensajeC);
             for (int i = 0; i < Lista_Actualizacion.Count(); i++)
@@ -289,8 +305,9 @@ namespace Proyecto_Web_Inventario
                 ListBox22.Items.Add(Lista_Usuario[i].Password.ToString());
                 ListBox22.Items.Add(Lista_Usuario[i].TipoUsuario.ToString());
             }
+
             //Lista Usuario --->FINAL
-            TextBox1.Text = mensajeC + " " + mensaje;
+            //TextBox1.Text = mensajeC + " " + mensaje;
         }
         protected void Button2_Click(object sender, EventArgs e)
         {

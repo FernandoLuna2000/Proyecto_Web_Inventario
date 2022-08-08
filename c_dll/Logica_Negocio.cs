@@ -104,11 +104,73 @@ namespace c_dll
         }
         public List<Ubicacion> L_Ubicacion(ref string mensaje, ref string mensajeC)
         {
+
             return OPC.ListaUbicacion(ref mensaje, ref mensajeC);
         }
         public List<Usuario> L_Usuario(ref string mensaje, ref string mensajeC)
         {
             return OPC.ListaUsuario(ref mensaje, ref mensajeC);
+        }
+
+        public DataTable tablaMarca(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from Marca;", etiqueta = "profesoresServer";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+
+        public DataTable tablagabinete(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from Gabinete;", etiqueta = "profesoresServer";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+
+
+        public DataTable tablacpugenerico(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from CPU_Generico;", etiqueta = "profesoresServer";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+
+        public DataTable tablacompu_fi(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from computadorafinal;", etiqueta = "profesoresServer";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
         }
 
         //<--------------------------------------------------------------------------------------------Insertar-------------------------------------------------------------------------------------------->
