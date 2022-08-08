@@ -16,13 +16,17 @@
             <asp:DropDownList ID="DropDownList1" runat="server">
             </asp:DropDownList>
 
-        <p>Escribe la marca:</p>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <p>Seleccione la marca:</p>
+             <p>
+                 <asp:DropDownList ID="DropDownList2" runat="server">
+                 </asp:DropDownList>
+             </p>
         
              <br />
+             Seleccione el id del componente<br />
+             <asp:DropDownList ID="DropDownList3" runat="server">
+             </asp:DropDownList>
              <br />
-             Escribe el id del componente<br />
-             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         
              <br />
             <br />

@@ -21,17 +21,19 @@
             <asp:TextBox ID="TextBox2" runat="server" Height="16px"></asp:TextBox>
             <br />
             <br />
-            Escribe el id del cpu<br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            selcciona el id del cpu<br />
+            <asp:DropDownList ID="DropDownList3" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
             Escribe el numero del teclado<br />
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
             <br />
             <br />
-            Escribe el id del teclado
+            Selecciona el id del teclado
             <br />
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList4" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
             Escribe el numero del monitor
@@ -39,17 +41,19 @@
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             <br />
             <br />
-            Escribe el id del monitor<br />
-            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+            selecciona el id del monitor<br />
+            <asp:DropDownList ID="DropDownList5" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
             Escribe el numero del mouse<br />
             <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             <br />
             <br />
-            Escribe el id del mouse
+            selecciona el id del mouse
             <br />
-            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList6" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
             selecciona el laboratorio<br />
